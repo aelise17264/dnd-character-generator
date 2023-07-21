@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -25,6 +25,10 @@
   color: white;
   margin-bottom: 5%;
 }
+.generate{
+  text-align: center;
+  margin-bottom: 5%;
+}
 
 .App-link {
   color: #61dafb;
@@ -40,7 +44,15 @@
 }
 
 form {
-  width: 50vw;
-  margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2%
+}
+#hideForm {
+  display: none;
+}
+
+#dice{
+  height: 25vh;
+  margin-left: 35%;
+  margin-right: 2%;
 }
