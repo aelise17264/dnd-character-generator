@@ -2,7 +2,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDAndD } from "@fortawesome/free-brands-svg-icons";
+import { faDiceD20 } from "@fortawesome/free-solid-svg-icons";
 function App() {
   const [nameData, setNameData] = useState("");
   const [alignmentData, setAlignmentData] = useState("");
@@ -15,8 +17,8 @@ function App() {
 
   const baseURL = "https://www.dnd5eapi.co/api/";
 
-  function randomNumber(min, max){
-    return Math.floor(Math.random() * (max - min) + min)
+  function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
   }
 
   const getCharName = () => {
@@ -33,61 +35,72 @@ function App() {
   };
 
   const getAlignment = () => {
-    axios.get('https://www.dnd5eapi.co/api/alignments').then((res) => {
-      let alignmentList = res.data.results
-      let alignmentIndex = Math.floor(Math.random() * 10);
-      setAlignmentData(alignmentList[alignmentIndex].name)
+    axios
+      .get("https://www.dnd5eapi.co/api/alignments")
+      .then((res) => {
+        let alignmentList = res.data.results;
+        let alignmentIndex = Math.floor(Math.random() * 10);
+        setAlignmentData(alignmentList[alignmentIndex].name);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    })
-    .catch((error) =>{
-      console.log(error)
-    })
-  }
+  const getClass = () => {
+    axios
+      .get("https://www.dnd5eapi.co/api/classes")
+      .then((res) => {
+        let classList = res.data.results;
+        let classIndex = randomNumber(1, 12);
+        setClassData(classList[classIndex].name);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-  const getClass = () =>{
-    axios.get('https://www.dnd5eapi.co/api/classes').then((res) =>{
-      let classList = res.data.results
-      let classIndex = randomNumber(1, 12)
-      setClassData(classList[classIndex].name)
-    })
-    .catch((error) =>{
-      console.log(error)
-    })
-  }
-
-  const getTraits = () =>{
-    axios.get('https://www.dnd5eapi.co/api/traits').then((res) =>{
-      let traitList = res.data.results
-      let firstTraitIndex = randomNumber(1, 38)
-      let secondTraitIndex = randomNumber(1, 38)
-      setTraitsData([traitList[firstTraitIndex].name, traitList[secondTraitIndex].name])
-    })
-    .catch((error) =>{
-      console.log(error)
-    })
-  }
+  const getTraits = () => {
+    axios
+      .get("https://www.dnd5eapi.co/api/traits")
+      .then((res) => {
+        let traitList = res.data.results;
+        let firstTraitIndex = randomNumber(1, 38);
+        let secondTraitIndex = randomNumber(1, 38);
+        setTraitsData([
+          traitList[firstTraitIndex].name,
+          traitList[secondTraitIndex].name,
+        ]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const createCharacter = () => {
     getAlignment();
     getCharName();
     getClass();
     getTraits();
-  }
+  };
 
-useEffect(() =>{
-  createCharacter()
-}, [])
-
-
-
+  useEffect(() => {
+    createCharacter();
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="title">Dungeons and Dragons 5e Character Generator</h1>
+        <h1 className="title">
+          Dungeons 
+          <a> 
+          <FontAwesomeIcon icon={faDAndD} style={{color: "#fafafa",}} /></a> 
+          Dragons 5e Character Generator
+        </h1>
       </header>
       <div className="generate">
         <button
+        // icon=
           type="button"
           className="btn btn-primary"
           onClick={generateCharacter}
@@ -96,7 +109,10 @@ useEffect(() =>{
         </button>
       </div>
       <div id="hideForm">
-              <img id="dice" src="https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"/>
+        <img
+          id="dice"
+          src="https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
+        />
 
         <form>
           <div className="form-group">
@@ -112,7 +128,6 @@ useEffect(() =>{
           <div className="form-group">
             <label>Race</label>
             <h2 id="charName">{nameData}</h2>
-
           </div>
           <div className="form-group">
             <label>Random Traits</label>
