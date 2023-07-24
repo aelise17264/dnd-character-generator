@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDAndD } from "@fortawesome/free-brands-svg-icons";
 import { faDiceD20 } from "@fortawesome/free-solid-svg-icons";
+
 function App() {
   const [nameData, setNameData] = useState("");
   const [alignmentData, setAlignmentData] = useState("");
@@ -23,7 +24,7 @@ function App() {
 
   const getCharName = () => {
     axios
-      .get(`https://www.dnd5eapi.co/api/races`)
+      .get(baseURL + `/races`)
       .then((res) => {
         let newCharList = res.data.results;
         let newCharIndex = Math.floor(Math.random() * 10);
@@ -36,7 +37,7 @@ function App() {
 
   const getAlignment = () => {
     axios
-      .get("https://www.dnd5eapi.co/api/alignments")
+      .get(baseURL + `/alignments`)
       .then((res) => {
         let alignmentList = res.data.results;
         let alignmentIndex = Math.floor(Math.random() * 10);
@@ -49,7 +50,7 @@ function App() {
 
   const getClass = () => {
     axios
-      .get("https://www.dnd5eapi.co/api/classes")
+      .get(baseURL + `classes`)
       .then((res) => {
         let classList = res.data.results;
         let classIndex = randomNumber(1, 12);
@@ -62,7 +63,7 @@ function App() {
 
   const getTraits = () => {
     axios
-      .get("https://www.dnd5eapi.co/api/traits")
+      .get(baseURL + `/traits`)
       .then((res) => {
         let traitList = res.data.results;
         let firstTraitIndex = randomNumber(1, 38);
@@ -99,19 +100,24 @@ function App() {
         </h1>
       </header>
       <div className="generate">
+    
+      <a className="icon"> 
+<FontAwesomeIcon icon={faDiceD20} spin size="2xl" style={{color: "#282c34",}} />      
+</a>
         <button
-        // icon=
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary btn-lg"
+          style={{backgroundColor: '#282c34', border: 'none'}}
           onClick={generateCharacter}
         >
-          Generate
+          Roll for Character
         </button>
       </div>
       <div id="hideForm">
         <img
-          id="dice"
-          src="https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
+           id="dice"
+         className={nameData}
+        
         />
 
         <form>
