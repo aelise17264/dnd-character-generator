@@ -24,16 +24,24 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+  margin-right: 7%;
 }
 
 form {
   margin-right: auto;
   margin-bottom: 2%;
 }
+.characterForm {
+  display: flex;
+}
+
 #hideForm {
   display: none;
   /* height: 70vh; */
+}
+.topForm {
+  display: flex;
 }
 
 #dice {
@@ -41,14 +49,25 @@ form {
   margin-left: 25%;
   margin-right: 2%;
   border: 0px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
 }
 
 a {
   margin: 1%;
 }
-
+.form-group h2{
+  font-weight: bold;
+}
+/* h3{
+  text-decoration: underline;
+} */
+p, li{
+  font-size: 22px;
+}
 .icon {
-  margin-left: 0;
+  margin-left: auto;
 }
 
 .Dragonborn {
@@ -105,9 +124,16 @@ a {
 .Tiefling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
   max-width: 23vw;
-  height: 65vh;
+  height: 70vh;
   /* border: 0; */
 }
 
 /* "https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
 */
+
+.refresh {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

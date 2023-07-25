@@ -1,10 +1,12 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
+import Stats from "./Stats";
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDAndD } from "@fortawesome/free-brands-svg-icons";
-import { faDiceD20 } from "@fortawesome/free-solid-svg-icons";
+import { faDiceD20, faRightLong } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [nameData, setNameData] = useState("");
@@ -17,6 +19,14 @@ function App() {
   const [armorData, setArmorData] = useState("");
 
   const baseURL = "https://www.dnd5eapi.co/api/";
+
+  const navToStats = () => {
+  let navigate = useNavigate();
+  handleNewProcess = () => {
+    navigate(`/Stats`)
+  }
+
+  }
 
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -99,30 +109,33 @@ function App() {
   };
 
   const getEquipment = () => {
-    axios.get(baseURL + `/equipment`)
-    .then((res) => {
+    axios.get(baseURL + `/equipment`).then((res) => {
       let equipmentList = res.data.results;
-      let firstPieceIndex = randomNumber(1, 237)
-      let secondPieceIndex = randomNumber(1, 237)
-      let thirdPieceIndex = randomNumber(1, 237)
-      setEquipmentData([equipmentList[firstPieceIndex].name, equipmentList[secondPieceIndex].name, equipmentList[thirdPieceIndex].name])
-    })
-  }
+      let firstPieceIndex = randomNumber(1, 237);
+      let secondPieceIndex = randomNumber(1, 237);
+      let thirdPieceIndex = randomNumber(1, 237);
+      setEquipmentData([
+        equipmentList[firstPieceIndex].name,
+        equipmentList[secondPieceIndex].name,
+        equipmentList[thirdPieceIndex].name,
+      ]);
+    });
+  };
 
-  const getArmor = () =>{
-    axios.get(baseURL + `/equipment-categories/armor`).then((res) =>{
+  const getArmor = () => {
+    axios.get(baseURL + `/equipment-categories/armor`).then((res) => {
       let armorList = res.data.equipment;
-      let armorLevel = randomNumber(1, 3)
-      setArmorData(armorList[armorLevel].name)
-    })
-  }
-  const getFeature = () =>{
+      let armorLevel = randomNumber(1, 3);
+      setArmorData(armorList[armorLevel].name);
+    });
+  };
+  const getFeature = () => {
     axios.get(baseURL + `/features`).then((res) => {
       let featureList = res.data.results;
-      let featureIndex = randomNumber(1, 370)
-      setFeaturesData(featureList[featureIndex].name)
-    })
-  }
+      let featureIndex = randomNumber(1, 370);
+      setFeaturesData(featureList[featureIndex].name);
+    });
+  };
 
   const createCharacter = () => {
     getAlignment();
@@ -169,54 +182,77 @@ function App() {
         </button>
       </div>
       <div id="hideForm">
-        <img id="dice" className={nameData} />
+        <div className="topForm">
+          <img id="dice" className={nameData} />
 
-        <form>
-          <div className="form-group">
-            <label>Alignment</label>
-            <h2>{alignmentData}</h2>
-            {/* <input className="form-control"/> */}
-          </div>
-          <div className="form-group">
-            <label>Class</label>
-            <h2 id="classType">{classData}</h2>
-            {/* <input type="text" className="form-control" placeholder="" value="$newCharName" /> */}
-          </div>
-          <div className="form-group">
-            <label>Race</label>
-            <h2 id="charName">{nameData}</h2>
-          </div>
-          <div className="form-group">
-            <label>Random Traits</label>
-            <ul>
-            <li>{traitData[0]}</li>
-            <li>{traitData[1]}</li>
-            </ul>
-          </div>
-          <div className="form-group">
-            <label>Languages</label>
-            <ul>
-            <li>{languageData[0]}</li>
-            <li>{languageData[1]}</li>
-            </ul>
-          </div>
-          <div className="form-group">
-            <label>Equipment</label>
-            <ul>
-            <li>{equipmentData[0]}</li>
-            <li>{equipmentData[1]}</li>
-            <li>{equipmentData[2]}</li>
-            </ul>
-          </div>
-          <div className="form-group">
-            <label>Armor</label>
-            <p>{armorData}</p>
-          </div>
-          <div className="form-group">
-            <label>Special Feature</label>
-            <p>{featuresData}</p>
-          </div>
-        </form>
+          <form>
+            <div className="form-group">
+              <h2>Alignment</h2>
+              <h3>{alignmentData}</h3>
+              {/* <input className="form-control"/> */}
+            </div>
+            <div className="form-group">
+              <h2>Class</h2>
+              <h3 id="classType">{classData}</h3>
+              {/* <input type="text" className="form-control" placeholder="" value="$newCharName" /> */}
+            </div>
+            <div className="form-group">
+              <h2>Race</h2>
+              <h3 id="charName">{nameData}</h3>
+            </div>
+            <div className="form-group">
+              <h2>Random Traits</h2>
+              <ul>
+                <li>{traitData[0]}</li>
+                <li>{traitData[1]}</li>
+              </ul>
+            </div>
+            <div className="form-group">
+              <h2>Languages</h2>
+              <ul>
+                <li>{languageData[0]}</li>
+                <li>{languageData[1]}</li>
+              </ul>
+            </div>
+            <div className="form-group">
+              <h2>Equipment</h2>
+              <ul>
+                <li>{equipmentData[0]}</li>
+                <li>{equipmentData[1]}</li>
+                <li>{equipmentData[2]}</li>
+              </ul>
+            </div>
+            <div className="form-group">
+              <h2>Armor</h2>
+              <p>{armorData}</p>
+            </div>
+            <div className="form-group">
+              <h2>Special Feature</h2>
+              <p>{featuresData}</p>
+            </div>
+          </form>
+        </div>
+        <div className="refresh">
+          <a onClick={navToStats}>
+            <FontAwesomeIcon
+              icon={faRightLong}
+              size="2xl"
+              style={{ color: "#282c34" }}
+            />
+          </a>
+          <h3>
+            If everything looks good click the arrow to get your stats. If not
+            roll again
+          </h3>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{ backgroundColor: "#282c34", border: "none" }}
+            onClick={createCharacter}
+          >
+            Roll Again
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -239,7 +275,7 @@ const basicPerception = 10;
 
 function generateCharacter() {
   // let newCharName
-  document.getElementById("hideForm").style.display = "flex";
+  document.getElementById("hideForm").style.display = "block";
   // console.log(newCharList[newCharIndex])
   // return newCharName
 }
