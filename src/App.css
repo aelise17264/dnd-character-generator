@@ -2,8 +2,8 @@
   text-align: center;
 } */
 
-.App{
-  font-family: 'Gentium Book Plus', serif;
+.App {
+  font-family: "Gentium Book Plus", serif;
   margin-bottom: 2%;
 }
 
@@ -36,82 +36,78 @@ form {
   /* height: 70vh; */
 }
 
-
 #dice {
   width: 25vw;
-   margin-left: 25%;
+  margin-left: 25%;
   margin-right: 2%;
   border: 0px;
- 
 }
 
-a{
-  margin: 1%
+a {
+  margin: 1%;
 }
 
-.icon{
+.icon {
   margin-left: 0;
 }
 
-.Dragonborn{
+.Dragonborn {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
-  height:  69vh;
+  height: 69vh;
   /* border: 0; */
 }
 
-.Dwarf{
-  background-image: url( "https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
+.Dwarf {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
   height: 60vh;
   /* border: 0; */
 }
 
-.Elf{
+.Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png");
   max-width: 23vw;
   border: solid 1px white;
+  height: 70vh;
 }
 
-.Gnome{
-  background-image: url( "https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
+.Gnome {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
   height: 55vh;
   max-width: 23vw;
   /* border: 0; */
 }
 
-.Half-Elf{
-  background-image: url( "https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
+.Half-Elf {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
   max-width: 23vw;
   /* border: 0; */
 }
 
-.Halfling{
-  background-image: url( "https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
+.Halfling {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
   height: 65vh;
   max-width: 23vw;
   /* border: 0; */
 }
 
-.Half-Orc{
-  background-image: url( "https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
+.Half-Orc {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
   height: 65vh;
   max-width: 23vw;
   /* border: 0; */
 }
-.Human{
-  background-image: url( "https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
+.Human {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
   max-width: 20vw;
+  height: 70vh;
   /* border: 0; */
 }
-.Tiefling{
-  background-image: url( "https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
+.Tiefling {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
   max-width: 23vw;
+  height: 65vh;
   /* border: 0; */
 }
-
-
-
-
-
 
 /* "https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
 */

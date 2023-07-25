@@ -78,11 +78,61 @@ function App() {
       });
   };
 
+  const getLanguages = () => {
+    axios
+      .get(baseURL + `/languages`)
+      .then((res) => {
+        let languageList = res.data.results;
+        let firstLanguageIndex = 2;
+        let secondLanguageIndex = randomNumber(1, 16);
+        if (secondLanguageIndex === firstLanguageIndex) {
+          secondLanguageIndex = randomNumber(1, 16);
+        }
+        setLanguageData([
+          languageList[firstLanguageIndex].name,
+          languageList[secondLanguageIndex].name,
+        ]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getEquipment = () => {
+    axios.get(baseURL + `/equipment`)
+    .then((res) => {
+      let equipmentList = res.data.results;
+      let firstPieceIndex = randomNumber(1, 237)
+      let secondPieceIndex = randomNumber(1, 237)
+      let thirdPieceIndex = randomNumber(1, 237)
+      setEquipmentData([equipmentList[firstPieceIndex].name, equipmentList[secondPieceIndex].name, equipmentList[thirdPieceIndex].name])
+    })
+  }
+
+  const getArmor = () =>{
+    axios.get(baseURL + `/equipment-categories/armor`).then((res) =>{
+      let armorList = res.data.equipment;
+      let armorLevel = randomNumber(1, 3)
+      setArmorData(armorList[armorLevel].name)
+    })
+  }
+  const getFeature = () =>{
+    axios.get(baseURL + `/features`).then((res) => {
+      let featureList = res.data.results;
+      let featureIndex = randomNumber(1, 370)
+      setFeaturesData(featureList[featureIndex].name)
+    })
+  }
+
   const createCharacter = () => {
     getAlignment();
     getCharName();
     getClass();
     getTraits();
+    getLanguages();
+    getEquipment();
+    getArmor();
+    getFeature();
   };
 
   useEffect(() => {
@@ -93,32 +143,33 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1 className="title">
-          Dungeons 
-          <a> 
-          <FontAwesomeIcon icon={faDAndD} style={{color: "#fafafa",}} /></a> 
+          Dungeons
+          <a>
+            <FontAwesomeIcon icon={faDAndD} style={{ color: "#fafafa" }} />
+          </a>
           Dragons 5e Character Generator
         </h1>
       </header>
       <div className="generate">
-    
-      <a className="icon"> 
-<FontAwesomeIcon icon={faDiceD20} spin size="2xl" style={{color: "#282c34",}} />      
-</a>
+        <a className="icon">
+          <FontAwesomeIcon
+            icon={faDiceD20}
+            spin
+            size="2xl"
+            style={{ color: "#282c34" }}
+          />
+        </a>
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{backgroundColor: '#282c34', border: 'none'}}
+          style={{ backgroundColor: "#282c34", border: "none" }}
           onClick={generateCharacter}
         >
           Roll for Character
         </button>
       </div>
       <div id="hideForm">
-        <img
-           id="dice"
-         className={nameData}
-        
-        />
+        <img id="dice" className={nameData} />
 
         <form>
           <div className="form-group">
@@ -137,24 +188,33 @@ function App() {
           </div>
           <div className="form-group">
             <label>Random Traits</label>
-            <h2>{traitData[0]}</h2>
-            <h2>{traitData[1]}</h2>
-          </div>
-          <div className="form-group">
-            <label>Features</label>
-            <input className="form-control" />
+            <ul>
+            <li>{traitData[0]}</li>
+            <li>{traitData[1]}</li>
+            </ul>
           </div>
           <div className="form-group">
             <label>Languages</label>
-            <input className="form-control" />
+            <ul>
+            <li>{languageData[0]}</li>
+            <li>{languageData[1]}</li>
+            </ul>
           </div>
           <div className="form-group">
             <label>Equipment</label>
-            <input className="form-control" />
+            <ul>
+            <li>{equipmentData[0]}</li>
+            <li>{equipmentData[1]}</li>
+            <li>{equipmentData[2]}</li>
+            </ul>
           </div>
           <div className="form-group">
             <label>Armor</label>
-            <input className="form-control" />
+            <p>{armorData}</p>
+          </div>
+          <div className="form-group">
+            <label>Special Feature</label>
+            <p>{featuresData}</p>
           </div>
         </form>
       </div>
