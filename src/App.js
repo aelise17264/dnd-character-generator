@@ -47,6 +47,7 @@ function App() {
         let alignmentList = res.data.results;
         let alignmentIndex = Math.floor(Math.random() * 10);
         setAlignmentData(alignmentList[alignmentIndex].name);
+        console.log(nameData)
       })
       .catch((error) => {
         console.log(error);
