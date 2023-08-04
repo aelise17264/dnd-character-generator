@@ -2,8 +2,10 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import Stats from "./Stats";
-import { useNavigate } from "react-router-dom";
+import { BrowserRouter, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDAndD } from "@fortawesome/free-brands-svg-icons";
 import { faDiceD20, faRightLong } from "@fortawesome/free-solid-svg-icons";
@@ -20,13 +22,7 @@ function App() {
 
   const baseURL = "https://www.dnd5eapi.co/api/";
 
-  const navToStats = () => {
-  let navigate = useNavigate();
-  handleNewProcess = () => {
-    navigate(`/Stats`)
-  }
 
-  }
 
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -152,6 +148,14 @@ function App() {
     createCharacter();
   }, []);
 
+  let navigate = useNavigate();
+  const handleArrowClick = () => navigate('/Stats', {replace: true});
+
+  // const navToStats = () => {
+  //   let path = `stats`;
+  //   navigate(path)
+  // }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -160,7 +164,8 @@ function App() {
           <a>
             <FontAwesomeIcon icon={faDAndD} style={{ color: "#fafafa" }} />
           </a>
-          Dragons 5e Character Generator
+          Dragons 5e <br/>
+          Character Generator
         </h1>
       </header>
       <div className="generate">
@@ -233,25 +238,28 @@ function App() {
           </form>
         </div>
         <div className="refresh">
-          <a onClick={navToStats}>
-            <FontAwesomeIcon
-              icon={faRightLong}
-              size="2xl"
-              style={{ color: "#282c34" }}
-            />
-          </a>
-          <h3>
-            If everything looks good click the arrow to get your stats. If not
-            roll again
-          </h3>
-          <button
+        <button
             type="button"
             className="btn btn-primary btn-lg"
             style={{ backgroundColor: "#282c34", border: "none" }}
             onClick={createCharacter}
+            id="reroll"
           >
             Roll Again
           </button>
+         
+          <h3>
+            If everything looks good click the arrow to get your stats. If not
+            roll again
+          </h3>
+          <a id="arrow">
+            <FontAwesomeIcon
+              icon={faRightLong}
+              size="2xl"
+              style={{ color: "#282c34" }}
+              onClick={handleArrowClick}
+            />
+          </a>
         </div>
       </div>
     </div>
