@@ -2,9 +2,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import Stats from "./Stats";
-import { BrowserRouter, useNavigate } from "react-router-dom";
+import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDAndD } from "@fortawesome/free-brands-svg-icons";
@@ -21,8 +21,6 @@ function App() {
   const [armorData, setArmorData] = useState("");
 
   const baseURL = "https://www.dnd5eapi.co/api/";
-
-
 
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -149,7 +147,7 @@ function App() {
   }, []);
 
   let navigate = useNavigate();
-  const handleArrowClick = () => navigate('/Stats', {replace: true});
+  const handleArrowClick = () => navigate("/Stats", { replace: true });
 
   // const navToStats = () => {
   //   let path = `stats`;
@@ -158,16 +156,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="title">
-          Dungeons
-          <a>
-            <FontAwesomeIcon icon={faDAndD} style={{ color: "#fafafa" }} />
-          </a>
-          Dragons 5e <br/>
-          Character Generator
-        </h1>
-      </header>
+      <Header />
       <div className="generate">
         <a className="icon">
           <FontAwesomeIcon
@@ -238,7 +227,7 @@ function App() {
           </form>
         </div>
         <div className="refresh">
-        <button
+          <button
             type="button"
             className="btn btn-primary btn-lg"
             style={{ backgroundColor: "#282c34", border: "none" }}
@@ -247,7 +236,7 @@ function App() {
           >
             Roll Again
           </button>
-         
+
           <h3>
             If everything looks good click the arrow to get your stats. If not
             roll again

@@ -27,7 +27,7 @@
   margin-bottom: 2%;
   margin-right: 7%;
 }
-.title{
+.title {
   width: 75vw;
 }
 form {
@@ -59,13 +59,13 @@ form {
 a {
   margin: 1%;
 }
-#arrow{
+#arrow {
   margin-top: 0;
 }
-#reroll{
+#reroll {
   margin-bottom: 1%;
 }
-.form-group h2{
+.form-group h2 {
   font-weight: bold;
 }
 
@@ -78,13 +78,13 @@ a {
 /* h3{
   text-decoration: underline;
 } */
-p, li{
+p,
+li {
   font-size: 22px;
 }
 .icon {
   margin-left: auto;
 }
-
 
 /* character images */
 .Dragonborn {
@@ -147,4 +147,3 @@ p, li{
 
 /* "https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
 */
-

@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Header from "./Header";
 
-class Stats extends React.Component{
-
-    render(){
-        return <h1>Stats Page</h1>
-    }
+function Stats() {
+  return (
+    <div className="App">
+      <Header />
+      <h1>Stats Page</h1>
+    </div>
+  );
 }
 
-
-export default Stats
+export default Stats;
