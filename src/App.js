@@ -158,20 +158,15 @@ function App() {
     <div className="App">
       <Header />
       <div className="generate">
-        <a className="icon">
-          <FontAwesomeIcon
-            icon={faDiceD20}
-            spin
-            size="2xl"
-            style={{ color: "#282c34" }}
-          />
-        </a>
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#282c34", border: "none" }}
+          style={{ backgroundColor: "#282c34", border: "none", width: "220px" }}
           onClick={generateCharacter}
         >
+          <a>
+            <FontAwesomeIcon icon={faDiceD20} spin style={{ color: "white" }} />{" "}
+          </a>
           Roll for Character
         </button>
       </div>
