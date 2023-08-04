@@ -30,8 +30,13 @@
 .title {
   width: 75vw;
 }
+.characterVisual {
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+}
 form {
-  margin-right: auto;
+  /* margin-right: auto; */
   margin-bottom: 2%;
 }
 .characterForm {
@@ -44,8 +49,16 @@ form {
 }
 .topForm {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
 }
-
+.names {
+  margin-left: 50%;
+  margin-top: 2%;
+}
+#name {
+  font-size: medium;
+}
 #dice {
   width: 25vw;
   margin-left: 25%;
@@ -100,7 +113,7 @@ li {
   justify-content: center;
   align-items: center;
 }
-.explorers{
+.explorers {
   align-self: auto;
 }
 /* character images */

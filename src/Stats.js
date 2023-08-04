@@ -58,10 +58,13 @@ function Stats() {
           <h2>Wisdom: {statData[4]}</h2>
           <h2>Charisma: {statData[5]}</h2>
         </div>
-     
-      <footer>
-        <img src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp" className="explorers" />
-      </footer>
+
+        <footer>
+          <img
+            src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp"
+            className="explorers"
+          />
+        </footer>
       </div>
     </div>
   );

@@ -5,7 +5,8 @@ import Stats from "./Stats";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-
+import { ReactDOM } from "react-dom";
+import { nameList } from "./NameList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDAndD } from "@fortawesome/free-brands-svg-icons";
 import { faDiceD20, faRightLong } from "@fortawesome/free-solid-svg-icons";
@@ -140,6 +141,7 @@ function App() {
     getEquipment();
     getArmor();
     getFeature();
+    // getNameList();
   };
 
   useEffect(() => {
@@ -153,6 +155,10 @@ function App() {
   //   let path = `stats`;
   //   navigate(path)
   // }
+  const possibleNames = nameList[nameData];
+  const getNameList = possibleNames?.map((name) => {
+    return <li id="name">{name}</li>;
+  });
 
   return (
     <div className="App">
@@ -172,8 +178,14 @@ function App() {
       </div>
       <div id="hideForm">
         <div className="topForm">
-          <img id="dice" className={nameData} />
-
+          <div className="characterVisual">
+            <img id="dice" className={nameData} />
+            <div className="names">
+              <label>Possible Names</label>
+              <ul id="listOfNames"></ul>
+              {getNameList}
+            </div>
+          </div>
           <form>
             <div className="form-group">
               <h2>Alignment</h2>
