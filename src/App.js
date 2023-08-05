@@ -47,7 +47,7 @@ function App() {
         let alignmentList = res.data.results;
         let alignmentIndex = Math.floor(Math.random() * 10);
         setAlignmentData(alignmentList[alignmentIndex].name);
-        console.log(nameData)
+        console.log(nameData);
       })
       .catch((error) => {
         console.log(error);
@@ -150,15 +150,16 @@ function App() {
   }, []);
 
   let navigate = useNavigate();
-  const handleArrowClick = () => navigate("/Stats", { replace: true, state: { nameData }});
+  const handleArrowClick = () =>
+    navigate("/Stats", { replace: true, state: { nameData } });
 
   // const navToStats = () => {
   //   let path = `stats`;
   //   navigate(path)
   // }
   const possibleNames = nameList[nameData];
-  const getNameList = possibleNames.map((name) => {
-    console.log('get name list called')
+  const getNameList = possibleNames?.map((name) => {
+    console.log("get name list called");
     return <li className="name">{name}</li>;
   });
 

@@ -1,25 +1,26 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
-import {statBonuses} from "./StatList"
+import { statBonuses } from "./StatList";
+import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
-
   const [statData, setStatData] = useState([]);
   let statRange = [15, 14, 13, 12, 10, 8];
 
   const location = useLocation();
   const charData = location.state.nameData;
-  console.log('char name', charData);
-  const playerBonus = statBonuses[charData]
-  console.log('player bonus', playerBonus)
+  console.log("char name", charData);
+  const playerBonus = statBonuses[charData];
+  console.log("player bonus", playerBonus);
   const getBonuses = playerBonus?.map((stat) => {
-    console.log('get bonuses called')
-    return <li className="bonus">{stat}</li>
-  })
+    console.log("get bonuses called");
+    return <li className="bonus">{stat}</li>;
+  });
 
   function shuffle(arr) {
     console.log("inside shuffle");
@@ -38,6 +39,8 @@ function Stats() {
     console.log(statData);
   };
 
+  let navigate = useNavigate();
+  const handleArrowClick = () => navigate("/", { replace: true });
 
   return (
     <div className="App">
@@ -66,23 +69,32 @@ function Stats() {
         </button>
 
         <div className="statGroup">
-        <div className="groupOne">
-        <h1>General Stats</h1>
-        <ul>
-          <li>Strength: {statData[0]}</li>
-          <li>Dexterity: {statData[1]}</li>
-          <li>Constitution: {statData[2]}</li>
-          <li>Intelligence: {statData[3]}</li>
-          <li>Wisdom: {statData[4]}</li>
-          <li>Charisma: {statData[5]}</li>
-          </ul>
+          <div className="groupOne">
+            <h1>General Stats</h1>
+            <ul>
+              <li>Strength: {statData[0]}</li>
+              <li>Dexterity: {statData[1]}</li>
+              <li>Constitution: {statData[2]}</li>
+              <li>Intelligence: {statData[3]}</li>
+              <li>Wisdom: {statData[4]}</li>
+              <li>Charisma: {statData[5]}</li>
+            </ul>
           </div>
           <div className="groupTwo">
             <h1>Racial Bonuses</h1>
-            <ul id="playerStats">
-            {getBonuses}
-            </ul>
+            <ul id="playerStats">{getBonuses}</ul>
           </div>
+        </div>
+        <div className="refresh">
+          <h3>Go Back</h3>
+          <a id="arrow">
+            <FontAwesomeIcon
+              icon={faLeftLong}
+              size="2xl"
+              style={{ color: "#282c34" }}
+              onClick={handleArrowClick}
+            />
+          </a>
         </div>
 
         <footer>
