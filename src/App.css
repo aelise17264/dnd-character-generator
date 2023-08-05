@@ -56,7 +56,7 @@ form {
   margin-left: 50%;
   margin-top: 2%;
 }
-#name {
+.name {
   font-size: medium;
 }
 #dice {
@@ -106,12 +106,13 @@ li {
   align-items: center;
   align-content: center;
 }
+
 .statGroup {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-content: center;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  width: 40vw;
 }
 .explorers {
   align-self: auto;

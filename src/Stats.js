@@ -1,12 +1,26 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Header from "./Header";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
+import {statBonuses} from "./StatList"
 
 function Stats() {
+
   const [statData, setStatData] = useState([]);
   let statRange = [15, 14, 13, 12, 10, 8];
+
+  const location = useLocation();
+  const charData = location.state.nameData;
+  console.log('char name', charData);
+  const playerBonus = statBonuses[charData]
+  console.log('player bonus', playerBonus)
+  const getBonuses = playerBonus?.map((stat) => {
+    console.log('get bonuses called')
+    return <li className="bonus">{stat}</li>
+  })
+
   function shuffle(arr) {
     console.log("inside shuffle");
     var j, x, index;
@@ -23,6 +37,7 @@ function Stats() {
     setStatData(newArr);
     console.log(statData);
   };
+
 
   return (
     <div className="App">
@@ -51,12 +66,23 @@ function Stats() {
         </button>
 
         <div className="statGroup">
-          <h2>Strength: {statData[0]}</h2>
-          <h2>Dexterity: {statData[1]}</h2>
-          <h2>Constitution: {statData[2]}</h2>
-          <h2>Intelligence: {statData[3]}</h2>
-          <h2>Wisdom: {statData[4]}</h2>
-          <h2>Charisma: {statData[5]}</h2>
+        <div className="groupOne">
+        <h1>General Stats</h1>
+        <ul>
+          <li>Strength: {statData[0]}</li>
+          <li>Dexterity: {statData[1]}</li>
+          <li>Constitution: {statData[2]}</li>
+          <li>Intelligence: {statData[3]}</li>
+          <li>Wisdom: {statData[4]}</li>
+          <li>Charisma: {statData[5]}</li>
+          </ul>
+          </div>
+          <div className="groupTwo">
+            <h1>Racial Bonuses</h1>
+            <ul id="playerStats">
+            {getBonuses}
+            </ul>
+          </div>
         </div>
 
         <footer>

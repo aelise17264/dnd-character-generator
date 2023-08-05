@@ -150,15 +150,16 @@ function App() {
   }, []);
 
   let navigate = useNavigate();
-  const handleArrowClick = () => navigate("/Stats", { replace: true });
+  const handleArrowClick = () => navigate("/Stats", { replace: true, state: { nameData }});
 
   // const navToStats = () => {
   //   let path = `stats`;
   //   navigate(path)
   // }
   const possibleNames = nameList[nameData];
-  const getNameList = possibleNames?.map((name) => {
-    return <li id="name">{name}</li>;
+  const getNameList = possibleNames.map((name) => {
+    console.log('get name list called')
+    return <li className="name">{name}</li>;
   });
 
   return (
