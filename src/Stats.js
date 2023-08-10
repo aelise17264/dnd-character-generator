@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { statBonuses } from "./StatList";
-import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faRightLong, faLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
   const [statData, setStatData] = useState([]);
@@ -41,6 +41,7 @@ function Stats() {
 
   let navigate = useNavigate();
   const handleArrowClick = () => navigate("/", { replace: true });
+  const handleNavToSpells = () => navigate("/Spells", {replace: true});
 
   return (
     <div className="App">
@@ -85,8 +86,11 @@ function Stats() {
             <ul id="playerStats">{getBonuses}</ul>
           </div>
         </div>
-        <div className="refresh">
+        <hr/>
+        <div className="navArrows">
+        <div className="goBack">
           <h3>Go Back</h3>
+          <p>Go back to roll a new character</p>
           <a id="arrow">
             <FontAwesomeIcon
               icon={faLeftLong}
@@ -96,7 +100,19 @@ function Stats() {
             />
           </a>
         </div>
-
+        <div className="toSpells">
+          <h3>Go Foward</h3>
+          <p>If your character is a spell caster click this arrow to roll for spells</p>
+          <a id="arrow">
+            <FontAwesomeIcon
+              icon={faRightLong}
+              size="2xl"
+              style={{ color: "#282c34" }}
+              onClick={handleNavToSpells}
+            />
+          </a>
+        </div>
+        </div>
         <footer>
           <img
             src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp"

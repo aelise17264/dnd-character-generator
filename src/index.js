@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import Stats from "./Stats";
+import Spells from "./Spells";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route exact path="/" element={<App />} />
         <Route exact path="/stats" element={<Stats />} />
+        <Route exact path="/spells" element={<Spells/>} />
       </Routes>
       {/* <App /> */}
     </BrowserRouter>

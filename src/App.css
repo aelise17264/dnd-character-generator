@@ -87,6 +87,21 @@ a {
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 0 5%;
+  text-align: right;
+}
+.goBack{
+  justify-content: center;
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  padding: 0 5%;
+  text-align: right;
+}
+.toSpells{
+  /* padding: 0 10%; */
+  padding-left: 30%;
+
 }
 /* h3{
   text-decoration: underline;
@@ -99,6 +114,17 @@ li {
   margin-left: auto;
 }
 
+.navArrows{
+  display: flex;
+  flex-direction: row;
+}
+.navArrows p{
+  overflow-wrap: normal;
+}
+hr{
+  width: 75vw;
+  height: 10px;
+}
 .statsPage {
   display: flex;
   flex-direction: column;
