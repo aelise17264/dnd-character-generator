@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
-import { statBonuses } from "./StatList";
+import { statBonuses } from "../api/StatList";
 import { faRightLong, faLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {

@@ -1,12 +1,12 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
-import Stats from "./Stats";
-import Header from "./Header";
+import Stats from "./components/Stats";
+import Header from "./components/Header";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { ReactDOM } from "react-dom";
-import { nameList } from "./NameList";
+import { nameList } from "./api/NameList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDAndD } from "@fortawesome/free-brands-svg-icons";
 import { faDiceD20, faRightLong } from "@fortawesome/free-solid-svg-icons";
