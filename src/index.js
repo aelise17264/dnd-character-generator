@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import Stats from "./components/Stats";
 import Spells from "./components/Spells";
+import Character from "./components/Character";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,6 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<App />} />
+        <Route exact path="/character" element={<Character />} />
         <Route exact path="/stats" element={<Stats />} />
         <Route exact path="/spells" element={<Spells/>} />
       </Routes>
