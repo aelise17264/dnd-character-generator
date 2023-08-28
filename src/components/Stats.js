@@ -40,14 +40,14 @@ function Stats() {
   };
 
   let navigate = useNavigate();
-  const handleArrowClick = () => navigate("/", { replace: true });
+  const handleArrowClick = () => navigate("/Character", { replace: true });
   const handleNavToSpells = () => navigate("/Spells", {replace: true});
 
   return (
-    <div className="App">
-      {/* <Header /> */}
+    // <div className="character">
+    //   {/* <Header /> */}
       <div className="statsPage">
-        <h1>Stats Page</h1>
+        <h1 id="statsTitle">Stats Page</h1>
         <button
           type="button"
           className="btn btn-primary btn-lg"
@@ -95,7 +95,7 @@ function Stats() {
             <FontAwesomeIcon
               icon={faLeftLong}
               size="2xl"
-              style={{ color: "#282c34" }}
+              style={{ color: "white" }}
               onClick={handleArrowClick}
             />
           </a>
@@ -107,19 +107,13 @@ function Stats() {
             <FontAwesomeIcon
               icon={faRightLong}
               size="2xl"
-              style={{ color: "#282c34" }}
+              style={{ color: "white" }}
               onClick={handleNavToSpells}
             />
           </a>
         </div>
         </div>
-        <footer>
-          <img
-            src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp"
-            className="explorers"
-          />
-        </footer>
-      </div>
+      {/* </div> */}
     </div>
   );
 }

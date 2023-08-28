@@ -1,4 +1,5 @@
-import "../App.css";
+// import "../App.css";
+import "./Components.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import Stats from "./Stats";
@@ -164,9 +165,9 @@ function Character() {
   });
 
   return (
-    <div className="App">
+    <div className="character">
       {/* <Header /> */}
-      <div className="generate">
+      {/* <div className="generate">
         <button
           type="button"
           className="btn btn-primary btn-lg"
@@ -178,7 +179,7 @@ function Character() {
           </a>
           Roll for Character
         </button>
-      </div>
+      </div> */}
       <div id="hideForm">
         <div className="topForm">
           <div className="characterVisual">
@@ -192,7 +193,7 @@ function Character() {
           <form>
             <div className="form-group">
               <h2>Alignment</h2>
-              <h3>{alignmentData}</h3>
+              <h3 id="alignment">{alignmentData}</h3>
               {/* <input className="form-control"/> */}
             </div>
             <div className="form-group">
@@ -204,21 +205,21 @@ function Character() {
               <h2>Race</h2>
               <h3 id="charName">{nameData}</h3>
             </div>
-            <div className="form-group">
+            <div>
               <h2>Random Traits</h2>
               <ul>
                 <li>{traitData[0]}</li>
                 <li>{traitData[1]}</li>
               </ul>
             </div>
-            <div className="form-group">
+            <div>
               <h2>Languages</h2>
               <ul>
                 <li>{languageData[0]}</li>
                 <li>{languageData[1]}</li>
               </ul>
             </div>
-            <div className="form-group">
+            <div>
               <h2>Equipment</h2>
               <ul>
                 <li>{equipmentData[0]}</li>
@@ -226,11 +227,11 @@ function Character() {
                 <li>{equipmentData[2]}</li>
               </ul>
             </div>
-            <div className="form-group">
+            <div>
               <h2>Armor</h2>
               <p>{armorData}</p>
             </div>
-            <div className="form-group">
+            <div>
               <h2>Special Feature</h2>
               <p>{featuresData}</p>
             </div>
@@ -255,7 +256,7 @@ function Character() {
             <FontAwesomeIcon
               icon={faRightLong}
               size="2xl"
-              style={{ color: "#282c34" }}
+              style={{ color: "white" }}
               onClick={handleArrowClick}
             />
           </a>
