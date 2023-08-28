@@ -45,7 +45,7 @@ function Stats() {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <div className="statsPage">
         <h1>Stats Page</h1>
         <button

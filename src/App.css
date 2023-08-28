@@ -2,9 +2,20 @@
   text-align: center;
 } */
 
+/* body{
+  height: 100%;
+
+} */
+
 .App {
   font-family: "Gentium Book Plus", serif;
-  margin-bottom: 2%;
+  color: white;
+  /* margin-bottom: 2%; */
+  background-image: url("https://wallpaperaccess.com/full/6079733.png");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App-header {

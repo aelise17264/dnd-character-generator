@@ -166,7 +166,101 @@ function App() {
   return (
     <div className="App">
       {/* <Header /> */}
-     <h2>This is now a landing page</h2>
+      <div className="generate">
+        <button
+          type="button"
+          className="btn btn-primary btn-lg"
+          style={{ backgroundColor: "#282c34", border: "none", width: "220px" }}
+          onClick={generateCharacter}
+        >
+          <a>
+            <FontAwesomeIcon icon={faDiceD20} spin style={{ color: "white" }} />{" "}
+          </a>
+          Roll for Character
+        </button>
+      </div>
+      <div id="hideForm">
+        <div className="topForm">
+          <div className="characterVisual">
+            <img id="dice" className={nameData} />
+            <div className="names">
+              <label>Possible Names</label>
+              <ul id="listOfNames"></ul>
+              {getNameList}
+            </div>
+          </div>
+          <form>
+            <div className="form-group">
+              <h2>Alignment</h2>
+              <h3>{alignmentData}</h3>
+              {/* <input className="form-control"/> */}
+            </div>
+            <div className="form-group">
+              <h2>Class</h2>
+              <h3 id="classType">{classData}</h3>
+              {/* <input type="text" className="form-control" placeholder="" value="$newCharName" /> */}
+            </div>
+            <div className="form-group">
+              <h2>Race</h2>
+              <h3 id="charName">{nameData}</h3>
+            </div>
+            <div className="form-group">
+              <h2>Random Traits</h2>
+              <ul>
+                <li>{traitData[0]}</li>
+                <li>{traitData[1]}</li>
+              </ul>
+            </div>
+            <div className="form-group">
+              <h2>Languages</h2>
+              <ul>
+                <li>{languageData[0]}</li>
+                <li>{languageData[1]}</li>
+              </ul>
+            </div>
+            <div className="form-group">
+              <h2>Equipment</h2>
+              <ul>
+                <li>{equipmentData[0]}</li>
+                <li>{equipmentData[1]}</li>
+                <li>{equipmentData[2]}</li>
+              </ul>
+            </div>
+            <div className="form-group">
+              <h2>Armor</h2>
+              <p>{armorData}</p>
+            </div>
+            <div className="form-group">
+              <h2>Special Feature</h2>
+              <p>{featuresData}</p>
+            </div>
+          </form>
+        </div>
+        <div className="refresh">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{ backgroundColor: "#282c34", border: "none" }}
+            onClick={createCharacter}
+            id="reroll"
+          >
+            Roll Again
+          </button>
+
+          <h3>
+            If everything looks good click the arrow to get your stats. If not
+            roll again
+          </h3>
+          <a id="arrow">
+            <FontAwesomeIcon
+              icon={faRightLong}
+              size="2xl"
+              style={{ color: "#282c34" }}
+              onClick={handleArrowClick}
+            />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
