@@ -1,8 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
-import Stats from "./components/Stats";
-import Header from "./components/Header";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { ReactDOM } from "react-dom";
@@ -12,31 +10,34 @@ import { faDAndD } from "@fortawesome/free-brands-svg-icons";
 import { faDiceD20, faRightLong } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
- 
-
   let navigate = useNavigate();
-  const navToCharacter = () =>
-    navigate("/Character", { replace: true });
-  
-  const navToMonster = () => navigate("/Monster", {replace: true});
+  const navToCharacter = () => navigate("/character", { replace: true });
 
-  const navToTreasure = () => navigate("/Treasure", {replace: true});
+  const navToMonster = () => navigate("/monsters", { replace: true });
+
+  const navToTreasure = () => navigate("/treasure", { replace: true });
 
   return (
     <div className="App">
       {/* <Header /> */}
-     {/* <h2>This is now a landing page</h2> */}
-     <div id="buffer"></div>
-     <div className="scroll">
-     <div className="welcome">
-      <h2>Welcome Traveler</h2>
-      <p>Planning a campaign? Need to throw together some NPCs quickly? Want your team to find some exciting treasure along the way?</p>
-      <p>Roll the dice bellow for chaotic choices from each category.</p>
-      <p>You can save or print the final product to take with you to your next campaign</p>
+      {/* <h2>This is now a landing page</h2> */}
+      <div id="buffer"></div>
+      <div className="scroll">
+        <div className="welcome">
+          <h2>Welcome Traveler</h2>
+          <p>
+            Planning a campaign? Need to quickly throw together some NPCs? Want
+            your team to find some exciting treasure along the way?
+          </p>
+          <p>Roll the dice bellow for chaotic choices from each category.</p>
+          <p>
+            You can save or print the final product to take with you to your
+            next campaign
+          </p>
+        </div>
       </div>
-     </div>
-     <div className="button-row">
-     <button
+      <div className="button-row">
+        <button
           type="button"
           className="btn btn-primary btn-lg"
           style={{ backgroundColor: "#966919", border: "none", width: "220px" }}
@@ -69,7 +70,7 @@ function App() {
           </a>
           Roll for Monster
         </button>
-     </div>
+      </div>
     </div>
   );
 }

@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import Stats from "./components/Stats";
-import Spells from "./components/Spells";
-import Character from "./components/Character";
+import Stats from "./components/character/Stats";
+import Spells from "./components/character/Spells";
+import Character from "./components/character/Character";
+import Treasure from "./components/Treasure";
+import Monsters from "./components/Monsters";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -16,7 +18,9 @@ root.render(
         <Route exact path="/" element={<App />} />
         <Route exact path="/character" element={<Character />} />
         <Route exact path="/stats" element={<Stats />} />
-        <Route exact path="/spells" element={<Spells/>} />
+        <Route exact path="/spells" element={<Spells />} />
+        <Route exact path="/treasure" element={<Treasure />} />
+        <Route exact path="/monsters" element={<Monsters />} />
       </Routes>
       {/* <App /> */}
     </BrowserRouter>

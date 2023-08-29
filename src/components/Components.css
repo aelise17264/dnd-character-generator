@@ -1,225 +1,254 @@
-.character, .statsPage{
-    background-image: url("https://images8.alphacoders.com/130/1304871.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.character,
+.statsPage,
+.spellPage {
+  background-image: url("https://images8.alphacoders.com/130/1304871.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .generate {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2%;
-    margin-right: 7%;
-    
-  }
-  .title {
-    width: 75vw;
-  }
-  .characterVisual {
-    display: flex;
-    flex-direction: column;
-    justify-content: inherit;
-  }
-  form {
-    /* margin-right: auto; */
-    margin-bottom: 2%;
-    padding-left: 0;
-    margin-left: 0;
-    /* width: auto; */
-  }
-  .characterForm {
-    display: flex;
-  }
-
-  #hideForm{
-    padding-top: 2%;
-  }
-
-  .topForm {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    background-color: oldlace;
-    opacity: 75%;
-    width: 50%;
-    margin: auto;
-    padding: 2% 0;
-    border-radius: 3%;
-  }
-  .names {
-    margin-left: 50%;
-    margin-top: 2%;
-  }
-  .name {
-    font-size: medium;
-  }
-  #dice {
-    width: 25vw;
-    margin-left: 25%;
-    margin-right: 2%;
-    border: 0px;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-  }
-  
-  a {
-    margin: 1%;
-  }
-  #arrow {
-    margin-top: 0;
-  }
-  #reroll {
-    margin-bottom: 1%;
-  }
-  .form-group{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-around;
-    align-content: flex-start; */
-  }
- h2 {
-    font-weight: bold;
-  }
-#statsTitle{
-    color: white
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  margin-right: 7%;
 }
-  
-  .refresh {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 0 5%;
-    text-align: right;
-    margin-top: 2%;
-    color: white;
-  }
-  .goBack{
-    justify-content: center;
-    /* align-items: center; */
-    display: flex;
-    flex-direction: column;
-    padding: 0 5%;
-    text-align: right;
-  }
-  .toSpells{
-    /* padding: 0 10%; */
-    padding-left: 30%;
-  
-  }
-  /* h3{
+.title {
+  width: 75vw;
+}
+.characterVisual {
+  display: flex;
+  flex-direction: column;
+  justify-content: inherit;
+}
+form {
+  /* margin-right: auto; */
+  margin-bottom: 2%;
+  padding-left: 0;
+  margin-left: 0;
+  /* width: auto; */
+}
+.characterForm {
+  display: flex;
+}
+
+#hideForm {
+  padding-top: 2%;
+}
+
+.topForm {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  background-color: oldlace;
+  opacity: 75%;
+  width: 50%;
+  margin: auto;
+  padding: 2% 0;
+  border-radius: 3%;
+}
+.names {
+  margin-left: 50%;
+  margin-top: 2%;
+}
+.name {
+  font-size: medium;
+}
+#dice {
+  width: 25vw;
+  margin-left: 25%;
+  margin-right: 2%;
+  border: 0px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+a {
+  margin: 1%;
+}
+#arrow {
+  margin-top: 0;
+}
+#reroll {
+  margin-bottom: 1%;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around;
+    align-content: flex-start; */
+}
+h2 {
+  font-weight: bold;
+}
+#statsTitle {
+  color: white;
+}
+
+.refresh {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5%;
+  text-align: right;
+  margin-top: 2%;
+  color: white;
+}
+.goBack {
+  justify-content: center;
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  padding: 0 5%;
+  text-align: right;
+}
+.toSpells {
+  /* padding: 0 10%; */
+  padding-left: 30%;
+}
+/* h3{
     text-decoration: underline;
   } */
-  p,
-  li {
-    font-size: 22px;
-  }
-  .icon {
-    margin-left: auto;
-  }
-  
-  .navArrows{
-    display: flex;
-    flex-direction: row;
-    color: white;
-  }
-  .navArrows p{
-    overflow-wrap: normal;
-  }
-  hr{
-    width: 75vw;
-    height: 10px;
-  }
-  .statsPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    height: 100vh;
-  }
-  
-  .statGroup {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-    width: 40vw;
-  
-  }
+p,
+li {
+  font-size: 22px;
+}
+.icon {
+  margin-left: auto;
+}
 
-  .groupOne, .groupTwo{
-    background-color: oldlace;
-    opacity: 75%;
-    border-radius: 5%;
-    padding: 4%;
-  }
+.navArrows {
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+.navArrows p {
+  overflow-wrap: normal;
+}
+hr {
+  width: 75vw;
+  height: 10px;
+}
+.statsPage,
+.spellPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+}
 
-  .explorers {
-    align-self: auto;
-  }
-  /* character images */
-  .Dragonborn {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
-    height: 69vh;
-    /* border: 0; */
-  }
-  
-  .Dwarf {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
-    height: 60vh;
-    /* border: 0; */
-  }
-  
-  .Elf {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png");
-    max-width: 23vw;
-    border: solid 1px white;
-    height: 70vh;
-  }
-  
-  .Gnome {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
-    height: 55vh;
-    max-width: 23vw;
-    /* border: 0; */
-  }
-  
-  .Half-Elf {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
-    max-width: 23vw;
-    height: 70vh;
-    /* border: 0; */
-  }
-  
-  .Halfling {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
-    height: 65vh;
-    max-width: 23vw;
-    /* border: 0; */
-  }
-  
-  .Half-Orc {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
-    height: 65vh;
-    max-width: 23vw;
-    /* border: 0; */
-  }
-  .Human {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
-    max-width: 20vw;
-    height: 70vh;
-    /* border: 0; */
-  }
-  .Tiefling {
-    background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
-    max-width: 23vw;
-    height: 70vh;
-    /* border: 0; */
-  }
-  
-  /* "https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
+.statGroup {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  width: 40vw;
+}
+
+.groupOne,
+.groupTwo {
+  background-color: oldlace;
+  opacity: 75%;
+  border-radius: 5%;
+  padding: 4%;
+}
+
+.spellPage {
+  height: 100vh;
+  /* color: white; */
+}
+.spells {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.explorers {
+  align-self: auto;
+}
+/* character images */
+.Dragonborn {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
+  height: 69vh;
+  /* border: 0; */
+}
+
+.Dwarf {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
+  height: 60vh;
+  /* border: 0; */
+}
+
+.Elf {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png");
+  max-width: 23vw;
+  border: solid 1px white;
+  height: 70vh;
+}
+
+.Gnome {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
+  height: 55vh;
+  max-width: 23vw;
+  /* border: 0; */
+}
+
+.Half-Elf {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
+  max-width: 23vw;
+  height: 70vh;
+  /* border: 0; */
+}
+
+.Halfling {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
+  height: 65vh;
+  max-width: 23vw;
+  /* border: 0; */
+}
+
+.Half-Orc {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
+  height: 65vh;
+  max-width: 23vw;
+  /* border: 0; */
+}
+.Human {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
+  max-width: 20vw;
+  height: 70vh;
+  /* border: 0; */
+}
+.Tiefling {
+  background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
+  max-width: 23vw;
+  height: 70vh;
+  /* border: 0; */
+}
+
+/* "https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
   */
-  
+.treasurePage{
+  background-image: url("https://wallpaper-house.com/data/out/9/wallpaper2you_311594.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: oldlace
+}
+
+
+.monsterPage{
+  background-image: url("https://cdn.openart.ai/stable_diffusion/3bb19a16e101a2ac2e7be1e19f41cbd8a8140ff2_2000x2000.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  /* width: 75vw; */
+  color: oldlace
+}
