@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
-
+import { faRightLong } from "@fortawesome/free-solid-svg-icons";
+import { spellListL1 } from "../../api/SpellList";
 import "../Components.css";
 
 function Spells() {
@@ -11,64 +12,60 @@ function Spells() {
     return Math.floor(Math.random() * (max - min) + min);
   }
   let baseSpellURL = "https://www.dnd5eapi.co/api/spells/";
-
-  const [spellData, setSpellData] = useState([]);
   const [firstSpellData, setFirstSpell] = useState([]);
   const [secondSpellData, setSecondSpell] = useState([]);
-  const [completeFirstSpell, setCompleteFirstSpell] = useState([]);
+  const [cantripData, setCantrip] = useState([]);
 
-  // const createSpellList = () => {
-  //   getSpells();
-  //   spellDetails();
-  // }
-  const getSpells = () => {
+  const firstSpell = spellListL1.spells[randomNumber(1, 20)];
+  const secondSpell = spellListL1.spells[randomNumber(1, 20)];
+  const cantrip = spellListL1.cantrips[randomNumber(1, 8)];
+
+  const setSpellList = (spell) => {
+    console.log("inside for each");
+
     axios
-      .get(baseSpellURL)
+      .get(baseSpellURL + spell.toString())
       .then((res) => {
-        let spellList = res.data.results;
-        let firstSpellIndex = randomNumber(1, 319);
-        let secondSpellIndex = randomNumber(1, 319);
-        console.log(firstSpellIndex);
-        setFirstSpell(spellList[firstSpellIndex].index);
-        setSecondSpell(spellList[secondSpellIndex].index);
+        console.log(spell);
+        console.log("spell data", res.data);
+        let description = res.data.desc;
+        let li = document.createElement("li");
 
-        // console.log(spellData)
-      })
-      .then(() => {
-        // spellData.forEach(spell => {
-        //   console.log("inside for each")
-        axios.get(baseSpellURL + firstSpellData.toString()).then((res) => {
-          console.log(firstSpellData);
-          console.log("spell data", res.data);
-          setCompleteFirstSpell(res.data);
-          let description = res.data.desc;
-          description.forEach((item) => {
-            let li = document.createElement("li");
-            let text = document.createTextNode(item);
-            li.appendChild(text);
-            document.getElementById("descriptionList").appendChild(li);
-          });
-          // })
+        description.forEach((item) => {
+          let text = document.createTextNode(item);
+          li.appendChild(text);
         });
+        if (res.data.index == cantrip) {
+          setCantrip(res.data);
+          document.getElementById("cantripDesc").appendChild(li);
+          // });
+        } else if (res.data.index == secondSpell) {
+          setSecondSpell(res.data);
+
+          document.getElementById("descriptionList2").appendChild(li);
+          // });
+        } else {
+          setFirstSpell(res.data);
+          document.getElementById("descriptionList1").appendChild(li);
+        }
       })
       .catch((error) => {
         console.log("error", error);
       });
   };
-  // const spellDetails = async () => {
-  //   await getSpells()
-  //   console.log("outside axios call", spellData)
 
-  // }
-
-  // const getSpellSpecifics = (spellData) =>{
-  // useEffect(() => {
-  //   createSpellList()
-  // }, [])
-  // }
+  const getSpells = () => {
+    console.log("get spells");
+    setSpellList(firstSpell);
+    setSpellList(secondSpell);
+    setSpellList(cantrip);
+    document.getElementById("spellPage").style.height = "auto";
+  };
+  let navigate = useNavigate();
+  const handleNavToFinal = () => navigate("/Final", { replace: true });
 
   return (
-    <div className="spellPage">
+    <div id="spellPage" className="spellPage">
       <div className="spells">
         <h3>Spell Page</h3>
         <button
@@ -93,13 +90,55 @@ function Spells() {
         </button>
       </div>
       <div className="spellList">
-        <h2>Spells</h2>
-        <h3>{completeFirstSpell.name}</h3>
-        <p> Range: {completeFirstSpell.range}</p>
-        <p>Duration: {completeFirstSpell.duration}</p>
-        <p>Description</p>
-        <div id="descriptionList"></div>
+        <div className="spellGroup1">
+          <h2>Spell 1</h2>
+          <h3>{firstSpellData.name}</h3>
+          <div id="descriptionList1"></div>
+          <p>Range: {firstSpellData.range}</p>
+          <p>Time: {firstSpellData.casting_time}</p>
+          <p>Duration: {firstSpellData.duration}</p>
+          <p>Attack Type: {firstSpellData.attack_type}</p>
+          <p>Material: {firstSpellData.material}</p>
+        </div>
+        <div className="spellGroup2">
+          <h2>Spell 2</h2>
+          <h3>{secondSpellData.name}</h3>
+          <div id="descriptionList2"></div>
+          <p>Range: {secondSpellData.range}</p>
+          <p>Time: {secondSpellData.casting_time}</p>
+          <p>Duration: {secondSpellData.duration}</p>
+          <p>Attack Type: {secondSpellData.attack_type}</p>
+          <p>Material: {secondSpellData.material}</p>
+        </div>
+        <div className="cantripGroup">
+          <h2>Cantrip</h2>
+          <h3>{cantripData.name}</h3>
+
+          <div id="cantripDesc"></div>
+          <p>Range: {cantripData.range}</p>
+          <p>Time: {cantripData.casting_time}</p>
+          <p>Duration: {cantripData.duration}</p>
+          <p>Attack Type: {cantripData.attack_type}</p>
+          <p>Material: {cantripData.material}</p>
+        </div>
       </div>
+      <footer>
+        <div className="toFinal">
+          <h3>Go Foward</h3>
+          <p>
+            Happy with all your rolls? Click to the next page to see all your
+            character info & print out your character sheet
+          </p>
+          <a id="arrow">
+            <FontAwesomeIcon
+              icon={faRightLong}
+              size="2xl"
+              style={{ color: "white" }}
+              onClick={handleNavToFinal}
+            />
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
