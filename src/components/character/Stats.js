@@ -13,11 +13,11 @@ function Stats() {
 
   const location = useLocation();
   const charData = location.state.nameData;
-  console.log("char name", charData);
+  // console.log("char name", charData);
   const playerBonus = statBonuses[charData];
-  console.log("player bonus", playerBonus);
+  // console.log("player bonus", playerBonus);
   const getBonuses = playerBonus?.map((stat) => {
-    console.log("get bonuses called");
+    // console.log("get bonuses called");
     return <li className="bonus">{stat}</li>;
   });
 

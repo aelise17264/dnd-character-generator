@@ -168,6 +168,12 @@ hr {
   align-items: center;
   justify-content: center;
 }
+
+.spellList {
+  background-color: oldlace;
+  opacity: 75%;
+}
+
 .explorers {
   align-self: auto;
 }
@@ -233,22 +239,21 @@ hr {
 
 /* "https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
   */
-.treasurePage{
+.treasurePage {
   background-image: url("https://wallpaper-house.com/data/out/9/wallpaper2you_311594.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  color: oldlace
+  color: oldlace;
 }
 
-
-.monsterPage{
+.monsterPage {
   background-image: url("https://cdn.openart.ai/stable_diffusion/3bb19a16e101a2ac2e7be1e19f41cbd8a8140ff2_2000x2000.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   /* width: 75vw; */
-  color: oldlace
+  color: oldlace;
 }
