@@ -153,10 +153,6 @@ function Character() {
   const handleArrowClick = () =>
     navigate("/Stats", { replace: true, state: { nameData } });
 
-  // const navToStats = () => {
-  //   let path = `stats`;
-  //   navigate(path)
-  // }
   const possibleNames = nameList[nameData];
   const getNameList = possibleNames?.map((name) => {
     console.log("get name list called");
@@ -165,20 +161,6 @@ function Character() {
 
   return (
     <div className="character">
-      {/* <Header /> */}
-      {/* <div className="generate">
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#282c34", border: "none", width: "220px" }}
-          onClick={generateCharacter}
-        >
-          <a>
-            <FontAwesomeIcon icon={faDiceD20} spin style={{ color: "white" }} />{" "}
-          </a>
-          Roll for Character
-        </button>
-      </div> */}
       <div id="hideForm">
         <div className="topForm">
           <div className="characterVisual">
@@ -266,19 +248,6 @@ function Character() {
 }
 
 export default Character;
-
-const abilityStats = [15, 14, 13, 12, 10, 8];
-const basicPerception = 10;
-// let showChar = 'hidden'
-// Attack modifiers
-// const attackRange = dex + profModifier
-// const attackBasicRange = dex
-// const attackMele = strength + profModifier
-// const attackBasicMele = strength
-
-// armor class
-
-// let [responseName, setResponseName] = React.useState('')
 
 function generateCharacter() {
   // let newCharName

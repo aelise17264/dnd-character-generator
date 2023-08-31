@@ -179,7 +179,9 @@ hr {
   width: 75vw;
   margin: 2% 0;
 }
-#descriptionList1, #descriptionList2, #cantripDesc{
+#descriptionList1,
+#descriptionList2,
+#cantripDesc {
   list-style-type: none;
   /* color: red; */
 }
@@ -286,4 +288,10 @@ footer {
   height: 100vh;
   /* width: 75vw; */
   color: oldlace;
+}
+.monsterDetails {
+  height: 75vh;
+  background-color: oldlace;
+  opacity: 75%;
+  color: black;
 }
