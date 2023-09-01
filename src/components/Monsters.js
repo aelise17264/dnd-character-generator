@@ -9,6 +9,7 @@ import "./Components.css";
 
 function Monsters() {
   const [monsterData, setMonsterData] = useState([]);
+  // let armorType;
 
   const baseURL = "https://www.dnd5eapi.co/api/monsters/";
   function randomNumber(min, max) {
@@ -25,6 +26,10 @@ function Monsters() {
         setMonsterData(monsterDetails);
 
         // console.log(action.name)
+       
+        let armorClass = monsterDetails.armor_class
+        getArmor(armorClass)
+
         let actions = monsterDetails.actions;
         getActions(actions);
         let speed = monsterDetails.speed
@@ -45,29 +50,38 @@ function Monsters() {
     });
   };
 
+  const getArmor = (armorClass) => {
+    // let para = document.createElement('p')
+    let text = document.createElement("p")
+    if(armorClass[0].armor !== undefined){
+      console.log('inside if', armorClass[0].armor[0].name)
+      let armorType = armorClass[0].armor[0].name
+
+      text = document.createTextNode("Armor Type: " + armorType)
+
+    }else{
+      console.log('inside else')
+      console.log(armorClass[0].type)
+     let naturalArmor = armorClass[0].type
+     text = document.createTextNode("Armor Type: " + naturalArmor)
+    }
+    // console.log('final type', armorType)
+    // return armorType
+    // innerHTML("Armor:" + text)
+    document.getElementById("armorType").appendChild(text);
+
+  }
+
 const getSpeed = (speedy) => {
   console.log('speed', speedy)
-  // let speedString = JSON.stringify(speedy)
-  // document.getElementById("monsterSpeed").innerHTML = speedString
-//   const speedArray = Object.values(speedy)
-//   console.log(speedArray)
-//  JSON.stringify(speedArray).replace(/]|[[]/g, '')
+  let speedList = document.createElement("p")
+  for(var key in speedy){
+    console.log(key, speedy[key])
+    let speed = document.createTextNode(key + ": " + speedy[key] + ", ")
+    speedList.appendChild(speed)
+    document.getElementById("speedList").appendChild(speedList)
 
-
-  // let fast = "";
-  // for(let x in speedy){
-  //   fast += speedy[x] + " ";
-  // }
-  // document.getElementById("monsterSpeed").innerHTML = fast
-  // const ul = document.getElementById("monsterSpeed")
-  // let li = document.createElement("li");
-  // console.log('array', speedArray)
-  // speedArray.forEach((motion) =>{
-  //   let text = document.createTextNode(speedArray.index + motion)
-  //   li.appendChild(text)
-  //   document.getElementById("monsterSpeed").appendChild(li)
-
-  // })
+  }
 }
 
 
@@ -105,6 +119,9 @@ const getSpeed = (speedy) => {
         <p>Language: {monsterData.languages}</p>
         <p>Alignment: {monsterData.alignment}</p>
         <p>Hit Points: {monsterData.hit_points}</p>
+        <h3>Speed</h3>
+        <div id="speedList"></div>
+        <div id="armorType"></div>
         <img src={monsterData.image}></img>
         <h3>Actions</h3>
         <div id="monsterActions"></div>
