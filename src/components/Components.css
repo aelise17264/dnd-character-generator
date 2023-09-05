@@ -285,13 +285,56 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 125vh;
   /* width: 75vw; */
   color: oldlace;
 }
 .monsterDetails {
+  flex-direction: column;
+  align-items: center;
+}
+.monsterDetails h1{
+  font-size: 100px;
+}
+
+.monsterGroups {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.monsterGroup1,
+.monsterGroup2 {
   height: 75vh;
   background-color: oldlace;
   opacity: 75%;
   color: black;
+  padding: 2%;
+  margin: 2%;
+  width: 40vw;
+  height: fit-content;
+  border-radius: 10px;
+}
+
+.monsterGroup1{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+}
+
+.monsterImage img{
+  height: 40vh;
+  /* width: 25vw; */
+  vertical-align: baseline;
+}
+
+#armorType {
+  font-size: x-large;
+}
+
+.monsterStats {
+  padding-top: 1%;
+}
+
+.monsterGroup2 li {
+  font-size: medium;
 }
