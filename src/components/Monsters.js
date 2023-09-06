@@ -27,79 +27,80 @@ function Monsters() {
     const monsterIndex = randomNumber(0, 40);
     const ourMonster = monsterList[monsterIndex].index;
     setMonsterImage(monsterList[monsterIndex].img);
-    axios.get(baseURL + ourMonster).then((res) => {
-      let monsterDetails = res.data;
-      setMonsterData(monsterDetails);
-      console.log("description", monsterDetails.desc);
+    axios
+      .get(baseURL + ourMonster)
+      .then((res) => {
+        let monsterDetails = res.data;
+        setMonsterData(monsterDetails);
+        console.log("description", monsterDetails.desc);
 
-      let armorClass = monsterDetails.armor_class;
-      if (armorClass == undefined) {
-        return "";
-      }
-      if (armorClass[0].armor !== undefined) {
-        console.log("inside if", armorClass[0].armor[0].name);
-        let armorType = armorClass[0].armor[0].name;
-        let armorValue = armorClass[0].value;
-        setArmorClass([armorType, armorValue]);
-      } else {
-        console.log("inside else");
-        console.log(armorClass[0].type);
-        let naturalArmor = armorClass[0].type;
-        let naturalValue = armorClass[0].value;
-        setArmorClass([naturalArmor, naturalValue]);
-      }
+        let armorClass = monsterDetails.armor_class;
+        if (armorClass == undefined) {
+          return "";
+        }
+        if (armorClass[0].armor !== undefined) {
+          console.log("inside if", armorClass[0].armor[0].name);
+          let armorType = armorClass[0].armor[0].name;
+          let armorValue = armorClass[0].value;
+          setArmorClass([armorType, armorValue]);
+        } else {
+          console.log("inside else");
+          console.log(armorClass[0].type);
+          let naturalArmor = armorClass[0].type;
+          let naturalValue = armorClass[0].value;
+          setArmorClass([naturalArmor, naturalValue]);
+        }
 
-      let actions = monsterDetails.actions;
-      console.log("set actions", actions);
-      setActionList(actions);
-      console.log(actions);
-      if (actions == undefined) {
-        return "";
-      }
-      actions
-        .forEach((action) => {
+        let actions = monsterDetails.actions;
+        console.log("set actions", actions);
+        setActionList(actions);
+        console.log(actions);
+        if (actions == undefined) {
+          return "";
+        }
+        actions.forEach((action) => {
           let li = document.createElement("li");
           console.log(action);
           let text = document.createTextNode(action.name + ": " + action.desc);
           li.appendChild(text);
           document.getElementById("monsterActions").appendChild(li);
-        })
-        
-    }).catch((err) => {
-      console.log("something went wrong", err);
-    });
-    // getActions()
+        });
+
+        let speeds = monsterDetails.speed;
+        setSpeedInfo(speeds);
+        if (speeds == undefined) {
+          return "";
+        }
+        console.log("speed", speeds);
+        let speedList = document.createElement("p");
+        for (var key in speeds) {
+          console.log("inside speed loop", key, speeds[key]);
+          let speed = document.createTextNode(
+            " " + key + ": " + speeds[key] + " |",
+          );
+          speedList.appendChild(speed);
+          document.getElementById("speedList").appendChild(speedList);
+        }
+        document.getElementById("monsterPage").style.height = "fit-content";
+      })
+      .catch((err) => {
+        console.log("something went wrong", err);
+      });
   };
 
-  const getSpeed = (speedy) => {
-    if (speedy == undefined) {
-      return "";
-    }
-    console.log("speed", speedy);
-    let speedList = document.createElement("p");
-    for (var key in speedy) {
-      console.log(key, speedy[key]);
-      let speed = document.createTextNode(key + ": " + speedy[key] + " | ");
-      speedList.appendChild(speed);
-      document.getElementById("speedList").appendChild(speedList);
-    }
-  };
   function generateMonster() {
-    // let newCharName
     document.getElementById("monsterDetails").style.display = "flex";
-    document.getElementById("monsterActions").innerHTML = ""
-    // console.log(newCharList[newCharIndex])
-    // return newCharName
+    document.getElementById("monsterActions").innerHTML = "";
+    document.getElementById("speedList").innerHTML = "";
   }
 
   const fullMonsterCall = () => {
-    console.log("final call", actionList);
     generateMonster();
     getMonster();
   };
 
   return (
-    <div className="monsterPage">
+    <div id="monsterPage">
       <div className="monsters">
         <h3>Monster Page</h3>
         <button
@@ -134,45 +135,42 @@ function Monsters() {
             <div className="monsterImage">
               <img src={monsterImage}></img>
             </div>
-            <div className="monsterStats">
-              <div id="monsterSpeed">
-                {/* <p>{monsterData.speed.toString()}</p> */}
+            <div className="fullStats">
+              <div className="boringStats">
+                <p>{monsterData.desc}</p>
+                <p>Type: {monsterData.type}</p>
+                <p>Language: {monsterData.languages}</p>
+                <p>Alignment: {monsterData.alignment}</p>
+                <p>Hit Points: {monsterData.hit_points}</p>
               </div>
-              <p>{monsterData.desc}</p>
-              <p>Type: {monsterData.type}</p>
-              <p>Language: {monsterData.languages}</p>
-              <p>Alignment: {monsterData.alignment}</p>
-              <p>Hit Points: {monsterData.hit_points}</p>
-              <h3>Speed</h3>
-              <div id="speedList"></div>
-              <div id="armorType">
-                <h3>
-                  Armor Class: {armorStats[0]} {armorStats[1]}
-                </h3>
+              <div className="monsterStats">
+                <h3>Stats</h3>
+                <ul>
+                  <li>Str: {monsterData.strength}</li>
+                  <li>Dex: {monsterData.dexterity}</li>
+                  <li>Con: {monsterData.constitution}</li>
+                  <li>Int: {monsterData.intelligence}</li>
+                  <li>Wis: {monsterData.wisdom}</li>
+                  <li>Char: {monsterData.charisma}</li>
+                </ul>
               </div>
             </div>
           </div>
 
           <div className="monsterGroup2">
+            <div className="speedList">
+              <h4>Speed - </h4>
+              <div id="speedList"></div>
+            </div>
+            <div id="armorType">
+              <h4>Armor Class - </h4>
+              <p>
+                {" "}
+                {armorStats[0]} {armorStats[1]}
+              </p>
+            </div>
             <h3>Actions</h3>
-            <div id="monsterActions">
-              {/* <script>
-                actionList.forEach(function(value) {
-                  document.write("li" + value.name + ": " + value.desc + "</li>")
-                })
-              </script> */}
-            </div>
-            <div className="monsterStats">
-              <h3>Stats</h3>
-              <ul>
-                <li>Str: {monsterData.strength}</li>
-                <li>Dex: {monsterData.dexterity}</li>
-                <li>Con: {monsterData.constitution}</li>
-                <li>Int: {monsterData.intelligence}</li>
-                <li>Wis: {monsterData.wisdom}</li>
-                <li>Char: {monsterData.charisma}</li>
-              </ul>
-            </div>
+            <div id="monsterActions"></div>
           </div>
         </div>
         <button

@@ -282,12 +282,12 @@ footer {
   color: oldlace;
 }
 
-.monsterPage {
+#monsterPage {
   background-image: url("https://cdn.openart.ai/stable_diffusion/3bb19a16e101a2ac2e7be1e19f41cbd8a8140ff2_2000x2000.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 125vh;
+  height: 100vh;
   /* width: 75vw; */
   color: oldlace;
 }
@@ -317,26 +317,36 @@ footer {
   border-radius: 10px;
 }
 
-.monsterGroup1 {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
-}
-
 .monsterImage img {
   height: 40vh;
-  /* width: 25vw; */
-  vertical-align: baseline;
 }
-
-#armorType {
-  font-size: x-large;
+.monsterImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fullStats {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .monsterStats {
   padding-top: 1%;
+}
+.boringStats {
+  width: 65%;
+  /* padding-left: 6% */
+  padding-right: 5%;
+}
+.boringStats p {
+  font-size: large;
+}
+.speedList,
+#armorType {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .monsterGroup2 li {
