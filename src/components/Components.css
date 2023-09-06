@@ -5,6 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 125vh;
 }
 
 .generate {
@@ -35,6 +36,7 @@ form {
 
 #hideForm {
   padding-top: 2%;
+  display: none;
 }
 
 .topForm {
@@ -293,7 +295,7 @@ footer {
   flex-direction: column;
   align-items: center;
 }
-.monsterDetails h1{
+.monsterDetails h1 {
   font-size: 100px;
 }
 
@@ -315,13 +317,13 @@ footer {
   border-radius: 10px;
 }
 
-.monsterGroup1{
+.monsterGroup1 {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-evenly;
 }
 
-.monsterImage img{
+.monsterImage img {
   height: 40vh;
   /* width: 25vw; */
   vertical-align: baseline;
@@ -329,6 +331,8 @@ footer {
 
 #armorType {
   font-size: x-large;
+  display: flex;
+  flex-direction: row;
 }
 
 .monsterStats {

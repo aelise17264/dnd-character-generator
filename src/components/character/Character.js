@@ -134,6 +134,7 @@ function Character() {
   };
 
   const createCharacter = () => {
+    generateCharacter();
     getAlignment();
     getCharName();
     getClass();
@@ -145,9 +146,16 @@ function Character() {
     // getNameList();
   };
 
-  useEffect(() => {
-    createCharacter();
-  }, []);
+  // useEffect(() => {
+  //   createCharacter();
+  // }, []);
+  function generateCharacter() {
+    // let newCharName
+    document.getElementById("hideForm").style.display = "block";
+    document.getElementById("character").style.height = "150vh";
+    // console.log(newCharList[newCharIndex])
+    // return newCharName
+  }
 
   let navigate = useNavigate();
   const handleArrowClick = () =>
@@ -160,7 +168,18 @@ function Character() {
   });
 
   return (
-    <div className="character">
+    <div className="character" id="character">
+      <div>
+        <button
+          type="button"
+          className="btn btn-primary btn-lg"
+          style={{ backgroundColor: "#282c34", border: "none" }}
+          onClick={createCharacter}
+          id="reroll"
+        >
+          Roll for Character
+        </button>
+      </div>
       <div id="hideForm">
         <div className="topForm">
           <div className="characterVisual">
@@ -248,10 +267,3 @@ function Character() {
 }
 
 export default Character;
-
-function generateCharacter() {
-  // let newCharName
-  document.getElementById("hideForm").style.display = "block";
-  // console.log(newCharList[newCharIndex])
-  // return newCharName
-}
