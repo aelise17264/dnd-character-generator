@@ -153,8 +153,7 @@ hr {
   display: flex;
   flex-direction: row;
   align-content: center;
-  justify-content: space-between;
-  width: 40vw;
+  justify-content: space-evenly;
 }
 
 .groupOne,
@@ -163,6 +162,10 @@ hr {
   opacity: 75%;
   border-radius: 5%;
   padding: 4%;
+  width: 40vw;
+}
+.groupOne {
+  margin-right: 2%;
 }
 
 .spells {

@@ -159,7 +159,7 @@ function Character() {
 
   let navigate = useNavigate();
   const handleArrowClick = () =>
-    navigate("/Stats", { replace: true, state: { nameData } });
+    navigate("/Stats", { replace: true, state: { nameData, classData } });
 
   const possibleNames = nameList[nameData];
   const getNameList = possibleNames?.map((name) => {
