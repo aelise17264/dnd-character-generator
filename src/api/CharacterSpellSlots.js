@@ -1,61 +1,61 @@
 export const characterSpellSlots = [
   {
-    index: "cleric",
+    index: "Cleric",
     cantrips: 3,
     spells: 1,
   },
   {
-    index: "bard",
+    index: "Bard",
     cantrips: 2,
     spells: 4,
   },
   {
-    index: "barbarian",
+    index: "Barbarian",
     cantrips: 0,
     spells: 0,
   },
   {
-    index: "druid",
+    index: "Druid",
     cantrips: 2,
     spells: 1,
   },
   {
-    index: "fighter",
+    index: "Fighter",
     cantrips: 0,
     spells: 0,
   },
   {
-    index: "monk",
+    index: "Monk",
     cantrips: 0,
     spells: 0,
   },
   {
-    index: "paladin",
+    index: "Paladin",
     cantrips: 0,
     spells: 0,
   },
   {
-    index: "ranger",
+    index: "Ranger",
     cantrips: 0,
     spells: 0,
   },
   {
-    index: "rogue",
+    index: "Rogue",
     cantrips: 0,
     spells: 0,
   },
   {
-    index: "sorcerer",
+    index: "Sorcerer",
     cantrips: 2,
     spells: 2,
   },
   {
-    index: "warlock",
+    index: "Warlock",
     cantrips: 3,
     spells: 2,
   },
   {
-    index: "wizard",
+    index: "Wizard",
     cantrips: 3,
     spells: 1,
   },

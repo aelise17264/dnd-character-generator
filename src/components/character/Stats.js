@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import {characterSpellSlots} from '../../api/CharacterSpellSlots';
+import { characterSpellSlots } from "../../api/CharacterSpellSlots";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { statBonuses } from "../../api/StatList";
@@ -9,12 +9,12 @@ import { faRightLong, faLeftLong } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
   const [statData, setStatData] = useState([]);
-  const [spellData, setSpellData] = useState([])
+  const [spellData, setSpellData] = useState([]);
   let statRange = [15, 14, 13, 12, 10, 8];
 
   const location = useLocation();
   const charData = location.state.nameData;
-  const charClass = location.state.classData
+  const charClass = location.state.classData;
   // console.log("char name", charData);
   const playerBonus = statBonuses[charData];
   // console.log("player bonus", playerBonus);
@@ -42,18 +42,19 @@ function Stats() {
 
   const getSpellSlots = () => {
     characterSpellSlots.forEach((slot) => {
-      console.log(charClass, 'inside function')
+      console.log(charClass, "inside function");
+      console.log("slot", slot);
       // console.log('inside spell call', slot.index)
-      if(slot.index = charClass){
-        console.log('inside if', slot.index)
-        setSpellData(slot)
+      if (slot.index === charClass) {
+        console.log("inside if", slot.index);
+        setSpellData(slot);
       }
-    })
-  }
+    });
+  };
   const handleButtonClick = () => {
-    getStats()
-    getSpellSlots()
-  }
+    getStats();
+    getSpellSlots();
+  };
 
   let navigate = useNavigate();
   const handleArrowClick = () => navigate("/Character", { replace: true });
@@ -100,7 +101,9 @@ function Stats() {
         <div className="groupTwo">
           <h1>Racial Bonuses</h1>
           <ul id="playerStats">{getBonuses}</ul>
-        <h1>Spell Slots</h1>
+          <h1>Spell Slots</h1>
+          <p>Spells: {spellData.spells}</p>
+          <p>Cantrips: {spellData.cantrips}</p>
         </div>
       </div>
       <hr />
