@@ -159,13 +159,12 @@ function Monsters() {
 
           <div className="monsterGroup2">
             <div className="speedList">
-              <h4>Speed - </h4>
+              <h4>Speed: &nbsp;</h4>
               <div id="speedList"></div>
             </div>
             <div id="armorType">
-              <h4>Armor Class - </h4>
+              <h4>Armor Class: &nbsp;</h4>
               <p>
-                {" "}
                 {armorStats[0]} {armorStats[1]}
               </p>
             </div>

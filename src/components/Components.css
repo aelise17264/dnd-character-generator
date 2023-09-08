@@ -5,7 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 125vh;
+  height: 130vh;
 }
 
 .generate {
@@ -30,9 +30,6 @@ form {
   margin-left: 0;
   /* width: auto; */
 }
-.characterForm {
-  display: flex;
-}
 
 #hideForm {
   padding-top: 2%;
@@ -45,9 +42,9 @@ form {
   justify-content: center;
   background-color: oldlace;
   opacity: 75%;
-  width: 50%;
+  width: fit-content;
   margin: auto;
-  padding: 2% 0;
+  padding: 2% 5%;
   border-radius: 3%;
 }
 .names {
@@ -66,7 +63,17 @@ form {
   justify-content: center;
   align-self: center;
 }
-
+.traits,
+.features {
+  display: flex;
+  flex-direction: column;
+}
+option {
+  width: fit-content;
+}
+.traits {
+  margin-bottom: 5%;
+}
 a {
   margin: 1%;
 }

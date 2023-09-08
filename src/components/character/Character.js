@@ -47,7 +47,7 @@ function Character() {
         let alignmentList = res.data.results;
         let alignmentIndex = Math.floor(Math.random() * 10);
         setAlignmentData(alignmentList[alignmentIndex].name);
-        console.log(nameData);
+        // console.log(nameData);
       })
       .catch((error) => {
         console.log(error);
@@ -72,6 +72,16 @@ function Character() {
       .get(baseURL + `/traits`)
       .then((res) => {
         let traitList = res.data.results;
+        let traitSelect1 = document.getElementById("Rtrait1");
+        let traitSelect2 = document.getElementById("Rtrait2");
+        for (var i = 0; i < traitList.length; i++) {
+          let trait = traitList[i].name;
+          let opt = document.createElement("option");
+          opt.textContent = trait;
+          opt.value = trait;
+          traitSelect1.appendChild(opt);
+          // traitSelect2.appendChild(opt);
+        }
         let firstTraitIndex = randomNumber(1, 38);
         let secondTraitIndex = randomNumber(1, 38);
         setTraitsData([
@@ -128,6 +138,15 @@ function Character() {
   const getFeature = () => {
     axios.get(baseURL + `/features`).then((res) => {
       let featureList = res.data.results;
+
+      let features = document.getElementById("features");
+      for (var i = 0; i < featureList.length; i++) {
+        let feat = featureList[i].index;
+        let featOpt = document.createElement("option");
+        featOpt.textContent = feat;
+        featOpt.value = feat;
+        features.appendChild(featOpt);
+      }
       let featureIndex = randomNumber(1, 370);
       setFeaturesData(featureList[featureIndex].name);
     });
@@ -152,9 +171,13 @@ function Character() {
   function generateCharacter() {
     // let newCharName
     document.getElementById("hideForm").style.display = "block";
-    document.getElementById("character").style.height = "150vh";
+    document.getElementById("character").style.height = "fit-content";
     // console.log(newCharList[newCharIndex])
     // return newCharName
+  }
+
+  function changeTrait(event) {
+    console.log("changed");
   }
 
   let navigate = useNavigate();
@@ -163,7 +186,7 @@ function Character() {
 
   const possibleNames = nameList[nameData];
   const getNameList = possibleNames?.map((name) => {
-    console.log("get name list called");
+    // console.log("get name list called");
     return <li className="name">{name}</li>;
   });
 
@@ -192,26 +215,20 @@ function Character() {
           </div>
           <form>
             <div className="form-group">
-              <h2>Alignment</h2>
-              <h3 id="alignment">{alignmentData}</h3>
+              <h2>Alignment: {alignmentData}</h2>
+              {/* <h3 id="alignment">{alignmentData}</h3> */}
               {/* <input className="form-control"/> */}
             </div>
             <div className="form-group">
-              <h2>Class</h2>
-              <h3 id="classType">{classData}</h3>
+              <h2>Class: {classData}</h2>
+              {/* <h3 id="classType">{classData}</h3> */}
               {/* <input type="text" className="form-control" placeholder="" value="$newCharName" /> */}
             </div>
             <div className="form-group">
-              <h2>Race</h2>
-              <h3 id="charName">{nameData}</h3>
+              <h2>Race: {nameData}</h2>
+              {/* <h3 id="charName">{nameData}</h3> */}
             </div>
-            <div>
-              <h2>Random Traits</h2>
-              <ul>
-                <li>{traitData[0]}</li>
-                <li>{traitData[1]}</li>
-              </ul>
-            </div>
+
             <div>
               <h2>Languages</h2>
               <ul>
@@ -231,9 +248,28 @@ function Character() {
               <h2>Armor</h2>
               <p>{armorData}</p>
             </div>
-            <div>
-              <h2>Special Feature</h2>
-              <p>{featuresData}</p>
+            <div className="traits">
+              <label for="randomTraits">Random Traits</label>
+              <select name="randomTraits" id="Rtrait1">
+                <option>Select Trait</option>
+              </select>
+              <select disabled name="randomTraits" id="Rtrait2">
+                <option>Select Trait</option>
+              </select>
+              {/* <ul>
+                <li>{traitData[0]}</li>
+                <li>{traitData[1]}</li>
+              </ul> */}
+            </div>
+            <div className="features">
+              <label for="specialFeature">Special Feature </label>
+              <select name="specialFeature" id="features">
+                <option>Select Special Feature</option>
+                {/* <option value={featuresData}>{featuresData}</option> */}
+              </select>
+
+              {/* <h2>Special Feature</h2>
+              <p>{featuresData}</p> */}
             </div>
           </form>
         </div>
