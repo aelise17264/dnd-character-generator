@@ -76,7 +76,7 @@ function Monsters() {
         for (var key in speeds) {
           console.log("inside speed loop", key, speeds[key]);
           let speed = document.createTextNode(
-            " " + key + ": " + speeds[key] + " |",
+            " " + key + ": " + speeds[key] + " |"
           );
           speedList.appendChild(speed);
           document.getElementById("speedList").appendChild(speedList);

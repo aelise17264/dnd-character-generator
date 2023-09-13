@@ -176,8 +176,10 @@ function Character() {
     // return newCharName
   }
 
-  function changeTrait(event) {
+  function changeTrait() {
     console.log("changed");
+    let ableToClick = document.getElementById("Rtrait2");
+    ableToClick.setAttribute("disabled", " ");
   }
 
   let navigate = useNavigate();
@@ -250,7 +252,7 @@ function Character() {
             </div>
             <div className="traits">
               <label for="randomTraits">Random Traits</label>
-              <select name="randomTraits" id="Rtrait1">
+              <select name="randomTraits" id="Rtrait1" onClick={changeTrait()}>
                 <option>Select Trait</option>
               </select>
               <select disabled name="randomTraits" id="Rtrait2">
