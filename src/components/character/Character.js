@@ -73,7 +73,6 @@ function Character() {
       .then((res) => {
         let traitList = res.data.results;
         let traitSelect1 = document.getElementById("Rtrait1");
-        let traitSelect2 = document.getElementById("Rtrait2");
         for (var i = 0; i < traitList.length; i++) {
           let trait = traitList[i].name;
           let opt = document.createElement("option");
@@ -82,12 +81,6 @@ function Character() {
           traitSelect1.appendChild(opt);
           // traitSelect2.appendChild(opt);
         }
-        let firstTraitIndex = randomNumber(1, 38);
-        let secondTraitIndex = randomNumber(1, 38);
-        setTraitsData([
-          traitList[firstTraitIndex].name,
-          traitList[secondTraitIndex].name,
-        ]);
       })
       .catch((error) => {
         console.log(error);
@@ -152,6 +145,14 @@ function Character() {
     });
   };
 
+  const setFeature = (e) => {
+    console.log("hopefully more than one", traitData);
+    // let charFeature = e.target.value
+
+    setFeature([e.target.name]);
+    // console.log('set feature', e.target.value)
+  };
+
   const createCharacter = () => {
     generateCharacter();
     getAlignment();
@@ -165,9 +166,6 @@ function Character() {
     // getNameList();
   };
 
-  // useEffect(() => {
-  //   createCharacter();
-  // }, []);
   function generateCharacter() {
     // let newCharName
     document.getElementById("hideForm").style.display = "block";
@@ -176,11 +174,47 @@ function Character() {
     // return newCharName
   }
 
-  function changeTrait() {
+  const changeTrait1 = (e) => {
     console.log("changed");
-    let ableToClick = document.getElementById("Rtrait2");
-    ableToClick.setAttribute("disabled", " ");
-  }
+    setTraitsData([e.target.value]);
+    console.log(e.target.value);
+
+    document.getElementById("Rtrait2").disabled = 0;
+    displaySecondTraitList();
+    //  console.log("second trait", traitList)
+    // traitSelect2.setAttribute("disabled", " ");
+  };
+
+  const displaySecondTraitList = () => {
+    console.log(traitData, "inside get");
+
+    axios
+      .get(baseURL + `/traits`)
+      .then((res) => {
+        let traitList2 = res.data.results;
+        console.log(traitList2);
+        // let filteredTraitList = traitList2.filter(traitData);
+        // console.log(filteredTraitList, "filtered list");
+        let traitSelect2 = document.getElementById("Rtrait2");
+        for (var i = 0; i < traitList2.length; i++) {
+          let trait = traitList2[i].name;
+          let opt = document.createElement("option");
+          opt.textContent = trait;
+          opt.value = trait;
+          traitSelect2.appendChild(opt);
+          // traitSelect2.appendChild(opt);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const changeTrait2 = (e) => {
+    console.log(featuresData);
+
+    setTraitsData([...traitData, e.target.value]);
+  };
 
   let navigate = useNavigate();
   const handleArrowClick = () =>
@@ -252,10 +286,15 @@ function Character() {
             </div>
             <div className="traits">
               <label for="randomTraits">Random Traits</label>
-              <select name="randomTraits" id="Rtrait1" onClick={changeTrait()}>
-                <option>Select Trait</option>
+              <select name="randomTraits" id="Rtrait1" onChange={changeTrait1}>
+                <option value="">Select Trait</option>
               </select>
-              <select disabled name="randomTraits" id="Rtrait2">
+              <select
+                disabled
+                name="randomTraits"
+                id="Rtrait2"
+                onChange={changeTrait2}
+              >
                 <option>Select Trait</option>
               </select>
               {/* <ul>
@@ -265,7 +304,7 @@ function Character() {
             </div>
             <div className="features">
               <label for="specialFeature">Special Feature </label>
-              <select name="specialFeature" id="features">
+              <select name="specialFeature" id="features" onChange={setFeature}>
                 <option>Select Special Feature</option>
                 {/* <option value={featuresData}>{featuresData}</option> */}
               </select>
