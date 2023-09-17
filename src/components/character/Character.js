@@ -140,18 +140,22 @@ function Character() {
         featOpt.value = feat;
         features.appendChild(featOpt);
       }
-      let featureIndex = randomNumber(1, 370);
-      setFeaturesData(featureList[featureIndex].name);
+      // let featureIndex = randomNumber(1, 370);
+      // setFeaturesData(featureList[featureIndex].name);
     });
   };
 
   const setFeature = (e) => {
-    console.log("hopefully more than one", traitData);
+    // console.log("hopefully more than one", traitData);
     // let charFeature = e.target.value
-
-    setFeature([e.target.name]);
-    // console.log('set feature', e.target.value)
+    setFeaturesData({
+      featuresData: e.target.value,
+    });
   };
+  //   console.log("feature", e.target.value)
+  //   setFeature(charFeature);
+  //   // console.log('set feature', e.target.value)
+  // };
 
   const createCharacter = () => {
     generateCharacter();
@@ -187,6 +191,7 @@ function Character() {
 
   const displaySecondTraitList = () => {
     console.log(traitData, "inside get");
+    console.log(featuresData.featuresData, "feature?");
 
     axios
       .get(baseURL + `/traits`)
@@ -286,7 +291,12 @@ function Character() {
             </div>
             <div className="traits">
               <label for="randomTraits">Random Traits</label>
-              <select name="randomTraits" id="Rtrait1" onChange={changeTrait1}>
+              <select
+                className="form-select"
+                name="randomTraits"
+                id="Rtrait1"
+                onChange={changeTrait1}
+              >
                 <option value="">Select Trait</option>
               </select>
               <select
@@ -294,6 +304,7 @@ function Character() {
                 name="randomTraits"
                 id="Rtrait2"
                 onChange={changeTrait2}
+                className="form-select"
               >
                 <option>Select Trait</option>
               </select>
@@ -304,8 +315,13 @@ function Character() {
             </div>
             <div className="features">
               <label for="specialFeature">Special Feature </label>
-              <select name="specialFeature" id="features" onChange={setFeature}>
-                <option>Select Special Feature</option>
+              <select
+                className="form-select"
+                name="specialFeature"
+                id="features"
+                onChange={setFeature}
+              >
+                <option value="">Select Special Feature</option>
                 {/* <option value={featuresData}>{featuresData}</option> */}
               </select>
 

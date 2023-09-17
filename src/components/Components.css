@@ -362,3 +362,19 @@ footer {
 .monsterGroup2 li {
   font-size: medium;
 }
+
+.dropDowns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: x-large;
+  justify-content: space-between;
+  height: 50vh;
+  text-align: center;
+}
+.dropDowns input {
+  text-align: center;
+}
+.dropDowns button {
+  margin-top: 1%;
+}
