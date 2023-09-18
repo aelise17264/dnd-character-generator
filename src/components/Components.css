@@ -156,7 +156,7 @@ hr {
 #spellPage {
   height: 100vh;
 }
-.statGroup {
+.statGroup, .equipment {
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -164,12 +164,21 @@ hr {
 }
 
 .groupOne,
-.groupTwo {
+.groupTwo,
+.oneForAll,
+.goldandMagic {
   background-color: oldlace;
   opacity: 75%;
   border-radius: 5%;
   padding: 4%;
+  color: #282c34;
+}
+.groupOne, .groupTwo{
   width: 40vw;
+
+}
+.oneForAll, .goldandMagic{
+  width: 27vw;
 }
 .groupOne {
   margin-right: 2%;
@@ -384,4 +393,13 @@ footer {
 .equipment {
   display: flex;
   flex-direction: row;
+}
+.goldandMagic img{
+  width: 40vh;
+  padding-top: 10%;
+}
+#errorMessage {
+  color: red;
+  font-size: x-large;
+  font-weight: bold;
 }

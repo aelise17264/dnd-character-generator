@@ -21,11 +21,18 @@ function Treasure() {
     partySize = document.getElementById("partySize").value;
     partySkill = document.getElementById("skillLevel").value;
     partyFavor = document.getElementById("likeability").value;
-    document.getElementById("dropDowns").style.display = "none";
+    let errorMessage = document.getElementById("errorMessage")
+    if(partySize == "" || partySkill == "" || partyFavor == ""){
+      errorMessage.innerText = "Oops you forgot something"
+    }
+    else{
+      errorMessage.innerText = "";
+      document.getElementById("dropDowns").style.display = "none";
     document.getElementById("lootList").style.display = "block";
     setGoldCount(partySize);
     itemsFound(partySize, partySkill);
     getMagic(partyFavor);
+  }
   };
   const setGoldCount = (count) => {
     document.getElementById("goldCount").innerHTML = "Gold: " + count * 100;
@@ -197,6 +204,7 @@ function Treasure() {
             />
           </a>
         </button>
+        <h1 id="errorMessage"></h1>
       </div>
       <div className="lootList" id="lootList" style={{ display: "none" }}>
         <div className="equipment">
@@ -209,6 +217,7 @@ function Treasure() {
           <div className="goldandMagic">
             <h3 id="goldCount"></h3>
             <h3 id="magicFound"></h3>
+            <img src="https://www.dndbeyond.com/avatars/thumbnails/7/122/1000/1000/636284708338172704.jpeg" />
           </div>
         </div>
         <div className="refresh">
