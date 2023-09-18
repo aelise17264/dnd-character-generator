@@ -372,6 +372,9 @@ footer {
   height: 50vh;
   text-align: center;
 }
+.dropDowns label {
+  font-weight: 500;
+}
 .dropDowns input {
   text-align: center;
 }
