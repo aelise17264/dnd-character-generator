@@ -381,3 +381,7 @@ footer {
 .dropDowns button {
   margin-top: 1%;
 }
+.equipment {
+  display: flex;
+  flex-direction: row;
+}

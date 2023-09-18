@@ -7,7 +7,7 @@ import { faCoins } from "@fortawesome/free-solid-svg-icons";
 import "./Components.css";
 
 function Treasure() {
-  const baseURL = "https://www.dnd5eapi.co/api/";
+  const baseURL = "https://www.dnd5eapi.co/api";
 
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -21,40 +21,126 @@ function Treasure() {
     partySize = document.getElementById("partySize").value;
     partySkill = document.getElementById("skillLevel").value;
     partyFavor = document.getElementById("likeability").value;
-    console.log("TREASURE");
     document.getElementById("dropDowns").style.display = "none";
     document.getElementById("lootList").style.display = "block";
-    // console.log(goldCount)
-    setGoldCount(partySize)
-    itemsFound(partySize, partySkill)
+    setGoldCount(partySize);
+    itemsFound(partySize, partySkill);
+    getMagic(partyFavor);
   };
-const setGoldCount = (count) => {
-  document.getElementById("goldCount").innerHTML = "Gold: " + count * 100
-}
+  const setGoldCount = (count) => {
+    document.getElementById("goldCount").innerHTML = "Gold: " + count * 100;
+  };
 
-const itemsFound = (count, skill) => {
-  axios
-  .get(baseURL + `/equipment-categories/standard-gear`)
-  .then((res) => {
-    console.log(res.data.equipment.length)
-    const numOfEqui = randomNumber(0, 94)
-    document.getElementById("equipmentFound").innerHTML = "Equipment: "
-    
-}) .catch((error) => {
-  console.log(error);
-});
-}
+  const itemsFound = (count, skill) => {
+    const equipmentFound = document.getElementById("equipmentFound");
+    const weaponsFound = document.getElementById("weaponsFound");
+    const gearFound = document.getElementById("gearFound");
+
+    axios
+      .get(baseURL + `/equipment-categories/standard-gear`)
+      .then((res) => {
+        let equiList = res.data.equipment;
+        for (var i = 0; i < count; i++) {
+          const numOfEqui = randomNumber(0, 94);
+          let equi = equiList[numOfEqui].name;
+          let equiLi = document.createElement("li");
+          equiLi.textContent = equi;
+          equiLi.value = equi;
+          equipmentFound.appendChild(equiLi);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    if (skill > 1) {
+      axios
+        .get(baseURL + `/equipment-categories/weapon`)
+        .then((res) => {
+          let weaponList = res.data.equipment;
+
+          for (var i = 0; i < count; i++) {
+            const numOfWeapon = randomNumber(0, 63);
+            let weapon = weaponList[numOfWeapon].name;
+            let weaponLi = document.createElement("li");
+            weaponLi.textContent = weapon;
+            weaponLi.value = weapon;
+            weaponsFound.appendChild(weaponLi);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    if (skill == 3) {
+      axios
+        .get(baseURL + `/equipment-categories/adventuring-gear`)
+        .then((res) => {
+          let gearList = res.data.equipment;
+
+          for (var i = 0; i < count; i++) {
+            const numOfGear = randomNumber(0, 116);
+            let gear = gearList[numOfGear].name;
+            let gearLi = document.createElement("li");
+            gearLi.textContent = gear;
+            gearLi.value = gear;
+            gearFound.appendChild(gearLi);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  const getMagic = (likeability) => {
+    const magicFound = document.getElementById("magicFound");
+    if (likeability == 1) {
+      axios
+        .get(baseURL + `/equipment-categories/medium-armor`)
+        .then((res) => {
+          let armorList = res.data.equipment;
+          let armorNum = randomNumber(0, 5);
+          magicFound.innerText = "Armor: " + armorList[armorNum].name;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else if (likeability == 2) {
+      axios
+        .get(baseURL + `/magic-items`)
+        .then((res) => {
+          let magicList = res.data.results;
+          let magicNum = randomNumber(5, 362);
+          magicFound.innerText = "Magical Item: " + magicList[magicNum].name;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      axios
+        .get(baseURL + `/equipment-categories/wondrous-items`)
+        .then((res) => {
+          let wondrousList = res.data.equipment;
+          let wonderousNum = randomNumber(0, 177);
+          magicFound.innerText =
+            "Wondrous Item: " + wondrousList[wonderousNum].name;
+        });
+    }
+  };
 
   const refreshTreasure = () => {
-    console.log("MORE TREASURE");
     document.getElementById("dropDowns").style.display = "flex";
     document.getElementById("lootList").style.display = "none";
-    console.log(goldCount)
-    document.getElementById("partySize").value = ""
+    document.getElementById("partySize").value = "";
+    document.getElementById("skillLevel").value = "";
+    document.getElementById("likeability").value = "";
+    document.getElementById("equipmentFound").innerHTML = "";
+    document.getElementById("weaponsFound").innerHTML = "";
+    document.getElementById("gearFound").innerHTML = "";
+    document.getElementById("magicFound").innerText = "";
     partySize = "";
     partySkill = "";
     partyFavor = "";
-    console.log("should be empty");
   };
 
   return (
@@ -112,32 +198,41 @@ const itemsFound = (count, skill) => {
           </a>
         </button>
       </div>
-      <div className="lootList" id="lootList" style={{display: "none"}}>
-          <h3>Treasure!</h3>
-          <h3 id="goldCount"></h3>
-          <h3 id="equipmentFound"></h3>
-     
-      <div className="refresh">
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "175px",
-            marginBottom: "2%",
-          }}
-          onClick={refreshTreasure}
-        >
-          Roll Again
-          <a>
-            <FontAwesomeIcon
-              icon={faCoins}
-              style={{ color: "white", marginLeft: "7px" }}
-            />
-          </a>
-        </button>
-      </div> </div>
+      <div className="lootList" id="lootList" style={{ display: "none" }}>
+        <div className="equipment">
+          <div className="oneForAll">
+            <h3>Equipment</h3>
+            <div id="equipmentFound"></div>
+            <div id="weaponsFound"></div>
+            <div id="gearFound"></div>
+          </div>
+          <div className="goldandMagic">
+            <h3 id="goldCount"></h3>
+            <h3 id="magicFound"></h3>
+          </div>
+        </div>
+        <div className="refresh">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+            }}
+            onClick={refreshTreasure}
+          >
+            Roll Again
+            <a>
+              <FontAwesomeIcon
+                icon={faCoins}
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
+        </div>{" "}
+      </div>
     </div>
   );
 }
