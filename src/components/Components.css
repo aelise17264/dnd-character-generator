@@ -117,15 +117,19 @@ h2 {
 }
 .goBack {
   justify-content: center;
-  /* align-items: center; */
+  align-items: right;
   display: flex;
   flex-direction: column;
-  padding: 0 5%;
+  /* padding: 0 5%; */
   text-align: right;
+  width: 100%;
+  margin-right: 10%;
 }
 .toSpells {
   /* padding: 0 10%; */
-  padding-left: 30%;
+  /* margin-left: 10%; */
+  width: 100%;
+  align-items: left;
 }
 /* h3{
     text-decoration: underline;
@@ -142,6 +146,7 @@ li {
   display: flex;
   flex-direction: row;
   color: white;
+  width: 125%;
 }
 .navArrows p {
   overflow-wrap: normal;
@@ -303,7 +308,7 @@ footer {
 
 /* "https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
   */
-.treasurePage {
+#treasurePage {
   background-image: url("https://wallpaper-house.com/data/out/9/wallpaper2you_311594.jpg");
   background-position: center;
   background-repeat: no-repeat;

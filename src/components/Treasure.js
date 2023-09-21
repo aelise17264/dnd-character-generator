@@ -35,7 +35,9 @@ function Treasure() {
       itemsFound(partySize, partySkill);
       getMagic(partyFavor);
     }
+   document.getElementById("treasurePage").style.height = "fit-content"
   };
+
   const setGoldCount = (count) => {
     document.getElementById("goldCount").innerHTML = "Gold: " + count * 100;
   };
@@ -147,13 +149,15 @@ function Treasure() {
     document.getElementById("weaponsFound").innerHTML = "";
     document.getElementById("gearFound").innerHTML = "";
     document.getElementById("magicFound").innerText = "";
+    document.getElementById("treasurePage").style.height = "100vh"
+
     partySize = "";
     partySkill = "";
     partyFavor = "";
   };
 
   return (
-    <div className="treasurePage">
+    <div className="treasurePage" id="treasurePage">
       <div className="treasure">
         <h3>Treasure Page</h3>
         <button
@@ -263,7 +267,7 @@ function Treasure() {
               />
             </a>
           </button>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );

@@ -164,7 +164,6 @@ function Monsters() {
             </div>
             <div className="fullStats">
               <div className="boringStats">
-                <p>{monsterData.desc}</p>
                 <p>Type: {monsterData.type}</p>
                 <p>Language: {monsterData.languages}</p>
                 <p>Alignment: {monsterData.alignment}</p>
@@ -185,6 +184,8 @@ function Monsters() {
           </div>
 
           <div className="monsterGroup2">
+          <p>{monsterData.desc}</p>
+
             <div className="speedList">
               <h4>Speed: &nbsp;</h4>
               <div id="speedList"></div>
@@ -195,6 +196,7 @@ function Monsters() {
                 {armorStats[0]} {armorStats[1]}
               </p>
             </div>
+
             <h3>Actions</h3>
             <div id="monsterActions"></div>
           </div>

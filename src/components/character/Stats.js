@@ -5,7 +5,7 @@ import { characterSpellSlots } from "../../api/CharacterSpellSlots";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { statBonuses } from "../../api/StatList";
-import { faRightLong, faLeftLong, faHouseCrack } from "@fortawesome/free-solid-svg-icons";
+import { faRightLong, faLeftLong, faHouseCrack, faScroll } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
   const [statData, setStatData] = useState([]);
@@ -138,14 +138,13 @@ function Stats() {
           </a>
         </div>
         <div className="toSpells">
-          <h3>Go Foward</h3>
+          <h3>Print Character Sheet</h3>
           <p>
-            If your character is a spell caster click this arrow to roll for
-            spells
+           This isn't working yet, Sorry
           </p>
           <a id="arrow">
             <FontAwesomeIcon
-              icon={faRightLong}
+              icon={faScroll}
               size="2xl"
               style={{ color: "white" }}
               onClick={handleNavToSpells}
