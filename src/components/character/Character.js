@@ -9,7 +9,11 @@ import { ReactDOM } from "react-dom";
 import { nameList } from "../../api/NameList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDAndD } from "@fortawesome/free-brands-svg-icons";
-import { faDiceD20, faRightLong } from "@fortawesome/free-solid-svg-icons";
+import {
+  faDiceD20,
+  faRightLong,
+  faHouseCrack,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Character() {
   const [nameData, setNameData] = useState("");
@@ -130,9 +134,10 @@ function Character() {
   };
   const getFeature = () => {
     axios.get(baseURL + `/features`).then((res) => {
+      let features = document.getElementById("features");
+
       let featureList = res.data.results;
 
-      let features = document.getElementById("features");
       for (var i = 0; i < featureList.length; i++) {
         let feat = featureList[i].index;
         let featOpt = document.createElement("option");
@@ -140,24 +145,25 @@ function Character() {
         featOpt.value = feat;
         features.appendChild(featOpt);
       }
-      // let featureIndex = randomNumber(1, 370);
-      // setFeaturesData(featureList[featureIndex].name);
     });
   };
 
   const setFeature = (e) => {
-    // console.log("hopefully more than one", traitData);
-    // let charFeature = e.target.value
     setFeaturesData({
       featuresData: e.target.value,
     });
   };
-  //   console.log("feature", e.target.value)
-  //   setFeature(charFeature);
-  //   // console.log('set feature', e.target.value)
-  // };
 
   const createCharacter = () => {
+    let features = document.getElementById("features");
+    let trait1 = document.getElementById("Rtrait1");
+    let trait2 = document.getElementById("Rtrait2");
+
+    features.value = "";
+    trait1.value = "";
+    trait2.value = "";
+    trait2.disabled = 1;
+
     generateCharacter();
     getAlignment();
     getCharName();
@@ -224,6 +230,7 @@ function Character() {
   let navigate = useNavigate();
   const handleArrowClick = () =>
     navigate("/Stats", { replace: true, state: { nameData, classData } });
+  const navHome = () => navigate("/", { replace: true });
 
   const possibleNames = nameList[nameData];
   const getNameList = possibleNames?.map((name) => {
@@ -233,15 +240,48 @@ function Character() {
 
   return (
     <div className="character" id="character">
-      <div>
+      <div className="buttons">
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#282c34", border: "none" }}
+          style={{
+            backgroundColor: "#282c34",
+            border: "none",
+            width: "220px",
+            marginBottom: "2%",
+            marginLeft: "1%",
+          }}
           onClick={createCharacter}
           id="reroll"
         >
+          <a>
+            <FontAwesomeIcon
+              icon={faDiceD20}
+              style={{ color: "white", marginRight: "5px" }}
+            />
+          </a>
           Roll for Character
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary btn-lg homeButton"
+          id="homeButton"
+          style={{
+            backgroundColor: "#282c34",
+            border: "none",
+            width: "175px",
+            marginBottom: "2%",
+            marginRight: "2%",
+          }}
+          onClick={navHome}
+        >
+          Back Home
+          <a>
+            <FontAwesomeIcon
+              icon={faHouseCrack}
+              style={{ color: "white", marginLeft: "7px" }}
+            />
+          </a>
         </button>
       </div>
       <div id="hideForm">
@@ -306,7 +346,7 @@ function Character() {
                 onChange={changeTrait2}
                 className="form-select"
               >
-                <option>Select Trait</option>
+                <option value="">Select Trait</option>
               </select>
               {/* <ul>
                 <li>{traitData[0]}</li>

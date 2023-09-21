@@ -2,11 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoins } from "@fortawesome/free-solid-svg-icons";
+import { faCoins, faHouseCrack } from "@fortawesome/free-solid-svg-icons";
 
 import "./Components.css";
 
 function Treasure() {
+  let navigate = useNavigate();
+  const navHome = () => navigate("/", { replace: true });
+
   const baseURL = "https://www.dnd5eapi.co/api";
 
   function randomNumber(min, max) {
@@ -21,18 +24,17 @@ function Treasure() {
     partySize = document.getElementById("partySize").value;
     partySkill = document.getElementById("skillLevel").value;
     partyFavor = document.getElementById("likeability").value;
-    let errorMessage = document.getElementById("errorMessage")
-    if(partySize == "" || partySkill == "" || partyFavor == ""){
-      errorMessage.innerText = "Oops you forgot something"
-    }
-    else{
+    let errorMessage = document.getElementById("errorMessage");
+    if (partySize == "" || partySkill == "" || partyFavor == "") {
+      errorMessage.innerText = "Oops you forgot something";
+    } else {
       errorMessage.innerText = "";
       document.getElementById("dropDowns").style.display = "none";
-    document.getElementById("lootList").style.display = "block";
-    setGoldCount(partySize);
-    itemsFound(partySize, partySkill);
-    getMagic(partyFavor);
-  }
+      document.getElementById("lootList").style.display = "block";
+      setGoldCount(partySize);
+      itemsFound(partySize, partySkill);
+      getMagic(partyFavor);
+    }
   };
   const setGoldCount = (count) => {
     document.getElementById("goldCount").innerHTML = "Gold: " + count * 100;
@@ -154,6 +156,27 @@ function Treasure() {
     <div className="treasurePage">
       <div className="treasure">
         <h3>Treasure Page</h3>
+        <button
+          type="button"
+          className="btn btn-primary btn-lg homeButton"
+          id="homeButton"
+          style={{
+            backgroundColor: "#282c34",
+            border: "none",
+            width: "175px",
+            marginBottom: "2%",
+            marginRight: "2%",
+          }}
+          onClick={navHome}
+        >
+          Back Home
+          <a>
+            <FontAwesomeIcon
+              icon={faHouseCrack}
+              style={{ color: "white", marginLeft: "7px" }}
+            />
+          </a>
+        </button>
       </div>
       <div id="dropDowns" className="dropDowns">
         <div>

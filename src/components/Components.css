@@ -18,6 +18,15 @@
 .title {
   width: 75vw;
 }
+.buttons,
+.treasure {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2%;
+}
+.treasure h3 {
+  margin-left: 2%;
+}
 .characterVisual {
   display: flex;
   flex-direction: column;
@@ -80,9 +89,9 @@ a {
 #arrow {
   margin-top: 0;
 }
-#reroll {
+/* #reroll {
   margin-bottom: 1%;
-}
+} */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -156,7 +165,8 @@ hr {
 #spellPage {
   height: 100vh;
 }
-.statGroup, .equipment {
+.statGroup,
+.equipment {
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -173,11 +183,12 @@ hr {
   padding: 4%;
   color: #282c34;
 }
-.groupOne, .groupTwo{
+.groupOne,
+.groupTwo {
   width: 40vw;
-
 }
-.oneForAll, .goldandMagic{
+.oneForAll,
+.goldandMagic {
   width: 27vw;
 }
 .groupOne {
@@ -349,7 +360,19 @@ footer {
   flex-direction: row;
   justify-content: center;
 }
+.statButton {
+  align-self: end;
+  margin-right: 2%;
 
+}
+
+#statHomeButton{
+  margin-top: 2%;
+  background-color: #282c34;
+  border: none;
+  width: 175px;
+  margin-bottom: 2%;
+}
 .monsterStats {
   padding-top: 1%;
 }
@@ -394,7 +417,7 @@ footer {
   display: flex;
   flex-direction: row;
 }
-.goldandMagic img{
+.goldandMagic img {
   width: 40vh;
   padding-top: 10%;
 }

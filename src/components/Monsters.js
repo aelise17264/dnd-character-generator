@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSkull } from "@fortawesome/free-solid-svg-icons";
+import { faSkull, faHouseCrack } from "@fortawesome/free-solid-svg-icons";
 import { monsterList } from "../api/MonsterList";
 
 import "./Components.css";
@@ -17,6 +17,9 @@ function Monsters() {
   // let armorType;
 
   const baseURL = "https://www.dnd5eapi.co/api/monsters/";
+  let navigate = useNavigate();
+  const navHome = () => navigate("/", { replace: true });
+
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }
@@ -103,25 +106,49 @@ function Monsters() {
     <div id="monsterPage">
       <div className="monsters">
         <h3>Monster Page</h3>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "175px",
-            marginBottom: "2%",
-          }}
-          onClick={fullMonsterCall}
-        >
-          Get Monster
-          <a>
-            <FontAwesomeIcon
-              icon={faSkull}
-              style={{ color: "white", marginLeft: "7px" }}
-            />
-          </a>
-        </button>
+        <div className="buttons">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginLeft: "2%",
+            }}
+            onClick={fullMonsterCall}
+          >
+            Get Monster
+            <a>
+              <FontAwesomeIcon
+                icon={faSkull}
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg homeButton"
+            id="homeButton"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginRight: "2%",
+            }}
+            onClick={navHome}
+          >
+            Back Home
+            <a>
+              <FontAwesomeIcon
+                icon={faHouseCrack}
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
+        </div>
       </div>
       <div
         className="monsterDetails"
