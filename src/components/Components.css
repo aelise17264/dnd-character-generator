@@ -5,7 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 130vh;
+  height: 100vh;
 }
 
 .generate {
@@ -146,7 +146,7 @@ li {
   display: flex;
   flex-direction: row;
   color: white;
-  width: 125%;
+  width: 100%;
 }
 .navArrows p {
   overflow-wrap: normal;
@@ -162,6 +162,7 @@ hr {
   justify-content: center;
   align-items: center;
   align-content: center;
+  width: 100vw;
   /* height: 100vh; */
 }
 .statsPage {
