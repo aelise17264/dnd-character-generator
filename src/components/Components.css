@@ -378,13 +378,19 @@ footer {
   width: 175px;
   margin-bottom: 2%;
 }
-.monsterStats {
+.monsterStats, .boringStats {
   padding-top: 1%;
 }
+.monsterStats li{
+  font-size: 1.2rem;
+}
+#monsterActions li{
+  font-size: 1.2rem;
+}
 .boringStats {
-  width: 65%;
+  width: 50%;
   /* padding-left: 6% */
-  padding-right: 5%;
+  /* padding-right: 5%; */
 }
 .boringStats p {
   font-size: large;

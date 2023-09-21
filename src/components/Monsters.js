@@ -164,6 +164,7 @@ function Monsters() {
             </div>
             <div className="fullStats">
               <div className="boringStats">
+              <h3>Monster Info</h3>
                 <p>Type: {monsterData.type}</p>
                 <p>Language: {monsterData.languages}</p>
                 <p>Alignment: {monsterData.alignment}</p>
