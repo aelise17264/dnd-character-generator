@@ -164,7 +164,7 @@ function Monsters() {
             </div>
             <div className="fullStats">
               <div className="boringStats">
-              <h3>Monster Info</h3>
+                <h3>Monster Info</h3>
                 <p>Type: {monsterData.type}</p>
                 <p>Language: {monsterData.languages}</p>
                 <p>Alignment: {monsterData.alignment}</p>
@@ -185,7 +185,7 @@ function Monsters() {
           </div>
 
           <div className="monsterGroup2">
-          <p>{monsterData.desc}</p>
+            <p>{monsterData.desc}</p>
 
             <div className="speedList">
               <h4>Speed: &nbsp;</h4>

@@ -27,6 +27,9 @@ function Treasure() {
     let errorMessage = document.getElementById("errorMessage");
     if (partySize == "" || partySkill == "" || partyFavor == "") {
       errorMessage.innerText = "Oops you forgot something";
+    } else if (partySize <= 0) {
+      errorMessage.innerText =
+        "Are you playing with ghosts? Check your party size";
     } else {
       errorMessage.innerText = "";
       document.getElementById("dropDowns").style.display = "none";
@@ -34,8 +37,8 @@ function Treasure() {
       setGoldCount(partySize);
       itemsFound(partySize, partySkill);
       getMagic(partyFavor);
+      document.getElementById("treasurePage").style.height = "fit-content";
     }
-   document.getElementById("treasurePage").style.height = "fit-content"
   };
 
   const setGoldCount = (count) => {
@@ -149,7 +152,7 @@ function Treasure() {
     document.getElementById("weaponsFound").innerHTML = "";
     document.getElementById("gearFound").innerHTML = "";
     document.getElementById("magicFound").innerText = "";
-    document.getElementById("treasurePage").style.height = "100vh"
+    document.getElementById("treasurePage").style.height = "100vh";
 
     partySize = "";
     partySkill = "";
@@ -195,7 +198,11 @@ function Treasure() {
         </div>
         <div>
           <label for="skillLevel">Party Skill Level</label>
-          <select id="skillLevel" className="form-select" name="skillLevel">
+          <select
+            id="skillLevel"
+            className="form-select bg-transparent"
+            name="skillLevel"
+          >
             <option value="">How are they doing?</option>
             <option value="1">Lucky to still be alive</option>
             <option value="2">They're learning</option>

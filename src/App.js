@@ -26,10 +26,9 @@ function App() {
         <div className="welcome">
           <h2>Welcome Traveler</h2>
           <p>
-            Planning a campaign? 
-            Need to quickly throw together some NPCs?
-            Want your team to find some exciting treasure along the way? 
-            Or have them turn the corner to find an unexpected monster?
+            Planning a campaign? Need to quickly throw together some NPCs? Want
+            your team to find some exciting treasure along the way? Or have them
+            turn the corner to find an unexpected monster?
           </p>
           <p>Roll the dice bellow for chaotic choices from each category.</p>
           {/* <p>

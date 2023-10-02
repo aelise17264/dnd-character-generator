@@ -5,7 +5,12 @@ import { characterSpellSlots } from "../../api/CharacterSpellSlots";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { statBonuses } from "../../api/StatList";
-import { faRightLong, faLeftLong, faHouseCrack, faScroll } from "@fortawesome/free-solid-svg-icons";
+import {
+  faRightLong,
+  faLeftLong,
+  faHouseCrack,
+  faScroll,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
   const [statData, setStatData] = useState([]);
@@ -59,28 +64,28 @@ function Stats() {
   let navigate = useNavigate();
   const handleArrowClick = () => navigate("/Character", { replace: true });
   const handleNavToSpells = () => navigate("/Spells", { replace: true });
-  const goHome  = () => navigate("/", { replace: true });
+  const goHome = () => navigate("/", { replace: true });
 
   return (
     // <div className="character">
     //   {/* <Header /> */}
     <div className="statsPage">
-    <div className="statButton">
-    <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            id="statHomeButton"
-            onClick={goHome}
-          >
-            Back Home
-            <a>
-              <FontAwesomeIcon
-                icon={faHouseCrack}
-                style={{ color: "white", marginLeft: "7px" }}
-              />
-            </a>
-          </button>
-          </div>
+      <div className="statButton">
+        <button
+          type="button"
+          className="btn btn-primary btn-lg"
+          id="statHomeButton"
+          onClick={goHome}
+        >
+          Back Home
+          <a>
+            <FontAwesomeIcon
+              icon={faHouseCrack}
+              style={{ color: "white", marginLeft: "7px" }}
+            />
+          </a>
+        </button>
+      </div>
       <h1 id="statsTitle">Stats Page</h1>
       <button
         type="button"
@@ -139,9 +144,7 @@ function Stats() {
         </div>
         <div className="toSpells">
           <h3>Print Character Sheet</h3>
-          <p>
-           This isn't working yet, Sorry
-          </p>
+          <p>This isn't working yet, Sorry</p>
           <a id="arrow">
             <FontAwesomeIcon
               icon={faScroll}
