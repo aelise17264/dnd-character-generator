@@ -50,24 +50,25 @@ form {
   flex-direction: row-reverse;
   justify-content: center;
   background-color: oldlace;
-  opacity: 75%;
+  opacity: 80%;
   width: fit-content;
   margin: auto;
   padding: 2% 5%;
   border-radius: 3%;
 }
 .names {
-  margin-left: 50%;
+  margin-left: 25%;
   margin-top: 2%;
+  font-size: x-large;
 }
 .name {
-  font-size: medium;
+  font-size: large;
 }
 #dice {
   width: 25vw;
-  margin-left: 25%;
+  /* margin-left: 25%; */
   margin-right: 2%;
-  border: 0px;
+  /* border: 0px; */
   align-items: center;
   justify-content: center;
   align-self: center;
@@ -250,60 +251,60 @@ footer {
 /* character images */
 .Dragonborn {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
-  height: 69vh;
+  height: 72vh;
   /* border: 0; */
 }
 
 .Dwarf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
-  height: 60vh;
+  height: 63vh;
   /* border: 0; */
 }
 
 .Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png");
   max-width: 23vw;
-  border: solid 1px white;
-  height: 70vh;
+  height: 73vh;
+  opacity: 100%;
 }
 
 .Gnome {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
-  height: 55vh;
+  height: 57vh;
   max-width: 23vw;
   /* border: 0; */
 }
 
 .Half-Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
-  max-width: 23vw;
-  height: 70vh;
+  max-width: 23.3vw;
+  height: 75vh;
   /* border: 0; */
 }
 
 .Halfling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
-  height: 65vh;
-  max-width: 23vw;
+  height: 68vh;
+  max-width: 24vw;
   /* border: 0; */
 }
 
 .Half-Orc {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
-  height: 65vh;
+  height: 66vh;
   max-width: 23vw;
   /* border: 0; */
 }
 .Human {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
   max-width: 20vw;
-  height: 70vh;
+  height: 75vh;
   /* border: 0; */
 }
 .Tiefling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
   max-width: 23vw;
-  height: 70vh;
+  height: 75vh;
   /* border: 0; */
 }
 

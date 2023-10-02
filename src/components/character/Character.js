@@ -77,7 +77,7 @@ function Character() {
       .then((res) => {
         let traitList = res.data.results;
         let traitSelect1 = document.getElementById("Rtrait1");
-        for (var i = 0; i < traitList.length; i++) {
+        for (var i = 0; i < 39; i++) {
           let trait = traitList[i].name;
           let opt = document.createElement("option");
           opt.textContent = trait;
@@ -134,8 +134,6 @@ function Character() {
   };
   const getFeature = () => {
     axios.get(baseURL + `/features`).then((res) => {
-      let features = document.getElementById("features");
-
       let featureList = res.data.results;
 
       for (var i = 0; i < featureList.length; i++) {
@@ -155,6 +153,18 @@ function Character() {
   };
 
   const createCharacter = () => {
+    generateCharacter();
+    getAlignment();
+    getCharName();
+    getClass();
+    getTraits();
+    getLanguages();
+    getEquipment();
+    getArmor();
+    getFeature();
+  };
+
+  const reRollChar = () => {
     let features = document.getElementById("features");
     let trait1 = document.getElementById("Rtrait1");
     let trait2 = document.getElementById("Rtrait2");
@@ -168,15 +178,13 @@ function Character() {
     getAlignment();
     getCharName();
     getClass();
-    getTraits();
     getLanguages();
     getEquipment();
     getArmor();
-    getFeature();
-    // getNameList();
   };
 
   function generateCharacter() {
+    console.log("generate");
     // let newCharName
     document.getElementById("hideForm").style.display = "block";
     document.getElementById("character").style.height = "fit-content";
@@ -287,7 +295,7 @@ function Character() {
       <div id="hideForm">
         <div className="topForm">
           <div className="characterVisual">
-            <img id="dice" className={nameData} />
+            <div id="dice" className={nameData} />
             <div className="names">
               <label>Possible Names</label>
               <ul id="listOfNames"></ul>
@@ -375,7 +383,7 @@ function Character() {
             type="button"
             className="btn btn-primary btn-lg"
             style={{ backgroundColor: "#282c34", border: "none" }}
-            onClick={createCharacter}
+            onClick={reRollChar}
             id="reroll"
           >
             Roll Again

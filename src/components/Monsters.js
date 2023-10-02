@@ -168,7 +168,9 @@ function Monsters() {
                 <p>Type: {monsterData.type}</p>
                 <p>Language: {monsterData.languages}</p>
                 <p>Alignment: {monsterData.alignment}</p>
-                <p>Hit Points: {monsterData.hit_points}</p>
+                <p style={{ fontWeight: "bold" }}>
+                  Hit Points: {monsterData.hit_points}
+                </p>
               </div>
               <div className="monsterStats">
                 <h3>Stats</h3>
