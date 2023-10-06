@@ -62,7 +62,7 @@ function Spells() {
     document.getElementById("spellPage").style.height = "auto";
   };
   let navigate = useNavigate();
-  const handleNavToFinal = () => navigate("/Final", { replace: true });
+  const handleNavToFinal = () => navigate("/Print", { replace: true });
 
   return (
     <div id="spellPage" className="spellPage">

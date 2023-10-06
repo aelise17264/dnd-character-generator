@@ -62,9 +62,30 @@ function Stats() {
     getSpellSlots();
   };
 
+  const finalCharacter = [
+    
+    location.state.nameData,
+ 
+    location.state.classData,
+    location.state.alignmentData,
+    location.state.traitData,
+    location.state.featuresData,
+    location.state.languageData,
+    location.state.equipmentData,
+    location.state.armorData,
+    statData,
+    spellData,
+    playerBonus,
+  ];
+
   let navigate = useNavigate();
   const handleArrowClick = () => navigate("/Character", { replace: true });
-  const handleNavToSpells = () => navigate("/Spells", { replace: true });
+  // const handleNavToSpells = () => navigate("/Spells", { replace: true });
+  const handleNavToPrint = () =>
+    navigate("/Print", {
+      replace: true,
+      state: finalCharacter,
+    });
   const goHome = () => navigate("/", { replace: true });
 
   return (
@@ -145,13 +166,13 @@ function Stats() {
         </div>
         <div className="toSpells">
           <h3>Print Character Sheet</h3>
-          <p>This isn't working yet, Sorry</p>
+          {/* <p>This isn't working yet, Sorry</p> */}
           <a id="arrow">
             <FontAwesomeIcon
               icon={faScroll}
               size="2xl"
               style={{ color: "white" }}
-              onClick={handleNavToSpells}
+              onClick={handleNavToPrint}
             />
           </a>
         </div>

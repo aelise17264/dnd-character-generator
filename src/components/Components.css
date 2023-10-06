@@ -1,11 +1,14 @@
 .character,
 .statsPage,
-.spellPage {
+.printPage {
   background-image: url("https://images8.alphacoders.com/130/1304871.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: fit-content;
+}
+.printPage {
+  height: 100vh;
 }
 
 .generate {
@@ -164,7 +167,7 @@ hr {
   align-items: center;
   align-content: center;
   width: auto;
-  /* height: 100vh; */
+  height: 100vh;
 }
 /* .statsPage {
   height: fit-content;

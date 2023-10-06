@@ -139,14 +139,13 @@ function Character() {
   };
 
   const changeTrait1 = (e) => {
-    let newTrait = e.target.value
+    let newTrait = e.target.value;
     // traitData.unshift(newTrait)
     // traitData = traitData.slice(0, 1)
     setTraitsData([newTrait, ...traitData.slice(0, 1)]);
     // e.target.option.style = {"backgroundColor": "blue"}
     // displaySecondTraitList();
   };
-
 
   const getFeature = () => {
     axios
@@ -168,7 +167,7 @@ function Character() {
   };
 
   const setFeature = (e) => {
-    let newFeature = e.target.value
+    let newFeature = e.target.value;
     setFeaturesData(newFeature.replace(/-/g, " "));
   };
 
@@ -202,7 +201,6 @@ function Character() {
     getEquipment();
     getArmor();
   };
-
 
   let navigate = useNavigate();
   const handleArrowClick = () => {
@@ -335,12 +333,8 @@ function Character() {
               >
                 <option value="">Select Trait</option>
               </select>
-              <p>
-                {traitData[0]}
-              </p>
-              <p>
-                {traitData[1]}
-              </p>
+              <p>{traitData[0]}</p>
+              <p>{traitData[1]}</p>
               {/* <select
                   
                   name="randomTraits"
