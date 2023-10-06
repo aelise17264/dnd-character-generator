@@ -16,6 +16,7 @@ import {
   faDiceD20,
   faRightLong,
   faHouseCrack,
+  faEraser
 } from "@fortawesome/free-solid-svg-icons";
 
 function Character() {
@@ -124,7 +125,7 @@ function Character() {
       .then((res) => {
         let traitList = res.data.results;
         let traitSelect1 = document.getElementById("Rtrait1");
-        for (var i = 0; i < 39; i++) {
+        for (var i = 0; i <= 39; i++) {
           let trait = traitList[i].name;
           let opt = document.createElement("option");
           opt.textContent = trait;
@@ -153,7 +154,7 @@ function Character() {
       .then((res) => {
         let featureList = res.data.results;
 
-        for (var i = 0; i < featureList.length; i++) {
+        for (var i = 0; i <= featureList.length; i++) {
           let feat = featureList[i].index;
           let featOpt = document.createElement("option");
           featOpt.textContent = feat;
@@ -225,6 +226,11 @@ function Character() {
     }
   };
 
+  const clearSheet = () => {
+    localStorage.clear();
+    window.location.reload()
+  }
+
   const navHome = () => {
     localStorage.clear();
     navigate("/", { replace: true });
@@ -238,6 +244,26 @@ function Character() {
   return (
     <div className="character" id="character">
       <div className="buttons">
+      <button
+          type="button"
+          className="btn btn-primary btn-lg"
+          style={{
+            backgroundColor: "#282c34",
+            border: "none",
+            width: "220px",
+            marginBottom: "2%",
+            marginLeft: "1%",
+          }}
+          onClick={clearSheet}
+        >
+          <a>
+            <FontAwesomeIcon
+              icon={faEraser}
+              style={{ color: "white", marginRight: "5px" }}
+            />
+          </a>
+          Clear Character Sheet
+        </button>
         <button
           type="button"
           className="btn btn-primary btn-lg"

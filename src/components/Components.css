@@ -1,6 +1,5 @@
 .character,
-.statsPage,
-.printPage {
+.statsPage{
   background-image: url("https://images8.alphacoders.com/130/1304871.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -8,7 +7,18 @@
   height: fit-content;
 }
 .printPage {
-  height: 100vh;
+  background-image: url("https://freerangestock.com/sample/47810/old-tainted-parchment--grunge-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: fit-content;
+}
+.printForm{
+  display: flex;
+}
+.secondForm{
+  margin-left: 2%;
+  width: 35%;
 }
 
 .generate {
@@ -26,6 +36,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 2%;
+  margin-left: 1%;
 }
 .treasure h3 {
   margin-left: 2%;
