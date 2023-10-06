@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import useLocalStorage from "use-local-storage";
 import { characterSpellSlots } from "../../api/CharacterSpellSlots";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
@@ -13,8 +14,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
-  const [statData, setStatData] = useState([]);
-  const [spellData, setSpellData] = useState([]);
+  const [statData, setStatData] = useLocalStorage("stats", []);
+  const [spellData, setSpellData] = useLocalStorage("spells", []);
   let statRange = [15, 14, 13, 12, 10, 8];
 
   const location = useLocation();

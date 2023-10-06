@@ -5,7 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: fit-content;
 }
 
 .generate {
@@ -40,14 +40,9 @@ form {
   /* width: auto; */
 }
 
-#hideForm {
-  padding-top: 2%;
-  display: none;
-}
-
-.topForm {
+.wholeForm {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   justify-content: center;
   background-color: oldlace;
   opacity: 80%;
@@ -56,9 +51,21 @@ form {
   padding: 2% 5%;
   border-radius: 3%;
 }
+
+.topForm {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.buttonHolder {
+  display: flex;
+  align-self: center;
+}
+
 .names {
-  margin-left: 25%;
   margin-top: 2%;
+  margin-bottom: 5%;
+  margin-left: 35%;
   font-size: x-large;
 }
 .name {
@@ -66,9 +73,7 @@ form {
 }
 #dice {
   width: 25vw;
-  /* margin-left: 25%; */
   margin-right: 2%;
-  /* border: 0px; */
   align-items: center;
   justify-content: center;
   align-self: center;
@@ -90,14 +95,10 @@ a {
 #arrow {
   margin-top: 0;
 }
-/* #reroll {
-  margin-bottom: 1%;
-} */
+
 .form-group {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around;
-    align-content: flex-start; */
 }
 h2 {
   font-weight: bold;
@@ -105,7 +106,6 @@ h2 {
 #statsTitle {
   color: white;
 }
-
 .refresh {
   justify-content: center;
   align-items: center;
@@ -163,12 +163,12 @@ hr {
   justify-content: center;
   align-items: center;
   align-content: center;
-  width: 100vw;
+  width: auto;
   /* height: 100vh; */
 }
-.statsPage {
-  height: 100vh;
-}
+/* .statsPage {
+  height: fit-content;
+} */
 #spellPage {
   height: 100vh;
 }
@@ -185,21 +185,19 @@ hr {
 .oneForAll,
 .goldandMagic {
   background-color: oldlace;
-  opacity: 75%;
+  opacity: 80%;
   border-radius: 5%;
   padding: 4%;
   color: #282c34;
-}
-.groupOne,
-.groupTwo {
-  width: 40vw;
-}
-.oneForAll,
-.goldandMagic {
   width: 27vw;
 }
 .groupOne {
-  margin-right: 2%;
+  margin-right: 10%;
+  padding-left: 7%;
+}
+
+.oneForAll {
+  margin-right: -10%;
 }
 
 .spells {
@@ -222,7 +220,6 @@ hr {
 #descriptionList2,
 #cantripDesc {
   list-style-type: none;
-  /* color: red; */
 }
 .spellList li {
   font-size: 17px;
@@ -378,6 +375,7 @@ footer {
   border: none;
   width: 175px;
   margin-bottom: 2%;
+  /* margin-right: auto; */
 }
 .monsterStats,
 .boringStats {
@@ -448,7 +446,8 @@ footer {
   width: 40vh;
   padding-top: 10%;
 }
-#errorMessage {
+#errorMessage,
+#charError {
   color: red;
   font-size: x-large;
   font-weight: bold;

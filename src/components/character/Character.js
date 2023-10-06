@@ -4,8 +4,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import Stats from "./Stats";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import Select from "react-select";
+import Async, { useAsync } from "react-select/async";
 import { ReactDOM } from "react-dom";
+import useLocalStorage from "use-local-storage";
 import { nameList } from "../../api/NameList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDAndD } from "@fortawesome/free-brands-svg-icons";
@@ -16,14 +19,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Character() {
-  const [nameData, setNameData] = useState("");
-  const [alignmentData, setAlignmentData] = useState("");
-  const [classData, setClassData] = useState("");
-  const [traitData, setTraitsData] = useState([]);
-  const [featuresData, setFeaturesData] = useState("");
-  const [languageData, setLanguageData] = useState("");
-  const [equipmentData, setEquipmentData] = useState("");
-  const [armorData, setArmorData] = useState("");
+  const [nameData, setNameData] = useLocalStorage("name", "");
+  const [alignmentData, setAlignmentData] = useLocalStorage("alignment", "");
+  const [classData, setClassData] = useLocalStorage("class", "");
+  const [traitData, setTraitsData] = useLocalStorage("traits", []);
+  const [featuresData, setFeaturesData] = useLocalStorage("feature", "");
+  const [languageData, setLanguageData] = useLocalStorage("language", "");
+  const [equipmentData, setEquipmentData] = useLocalStorage("equipment", "");
+  const [armorData, setArmorData] = useLocalStorage("armor", "");
 
   const baseURL = "https://www.dnd5eapi.co/api/";
 
@@ -32,16 +35,19 @@ function Character() {
   }
 
   const getCharName = () => {
+    console.log("get char name");
     axios
       .get(baseURL + `/races`)
       .then((res) => {
         let newCharList = res.data.results;
+        console.log("race", newCharList);
         let newCharIndex = Math.floor(Math.random() * 10);
         setNameData(newCharList[newCharIndex].name);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
+    console.log("inside name call", nameData);
   };
 
   const getAlignment = () => {
@@ -51,10 +57,9 @@ function Character() {
         let alignmentList = res.data.results;
         let alignmentIndex = Math.floor(Math.random() * 10);
         setAlignmentData(alignmentList[alignmentIndex].name);
-        // console.log(nameData);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -67,27 +72,7 @@ function Character() {
         setClassData(classList[classIndex].name);
       })
       .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  const getTraits = () => {
-    axios
-      .get(baseURL + `/traits`)
-      .then((res) => {
-        let traitList = res.data.results;
-        let traitSelect1 = document.getElementById("Rtrait1");
-        for (var i = 0; i < 39; i++) {
-          let trait = traitList[i].name;
-          let opt = document.createElement("option");
-          opt.textContent = trait;
-          opt.value = trait;
-          traitSelect1.appendChild(opt);
-          // traitSelect2.appendChild(opt);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -107,7 +92,7 @@ function Character() {
         ]);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -132,95 +117,19 @@ function Character() {
       setArmorData(armorList[armorLevel].name);
     });
   };
-  const getFeature = () => {
-    axios.get(baseURL + `/features`).then((res) => {
-      let featureList = res.data.results;
 
-      for (var i = 0; i < featureList.length; i++) {
-        let feat = featureList[i].index;
-        let featOpt = document.createElement("option");
-        featOpt.textContent = feat;
-        featOpt.value = feat;
-        features.appendChild(featOpt);
-      }
-    });
-  };
-
-  const setFeature = (e) => {
-    setFeaturesData({
-      featuresData: e.target.value,
-    });
-  };
-
-  const createCharacter = () => {
-    generateCharacter();
-    getAlignment();
-    getCharName();
-    getClass();
-    getTraits();
-    getLanguages();
-    getEquipment();
-    getArmor();
-    getFeature();
-  };
-
-  const reRollChar = () => {
-    let features = document.getElementById("features");
-    let trait1 = document.getElementById("Rtrait1");
-    let trait2 = document.getElementById("Rtrait2");
-
-    features.value = "";
-    trait1.value = "";
-    trait2.value = "";
-    trait2.disabled = 1;
-
-    generateCharacter();
-    getAlignment();
-    getCharName();
-    getClass();
-    getLanguages();
-    getEquipment();
-    getArmor();
-  };
-
-  function generateCharacter() {
-    console.log("generate");
-    // let newCharName
-    document.getElementById("hideForm").style.display = "block";
-    document.getElementById("character").style.height = "fit-content";
-    // console.log(newCharList[newCharIndex])
-    // return newCharName
-  }
-
-  const changeTrait1 = (e) => {
-    console.log("changed");
-    setTraitsData([e.target.value]);
-    console.log(e.target.value);
-
-    document.getElementById("Rtrait2").disabled = 0;
-    displaySecondTraitList();
-    //  console.log("second trait", traitList)
-    // traitSelect2.setAttribute("disabled", " ");
-  };
-
-  const displaySecondTraitList = () => {
-    console.log(traitData, "inside get");
-    console.log(featuresData.featuresData, "feature?");
-
+  const getTraits = () => {
     axios
       .get(baseURL + `/traits`)
       .then((res) => {
-        let traitList2 = res.data.results;
-        console.log(traitList2);
-        // let filteredTraitList = traitList2.filter(traitData);
-        // console.log(filteredTraitList, "filtered list");
-        let traitSelect2 = document.getElementById("Rtrait2");
-        for (var i = 0; i < traitList2.length; i++) {
-          let trait = traitList2[i].name;
+        let traitList = res.data.results;
+        let traitSelect1 = document.getElementById("Rtrait1");
+        for (var i = 0; i < 39; i++) {
+          let trait = traitList[i].name;
           let opt = document.createElement("option");
           opt.textContent = trait;
           opt.value = trait;
-          traitSelect2.appendChild(opt);
+          traitSelect1.appendChild(opt);
           // traitSelect2.appendChild(opt);
         }
       })
@@ -229,20 +138,102 @@ function Character() {
       });
   };
 
-  const changeTrait2 = (e) => {
-    console.log(featuresData);
-
-    setTraitsData([...traitData, e.target.value]);
+  const changeTrait1 = (e) => {
+    let newTrait = e.target.value
+    // traitData.unshift(newTrait)
+    // traitData = traitData.slice(0, 1)
+    setTraitsData([newTrait, ...traitData.slice(0, 1)]);
+    // e.target.option.style = {"backgroundColor": "blue"}
+    // displaySecondTraitList();
   };
 
+
+  const getFeature = () => {
+    axios
+      .get(baseURL + `/features`)
+      .then((res) => {
+        let featureList = res.data.results;
+
+        for (var i = 0; i < featureList.length; i++) {
+          let feat = featureList[i].index;
+          let featOpt = document.createElement("option");
+          featOpt.textContent = feat;
+          featOpt.value = feat;
+          features.appendChild(featOpt);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const setFeature = (e) => {
+    let newFeature = e.target.value
+    setFeaturesData(newFeature.replace(/-/g, " "));
+  };
+
+  useEffect(() => {
+    getFeature();
+    getTraits();
+  }, []);
+
+  const createCharacter = () => {
+    // generateCharacter();
+    getAlignment();
+    getCharName();
+    getClass();
+    // getTraits();
+    getLanguages();
+    getEquipment();
+    getArmor();
+    // getFeature();
+  };
+
+  const reRollChar = () => {
+    setFeaturesData("");
+    setTraitsData(["", ""]);
+    // getFeature()
+    // getTraits()
+    // generateCharacter();
+    getAlignment();
+    getCharName();
+    getClass();
+    getLanguages();
+    getEquipment();
+    getArmor();
+  };
+
+
   let navigate = useNavigate();
-  const handleArrowClick = () =>
-    navigate("/Stats", { replace: true, state: { nameData, classData } });
-  const navHome = () => navigate("/", { replace: true });
+  const handleArrowClick = () => {
+    if ((traitData == []) | (featuresData == "")) {
+      const charError = document.getElementById("charError");
+      charError.innerText =
+        "Make sure you've selected all your character traits and features";
+    } else {
+      navigate("/Stats", {
+        replace: true,
+        state: {
+          nameData,
+          classData,
+          alignmentData,
+          traitData,
+          featuresData,
+          languageData,
+          equipmentData,
+          armorData,
+        },
+      });
+    }
+  };
+
+  const navHome = () => {
+    localStorage.clear();
+    navigate("/", { replace: true });
+  };
 
   const possibleNames = nameList[nameData];
   const getNameList = possibleNames?.map((name) => {
-    // console.log("get name list called");
     return <li className="name">{name}</li>;
   });
 
@@ -292,7 +283,7 @@ function Character() {
           </a>
         </button>
       </div>
-      <div id="hideForm">
+      <div className="wholeForm">
         <div className="topForm">
           <div className="characterVisual">
             <div id="dice" className={nameData} />
@@ -305,19 +296,13 @@ function Character() {
           <form>
             <div className="form-group">
               <h2>Alignment: {alignmentData}</h2>
-              {/* <h3 id="alignment">{alignmentData}</h3> */}
-              {/* <input className="form-control"/> */}
             </div>
             <div className="form-group">
               <h2>Class: {classData}</h2>
-              {/* <h3 id="classType">{classData}</h3> */}
-              {/* <input type="text" className="form-control" placeholder="" value="$newCharName" /> */}
             </div>
             <div className="form-group">
               <h2>Race: {nameData}</h2>
-              {/* <h3 id="charName">{nameData}</h3> */}
             </div>
-
             <div>
               <h2>Languages</h2>
               <ul>
@@ -340,22 +325,33 @@ function Character() {
             <div className="traits">
               <label for="randomTraits">Random Traits</label>
               <select
-                className="form-select"
+                class="form-select"
+                multiple
+                aria-label="multiple select example"
                 name="randomTraits"
                 id="Rtrait1"
                 onChange={changeTrait1}
+                value={traitData}
               >
                 <option value="">Select Trait</option>
               </select>
-              <select
-                disabled
-                name="randomTraits"
-                id="Rtrait2"
-                onChange={changeTrait2}
-                className="form-select"
-              >
-                <option value="">Select Trait</option>
-              </select>
+              <p>
+                {traitData[0]}
+              </p>
+              <p>
+                {traitData[1]}
+              </p>
+              {/* <select
+                  
+                  name="randomTraits"
+                  id="Rtrait2"
+                  value={traitData[1]}
+
+                  onChange={changeTrait2}
+                  className="form-select"
+                >
+                  <option value="">Select Trait</option>
+              </select> */}
               {/* <ul>
                 <li>{traitData[0]}</li>
                 <li>{traitData[1]}</li>
@@ -368,17 +364,16 @@ function Character() {
                 name="specialFeature"
                 id="features"
                 onChange={setFeature}
+                value={featuresData}
               >
                 <option value="">Select Special Feature</option>
-                {/* <option value={featuresData}>{featuresData}</option> */}
               </select>
-
-              {/* <h2>Special Feature</h2>
-              <p>{featuresData}</p> */}
+              <p>{featuresData}</p>
             </div>
           </form>
         </div>
-        <div className="refresh">
+
+        <div className="buttonHolder">
           <button
             type="button"
             className="btn btn-primary btn-lg"
@@ -388,20 +383,23 @@ function Character() {
           >
             Roll Again
           </button>
-
-          <h3>
-            If everything looks good click the arrow to get your stats. If not
-            roll again
-          </h3>
-          <a id="arrow">
-            <FontAwesomeIcon
-              icon={faRightLong}
-              size="2xl"
-              style={{ color: "white" }}
-              onClick={handleArrowClick}
-            />
-          </a>
         </div>
+      </div>
+      <div className="refresh">
+        <h3>
+          If everything looks good click the arrow to get your stats. If not
+          roll again
+        </h3>
+        <a id="charError" />
+
+        <a id="arrow">
+          <FontAwesomeIcon
+            icon={faRightLong}
+            size="2xl"
+            style={{ color: "white" }}
+            onClick={handleArrowClick}
+          />
+        </a>
       </div>
     </div>
   );
