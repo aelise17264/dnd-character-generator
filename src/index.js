@@ -13,17 +13,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<App />} />
-        <Route exact path="/character" element={<Character />} />
-        <Route exact path="/stats" element={<Stats />} />
-        <Route exact path="/print" element={<Print />} />
-        <Route exact path="/treasure" element={<Treasure />} />
-        <Route exact path="/monsters" element={<Monsters />} />
-      </Routes>
-      {/* <App /> */}
-    </BrowserRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<App />} />
+      <Route exact path="/character" element={<Character />} />
+      <Route exact path="/stats" element={<Stats />} />
+      <Route exact path="/print" element={<Print />} />
+      <Route exact path="/treasure" element={<Treasure />} />
+      <Route exact path="/monsters" element={<Monsters />} />
+    </Routes>
+    {/* <App /> */}
+  </BrowserRouter>
   // </React.StrictMode>
 );
 

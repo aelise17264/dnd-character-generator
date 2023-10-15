@@ -4,37 +4,40 @@ import { useReactToPrint } from "react-to-print";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faScroll, faHouseCrack, faSignsPost } from "@fortawesome/free-solid-svg-icons";
+import {
+  faScroll,
+  faHouseCrack,
+  faSignsPost,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Print = () => {
   const componentRef = useRef();
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const finalCall = location.state;
   let armorMod;
   if (finalCall[7] == "Studded Leather Armor") {
     armorMod = 12;
   } else {
     armorMod = 11;
-
   }
 
   useEffect(() => {
-    getBonusList()
-  }, [])
+    getBonusList();
+  }, []);
 
   const getBonusList = () => {
-console.log("rb list", finalCall[10])
-  let rbList = document.getElementById("bonusList")
-  for(var i = 0; i < finalCall[10].length; i++) {
-    console.log("inside loop", finalCall[10][i])
-    let bonus = finalCall[10][i];
-    let rb = document.createElement("li");
-    rb.textContent = bonus;
-    rb.value = bonus;
-    rbList.appendChild(rb);
-  }
-  }
+    console.log("rb list", finalCall[10]);
+    let rbList = document.getElementById("bonusList");
+    for (var i = 0; i < finalCall[10].length; i++) {
+      console.log("inside loop", finalCall[10][i]);
+      let bonus = finalCall[10][i];
+      let rb = document.createElement("li");
+      rb.textContent = bonus;
+      rb.value = bonus;
+      rbList.appendChild(rb);
+    }
+  };
   const navHome = () => {
     localStorage.clear();
     navigate("/", { replace: true });
@@ -46,13 +49,12 @@ console.log("rb list", finalCall[10])
 
   const navTop = () => {
     navigate("/Character", { replace: true });
-    
-  }
+  };
 
   return (
     <div className="printPage">
-    <div className="buttons">
-    <button
+      <div className="buttons">
+        <button
           type="button"
           className="btn btn-primary btn-lg homeButton"
           id="charButton"
@@ -65,17 +67,16 @@ console.log("rb list", finalCall[10])
           }}
           onClick={navTop}
         >
-          <a style={{paddingRight: "2%"}}>
-        <FontAwesomeIcon
-          icon={faSignsPost}
-          size="xl"
-          style={{ color: "white" }}
-        />
-      </a>
-      Back to Character Page
-
+          <a style={{ paddingRight: "2%" }}>
+            <FontAwesomeIcon
+              icon={faSignsPost}
+              size="xl"
+              style={{ color: "white" }}
+            />
+          </a>
+          Back to Character Page
         </button>
-    <button
+        <button
           type="button"
           className="btn btn-primary btn-lg homeButton"
           id="printButton"
@@ -89,19 +90,16 @@ console.log("rb list", finalCall[10])
           onClick={handlePrint}
         >
           <a id="arrow">
-        <FontAwesomeIcon
-          icon={faScroll}
-          size="xl"
-          style={{ color: "white" }}
-        />
-      </a>
-      Print Page
-
+            <FontAwesomeIcon
+              icon={faScroll}
+              size="xl"
+              style={{ color: "white" }}
+            />
+          </a>
+          Print Page
         </button>
 
-        
-     
-      <button
+        <button
           type="button"
           className="btn btn-primary btn-lg homeButton"
           id="homeButton"
@@ -122,59 +120,57 @@ console.log("rb list", finalCall[10])
             />
           </a>
         </button>
-        </div>
+      </div>
       <div className="wholeForm" ref={componentRef}>
         <form className="printForm">
-        <div className="firstForm">
-          <h2>Race: {finalCall[0]}</h2>
-          <h2>Class: {finalCall[1]}</h2>
-          <h2>Alignment: {finalCall[2]}</h2>
-          <h2>Traits: </h2>
-          <ul>
-            <li>{finalCall[3][0]}</li>
-            <li>{finalCall[3][1]}</li>
-          </ul>
-          <h2>Special Feature: {finalCall[4]}</h2>
-          <h2>Languages: </h2>
-          <ul>
-            <li>{finalCall[5][0]}</li>
-            <li>{finalCall[5][1]}</li>
-          </ul>
-          <h2>Equipment: </h2>
-          <ul>
-            <li>{finalCall[6][0]}</li>
-            <li>{finalCall[6][1]}</li>
-            <li>{finalCall[6][2]}</li>
-          </ul>
-          <h2>Armor: {finalCall[7]}</h2>
-          <p>Hit Points d8 + your Con modifier</p>
-          <p>Armor Class {armorMod} + your Dex modifier</p>
+          <div className="firstForm">
+            <h2>Race: {finalCall[0]}</h2>
+            <h2>Class: {finalCall[1]}</h2>
+            <h2>Alignment: {finalCall[2]}</h2>
+            <h2>Traits: </h2>
+            <ul>
+              <li>{finalCall[3][0]}</li>
+              <li>{finalCall[3][1]}</li>
+            </ul>
+            <h2>Special Feature: {finalCall[4]}</h2>
+            <h2>Languages: </h2>
+            <ul>
+              <li>{finalCall[5][0]}</li>
+              <li>{finalCall[5][1]}</li>
+            </ul>
+            <h2>Equipment: </h2>
+            <ul>
+              <li>{finalCall[6][0]}</li>
+              <li>{finalCall[6][1]}</li>
+              <li>{finalCall[6][2]}</li>
+            </ul>
+            <h2>Armor: {finalCall[7]}</h2>
+            <p>Hit Points d8 + your Con modifier</p>
+            <p>Armor Class {armorMod} + your Dex modifier</p>
           </div>
           <div className="secondForm">
-          <h2>Stats:</h2>
-          <ul>
-          <li>Str {finalCall[8][0]}</li>
-          <li>Dex {finalCall[8][1]}</li>
-          <li>Con {finalCall[8][2]}</li>
-          <li>Int {finalCall[8][3]}</li>
-          <li>Wisdom {finalCall[8][4]}</li>
-          <li>Char {finalCall[8][5]}</li>
-          </ul>
-          <h2>Spell Slots:</h2>
-          <ul>
-          <li>Spells {finalCall[9].spells}</li>
-          <li>Cantrips {finalCall[9].cantrips}</li>
-          </ul>
-          <h2>Racial Bonuses:</h2>
-          <ul  id="bonusList"></ul>
-         
+            <h2>Stats:</h2>
+            <ul>
+              <li>Str {finalCall[8][0]}</li>
+              <li>Dex {finalCall[8][1]}</li>
+              <li>Con {finalCall[8][2]}</li>
+              <li>Int {finalCall[8][3]}</li>
+              <li>Wisdom {finalCall[8][4]}</li>
+              <li>Char {finalCall[8][5]}</li>
+            </ul>
+            <h2>Spell Slots:</h2>
+            <ul>
+              <li>Spells {finalCall[9].spells}</li>
+              <li>Cantrips {finalCall[9].cantrips}</li>
+            </ul>
+            <h2>Racial Bonuses:</h2>
+            <ul id="bonusList"></ul>
           </div>
         </form>
       </div>
       {/* <button onClick={handlePrint}>Print this out!</button> */}
       <a></a>
     </div>
-
   );
 };
 

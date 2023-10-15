@@ -63,9 +63,8 @@ function Stats() {
   };
 
   const finalCharacter = [
-    
     location.state.nameData,
- 
+
     location.state.classData,
     location.state.alignmentData,
     location.state.traitData,

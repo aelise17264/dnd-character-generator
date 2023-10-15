@@ -1,5 +1,5 @@
 .character,
-.statsPage{
+.statsPage {
   background-image: url("https://images8.alphacoders.com/130/1304871.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -13,10 +13,10 @@
   background-size: cover;
   height: fit-content;
 }
-.printForm{
+.printForm {
   display: flex;
 }
-.secondForm{
+.secondForm {
   margin-left: 2%;
   width: 35%;
 }

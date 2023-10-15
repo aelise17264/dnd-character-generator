@@ -16,7 +16,7 @@ import {
   faDiceD20,
   faRightLong,
   faHouseCrack,
-  faEraser
+  faEraser,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Character() {
@@ -228,8 +228,8 @@ function Character() {
 
   const clearSheet = () => {
     localStorage.clear();
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   const navHome = () => {
     localStorage.clear();
@@ -244,7 +244,7 @@ function Character() {
   return (
     <div className="character" id="character">
       <div className="buttons">
-      <button
+        <button
           type="button"
           className="btn btn-primary btn-lg"
           style={{
