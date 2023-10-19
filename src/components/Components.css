@@ -16,9 +16,19 @@
 .printForm {
   display: flex;
 }
-.secondForm {
+.printStats{
+  padding-left: 10%;
+}
+.printArmor{
+  display: flex;
+  flex-direction: row;
+}
+.printArmor p{
+  margin-top: 1%;
   margin-left: 2%;
-  width: 35%;
+}
+#skillP{
+  width: 25%;
 }
 
 .generate {
@@ -62,9 +72,13 @@ form {
   opacity: 80%;
   width: fit-content;
   margin: auto;
-  padding: 2% 5%;
+  padding: 2%;
+  padding-left: 4%;
   border-radius: 3%;
 }
+/* #wholePrintForm{
+  width: 75vw;
+} */
 
 .topForm {
   display: flex;
@@ -74,6 +88,7 @@ form {
 .buttonHolder {
   display: flex;
   align-self: center;
+  /* flex-direction: column; */
 }
 
 .names {
@@ -97,12 +112,20 @@ form {
   display: flex;
   flex-direction: column;
 }
+.traits{
+  padding-bottom: 0%;
+}
+.traitData, .featuresData{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 1%;
+}
+
 option {
   width: fit-content;
 }
-.traits {
-  margin-bottom: 5%;
-}
+
 a {
   margin: 1%;
 }
@@ -178,7 +201,7 @@ hr {
   align-items: center;
   align-content: center;
   width: auto;
-  height: 100vh;
+  /* height: 100vh; */
 }
 /* .statsPage {
   height: fit-content;
@@ -465,4 +488,7 @@ footer {
   color: red;
   font-size: x-large;
   font-weight: bold;
+}
+#charError{
+  margin: auto;
 }

@@ -190,6 +190,8 @@ function Character() {
   };
 
   const reRollChar = () => {
+    const charError = document.getElementById("charError");
+      charError.innerText =""
     setFeaturesData("");
     setTraitsData(["", ""]);
     // getFeature()
@@ -328,6 +330,9 @@ function Character() {
               <h2>Race: {nameData}</h2>
             </div>
             <div>
+              <h2>Armor: {armorData}</h2>
+            </div>
+            <div>
               <h2>Languages</h2>
               <ul>
                 <li>{languageData[0]}</li>
@@ -342,12 +347,8 @@ function Character() {
                 <li>{equipmentData[2]}</li>
               </ul>
             </div>
-            <div>
-              <h2>Armor</h2>
-              <p>{armorData}</p>
-            </div>
             <div className="traits">
-              <label for="randomTraits">Random Traits</label>
+              <label for="randomTraits">Random Traits: Pick 2</label>
               <select
                 class="form-select"
                 multiple
@@ -359,26 +360,16 @@ function Character() {
               >
                 <option value="">Select Trait</option>
               </select>
+              <div className="traitData">
+
               <p>{traitData[0]}</p>
               <p>{traitData[1]}</p>
-              {/* <select
-                  
-                  name="randomTraits"
-                  id="Rtrait2"
-                  value={traitData[1]}
-
-                  onChange={changeTrait2}
-                  className="form-select"
-                >
-                  <option value="">Select Trait</option>
-              </select> */}
-              {/* <ul>
-                <li>{traitData[0]}</li>
-                <li>{traitData[1]}</li>
-              </ul> */}
+</div>
+            
+              
             </div>
             <div className="features">
-              <label for="specialFeature">Special Feature </label>
+              <label for="specialFeature">Special Feature: Pick 1 </label>
               <select
                 className="form-select"
                 name="specialFeature"
@@ -388,12 +379,15 @@ function Character() {
               >
                 <option value="">Select Special Feature</option>
               </select>
+              <div className="featuresData">
               <p>{featuresData}</p>
             </div>
+</div>
           </form>
         </div>
 
         <div className="buttonHolder">
+
           <button
             type="button"
             className="btn btn-primary btn-lg"
@@ -404,13 +398,14 @@ function Character() {
             Roll Again
           </button>
         </div>
+        <a id="charError" />
+
       </div>
       <div className="refresh">
         <h3>
           If everything looks good click the arrow to get your stats. If not
           roll again
         </h3>
-        <a id="charError" />
 
         <a id="arrow">
           <FontAwesomeIcon

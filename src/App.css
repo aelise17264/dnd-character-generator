@@ -8,7 +8,6 @@
 } */
 
 .App {
-  font-family: "Gentium Book Plus", serif;
   color: white;
   /* margin-bottom: 2%; */
   background-image: url("https://wallpaperaccess.com/full/6079733.png");
@@ -46,7 +45,6 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  font-family: "MedievalSharp", cursive;
   min-height: 50%;
   /* margin-top: 10%; */
 
@@ -56,6 +54,7 @@
   margin-top: 2%;
   display: flex;
   justify-content: space-evenly;
+
 }
 .App-header {
   background-color: #282c34;
@@ -66,7 +65,6 @@
   text-align: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  font-family: "MedievalSharp", cursive;
   color: white;
   margin-bottom: 3%;
 }
