@@ -16,18 +16,18 @@
 .printForm {
   display: flex;
 }
-.printStats{
+.printStats {
   padding-left: 10%;
 }
-.printArmor{
+.printArmor {
   display: flex;
   flex-direction: row;
 }
-.printArmor p{
+.printArmor p {
   margin-top: 1%;
   margin-left: 2%;
 }
-#skillP{
+#skillP {
   width: 25%;
 }
 
@@ -112,10 +112,11 @@ form {
   display: flex;
   flex-direction: column;
 }
-.traits{
+.traits {
   padding-bottom: 0%;
 }
-.traitData, .featuresData{
+.traitData,
+.featuresData {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -362,6 +363,11 @@ footer {
   /* width: 75vw; */
   color: oldlace;
 }
+
+.modal-content .modal-header, .modal-body{
+  color:#282c34
+}
+
 .monsterDetails {
   flex-direction: column;
   align-items: center;
@@ -489,6 +495,6 @@ footer {
   font-size: x-large;
   font-weight: bold;
 }
-#charError{
+#charError {
   margin: auto;
 }

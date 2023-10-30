@@ -1,3 +1,15 @@
+// module.exports = {
+//   extends: ["react-app", "react-app/jest"],
+//   overrides: [
+//     {
+//       "files": ["**/*.js?(x)"],
+//       "rules": {
+//           "no-unused-vars": [0]
+//       }
+//     }
+//   ]
+// }
+
 {
   "parserOptions": {
     "sourceType": "module",
@@ -5,6 +17,9 @@
     "ecmaFeatures": {
       "jsx": true,
       "modules": true
+    },
+    "rules": {
+      "no-unused-vars": [0]
     }
   }
 }

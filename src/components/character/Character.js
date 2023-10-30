@@ -159,7 +159,7 @@ function Character() {
           let featOpt = document.createElement("option");
           featOpt.textContent = feat;
           featOpt.value = feat;
-          features.appendChild(featOpt);
+          featuresData.appendChild(featOpt);
         }
       })
       .catch((error) => {
@@ -191,7 +191,7 @@ function Character() {
 
   const reRollChar = () => {
     const charError = document.getElementById("charError");
-      charError.innerText =""
+    charError.innerText = "";
     setFeaturesData("");
     setTraitsData(["", ""]);
     // getFeature()
@@ -361,12 +361,9 @@ function Character() {
                 <option value="">Select Trait</option>
               </select>
               <div className="traitData">
-
-              <p>{traitData[0]}</p>
-              <p>{traitData[1]}</p>
-</div>
-            
-              
+                <p>{traitData[0]}</p>
+                <p>{traitData[1]}</p>
+              </div>
             </div>
             <div className="features">
               <label for="specialFeature">Special Feature: Pick 1 </label>
@@ -380,14 +377,13 @@ function Character() {
                 <option value="">Select Special Feature</option>
               </select>
               <div className="featuresData">
-              <p>{featuresData}</p>
+                <p>{featuresData}</p>
+              </div>
             </div>
-</div>
           </form>
         </div>
 
         <div className="buttonHolder">
-
           <button
             type="button"
             className="btn btn-primary btn-lg"
@@ -399,7 +395,6 @@ function Character() {
           </button>
         </div>
         <a id="charError" />
-
       </div>
       <div className="refresh">
         <h3>

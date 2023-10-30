@@ -16,7 +16,7 @@ import {
 function Stats() {
   const [statData, setStatData] = useLocalStorage("stats", []);
   const [spellData, setSpellData] = useLocalStorage("spells", []);
-  const [skillData, setSkillData] = useLocalStorage("skills", "")
+  const [skillData, setSkillData] = useLocalStorage("skills", "");
   let statRange = [15, 14, 13, 12, 10, 8];
 
   const location = useLocation();
@@ -48,18 +48,18 @@ function Stats() {
   };
 
   const getSkills = () => {
-    let charClass = (location.state.classData).toLowerCase()
-    axios.get(`https://www.dnd5eapi.co/api/classes/` + charClass)
-    .then((res) => {
-      let charDetails = res.data
-      console.log(charDetails.proficiency_choices[0].desc)
-      setSkillData(charDetails.proficiency_choices[0].desc)
-    })
-  }
+    let charClass = location.state.classData.toLowerCase();
+    axios
+      .get(`https://www.dnd5eapi.co/api/classes/` + charClass)
+      .then((res) => {
+        let charDetails = res.data;
+        console.log(charDetails.proficiency_choices[0].desc);
+        setSkillData(charDetails.proficiency_choices[0].desc);
+      });
+  };
 
   const getSpellSlots = () => {
     characterSpellSlots.forEach((slot) => {
-
       // console.log('inside spell call', slot.index)
       if (slot.index === charClass) {
         console.log("inside if", slot.index);
@@ -68,11 +68,9 @@ function Stats() {
     });
   };
   const handleButtonClick = () => {
-
     getStats();
     getSpellSlots();
     getSkills();
-
   };
 
   const finalCharacter = [
@@ -89,7 +87,6 @@ function Stats() {
     spellData,
     playerBonus,
     skillData,
-
   ];
 
   let navigate = useNavigate();
@@ -159,10 +156,10 @@ function Stats() {
           <ul id="playerStats">{getBonuses}</ul>
         </div>
         <div className="groupTwo">
-        <h1>Skill Proficiencies</h1>
-        <p>{skillData}</p>
-        <h1>Spell Slots</h1>
-         
+          <h1>Skill Proficiencies</h1>
+          <p>{skillData}</p>
+          <h1>Spell Slots</h1>
+
           <p>Spells: {spellData.spells}</p>
           <p>Cantrips: {spellData.cantrips}</p>
         </div>

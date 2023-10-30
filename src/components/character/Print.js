@@ -16,7 +16,7 @@ const Print = () => {
   const navigate = useNavigate();
   const finalCall = location.state;
   let armorMod;
-  if (finalCall[7] == "Studded Leather Armor") {
+  if (finalCall[7] === "Studded Leather Armor") {
     armorMod = 12;
   } else {
     armorMod = 11;
@@ -130,8 +130,8 @@ const Print = () => {
               <li>{finalCall[3][1]}</li>
             </ul>
             <div className="printFeature">
-            <h2>Special Feature: </h2>
-            <p>{finalCall[4]}</p>
+              <h2>Special Feature: </h2>
+              <p>{finalCall[4]}</p>
             </div>
             <h2>Languages: </h2>
             <ul>
@@ -145,22 +145,22 @@ const Print = () => {
               <li>{finalCall[6][2]}</li>
             </ul>
             <div className="printArmor">
-            <h2>Armor: </h2> 
-            <p>{finalCall[7]}</p>
+              <h2>Armor: </h2>
+              <p>{finalCall[7]}</p>
             </div>
             <p>Armor Class {armorMod} + your Dex mod</p>
           </div>
           <div className="secondForm">
-          <div className="printStats">
-            <h2>Stats:</h2>
-            <ul>
-              <li>Str {finalCall[8][0]}</li>
-              <li>Dex {finalCall[8][1]}</li>
-              <li>Con {finalCall[8][2]}</li>
-              <li>Int {finalCall[8][3]}</li>
-              <li>Wisdom {finalCall[8][4]}</li>
-              <li>Char {finalCall[8][5]}</li>
-            </ul>
+            <div className="printStats">
+              <h2>Stats:</h2>
+              <ul>
+                <li>Str {finalCall[8][0]}</li>
+                <li>Dex {finalCall[8][1]}</li>
+                <li>Con {finalCall[8][2]}</li>
+                <li>Int {finalCall[8][3]}</li>
+                <li>Wisdom {finalCall[8][4]}</li>
+                <li>Char {finalCall[8][5]}</li>
+              </ul>
             </div>
             <h2>Racial Bonuses:</h2>
             <ul id="bonusList"></ul>
@@ -171,7 +171,6 @@ const Print = () => {
             </ul>
             <p>Hit Points d8 + your Con mod</p>
             <p id="skillP">SKill Proficiencies: {finalCall[11]}</p>
-
           </div>
         </form>
       </div>
