@@ -127,8 +127,8 @@ function Monsters() {
   return (
     <div id="monsterPage">
       <div className="monsters">
-        <h3>Monster Page</h3>
-        <div className="buttons">
+        {/* <h3>Monster Page</h3> */}
+        <div className="buttons navbar">
         <div>
           <button
             type="button"
@@ -158,19 +158,22 @@ function Monsters() {
             style={{
               backgroundColor: "#282c34",
               border: "none",
-              width: "175px",
+              width: "275px",
               marginBottom: "2%",
               marginLeft: "2%",
+
             }}
             onClick={showModal}
           >
-            How to Use this Page
-            <a>
+          <a>
+            
               <FontAwesomeIcon
                 icon={faQuestion}
                 style={{ color: "white", marginLeft: "7px" }}
               />
             </a>
+            How to Use this Page
+            
           </button>
           </div>
           <div>
@@ -206,9 +209,11 @@ function Monsters() {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div className="modal-content">
+            <div className="modal-content"
+            style={{ fontFamily: 'Recursive, sans-serif' }}
+            >
               <div className="modal-header">
-                <h1 className="modal-title fs-5" id="explainerModal">
+                <h1 className="modal-title fs-5" style={{fontWeight: 'bold'}} id="explainerModal">
                   Danger Around Every Corner
                 </h1>
                 <button
@@ -219,7 +224,18 @@ function Monsters() {
                 ></button>
               </div>
               <div className="modal-body">
-              <p>This is the explainer</p>
+              <p
+              >This page will generate a random monster appropriate for your level 1 party to face.
+                If the particular foe does not meet your expectations click the Reroll button at the bottom of the page.
+                The bulk of the monster stats and information will appear when you click the Get Monster button.
+                For more in dept info consult the Monster Maunal
+              </p>
+              <a target="_blank" href="https://dnd.wizards.com/products/monster-manual"
+>
+              <img className="modalImage" 
+              src="https://cdn.shoplightspeed.com/shops/614933/files/31478762/1600x2048x2/d-d-5e-monster-manual.jpg"/>
+             </a>
+              <p>Remember when you click "Back Home" your monster's info will be cleared</p>
               </div>
               <div className="modal-footer">
                 <button
