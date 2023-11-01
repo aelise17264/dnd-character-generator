@@ -164,11 +164,10 @@ function Stats() {
           <p>Cantrips: {spellData.cantrips}</p>
         </div>
       </div>
-      <hr />
       <div className="navArrows">
         <div className="goBack">
-          <h3>Go Back</h3>
-          <p>Go back to roll a new character</p>
+          <h3>Back To Start</h3>
+          
           <a id="arrow">
             <FontAwesomeIcon
               icon={faLeftLong}

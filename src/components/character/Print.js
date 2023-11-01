@@ -50,7 +50,7 @@ const Print = () => {
 
   return (
     <div className="printPage">
-      <div className="buttons">
+      <div className="buttons navbar">
         <button
           type="button"
           className="btn btn-primary btn-lg homeButton"
@@ -58,7 +58,7 @@ const Print = () => {
           style={{
             backgroundColor: "#282c34",
             border: "none",
-            width: "175px",
+            width: "200px",
             marginBottom: "2%",
             marginRight: "2%",
           }}
@@ -71,7 +71,7 @@ const Print = () => {
               style={{ color: "white" }}
             />
           </a>
-          Back to Character Page
+          Back to Start
         </button>
         <button
           type="button"
@@ -90,7 +90,7 @@ const Print = () => {
             <FontAwesomeIcon
               icon={faScroll}
               size="xl"
-              style={{ color: "white" }}
+              style={{ color: "white", marginRight: "4px" }}
             />
           </a>
           Print Page
@@ -170,7 +170,7 @@ const Print = () => {
               <li>Cantrips {finalCall[9].cantrips}</li>
             </ul>
             <p>Hit Points d8 + your Con mod</p>
-            <p id="skillP">SKill Proficiencies: {finalCall[11]}</p>
+            <p id="skillP">Skill Proficiencies: {finalCall[11]}</p>
           </div>
         </form>
       </div>

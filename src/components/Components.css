@@ -13,23 +13,34 @@
   background-size: cover;
   height: fit-content;
 }
-.printForm {
+.secondForm{
+  width: 50%;
+margin-left: auto;
+margin-right: 0;
+float: right;
+}
+/* .printForm {
   display: flex;
-}
-.printStats {
+  justify-content: center;
+  /* width: 50%; */
+
+/* .secondForm{
+  width: 5%;
+} */
+/* .printStats {
   padding-left: 10%;
-}
+} */
 .printArmor {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .printArmor p {
   margin-top: 1%;
   margin-left: 2%;
 }
-#skillP {
+/* #skillP {
   width: 25%;
-}
+} */
 
 .generate {
   text-align: center;
@@ -47,6 +58,11 @@
   justify-content: space-between;
   padding-top: 2%;
   margin-left: 1%;
+  margin-right: 1%;
+}
+.buttons {
+  flex-wrap: wrap;
+  margin-bottom: 2%;
 }
 .treasure h3 {
   margin-left: 2%;
@@ -76,9 +92,15 @@ form {
   padding-left: 4%;
   border-radius: 3%;
 }
-/* #wholePrintForm{
-  width: 75vw;
-} */
+#wholePrintForm{
+  width: 50vw;
+  /* display: flex;
+  flex-direction: row; */
+}
+.printForm{
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .topForm {
   display: flex;
@@ -186,6 +208,7 @@ li {
   flex-direction: row;
   color: white;
   width: 100%;
+  margin: 2% 0;
 }
 .navArrows p {
   overflow-wrap: normal;
@@ -364,20 +387,26 @@ footer {
   color: oldlace;
 }
 
-
-.modal-content .modal-title, .modal-body p{
-  color:#282c34;
+.modal-content .modal-title,
+.modal-body p {
+  color: #282c34;
   font-family: "Recursive", sans-serif;
 }
 
-.modal-body p{
+.modal-body p {
   font-size: large;
 }
-.modalImage{
+.modalImage {
   height: 250px;
   margin-left: 28%;
   margin-bottom: 2%;
 }
+
+.heroModal {
+  height: 250px;
+  margin-left: 1%;
+}
+
 .monsterDetails {
   flex-direction: column;
   align-items: center;

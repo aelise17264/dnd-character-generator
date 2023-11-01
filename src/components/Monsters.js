@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Modal} from "bootstrap";
+import { Modal } from "bootstrap";
 // import Modal from 'react-bootstrap/Modal'
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,34 +13,33 @@ import {
 import { monsterList } from "../api/MonsterList";
 
 import "./Components.css";
-import { act } from "@testing-library/react";
 
 function Monsters() {
   let [monsterData, setMonsterData] = useState([]);
   let [monsterImage, setMonsterImage] = useState("");
-  const [speedStats, setSpeedInfo] = useState("");
-  const [actionList, setActionList] = useState([]);
+  // const [speedStats, setSpeedInfo] = useState("");
+  // const [actionList, setActionList] = useState([]);
   const [armorStats, setArmorClass] = useState([]);
   // let armorType;
 
   const baseURL = "https://www.dnd5eapi.co/api/monsters/";
   let navigate = useNavigate();
   const navHome = () => navigate("/", { replace: true });
-  const modalRef = useRef()
+  const modalRef = useRef();
   const showModal = () => {
-    const modalEl = modalRef.current
+    const modalEl = modalRef.current;
     const bsModal = new Modal(modalEl, {
-      backdrop: 'static',
-      keyboard: false
-    })
-    bsModal.show()
-  }
+      backdrop: "static",
+      keyboard: false,
+    });
+    bsModal.show();
+  };
 
   const hideModal = () => {
-    const modalEl = modalRef.current
-    const bsModal = Modal.getInstance(modalEl)
-    bsModal.hide()
-  }
+    const modalEl = modalRef.current;
+    const bsModal = Modal.getInstance(modalEl);
+    bsModal.hide();
+  };
 
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -78,7 +77,7 @@ function Monsters() {
 
         let actions = monsterDetails.actions;
         console.log("set actions", actions);
-        setActionList(actions);
+        // setActionList(actions);
         console.log(actions);
         if (actions == undefined) {
           return "";
@@ -92,7 +91,7 @@ function Monsters() {
         });
 
         let speeds = monsterDetails.speed;
-        setSpeedInfo(speeds);
+        // setSpeedInfo(speeds);
         if (speeds == undefined) {
           return "";
         }
@@ -129,75 +128,72 @@ function Monsters() {
       <div className="monsters">
         {/* <h3>Monster Page</h3> */}
         <div className="buttons navbar">
-        <div>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginLeft: "2%",
-            }}
-            onClick={fullMonsterCall}
-          >
-            Get Monster
-            <a>
-              <FontAwesomeIcon
-                icon={faSkull}
-                style={{ color: "white", marginLeft: "7px" }}
-              />
-            </a>
-          </button>
+          <div>
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#282c34",
+                border: "none",
+                width: "175px",
+                marginBottom: "2%",
+                marginLeft: "2%",
+              }}
+              onClick={fullMonsterCall}
+            >
+              Get Monster
+              <a>
+                <FontAwesomeIcon
+                  icon={faSkull}
+                  style={{ color: "white", marginLeft: "7px" }}
+                />
+              </a>
+            </button>
           </div>
           <div>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "275px",
-              marginBottom: "2%",
-              marginLeft: "2%",
-
-            }}
-            onClick={showModal}
-          >
-          <a>
-            
-              <FontAwesomeIcon
-                icon={faQuestion}
-                style={{ color: "white", marginLeft: "7px" }}
-              />
-            </a>
-            How to Use this Page
-            
-          </button>
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#282c34",
+                border: "none",
+                width: "275px",
+                marginBottom: "2%",
+                marginLeft: "2%",
+              }}
+              onClick={showModal}
+            >
+              <a>
+                <FontAwesomeIcon
+                  icon={faQuestion}
+                  style={{ color: "white", marginLeft: "7px" }}
+                />
+              </a>
+              How to Use this Page
+            </button>
           </div>
           <div>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg homeButton"
-            id="homeButton"
-            style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginRight: "2%",
-            }}
-            onClick={navHome}
-          >
-            Back Home
-            <a>
-              <FontAwesomeIcon
-                icon={faHouseCrack}
-                style={{ color: "white", marginLeft: "7px" }}
-              />
-            </a>
-          </button>
+            <button
+              type="button"
+              className="btn btn-primary btn-lg homeButton"
+              id="homeButton"
+              style={{
+                backgroundColor: "#282c34",
+                border: "none",
+                width: "175px",
+                marginBottom: "2%",
+                marginRight: "2%",
+              }}
+              onClick={navHome}
+            >
+              Back Home
+              <a>
+                <FontAwesomeIcon
+                  icon={faHouseCrack}
+                  style={{ color: "white", marginLeft: "7px" }}
+                />
+              </a>
+            </button>
           </div>
         </div>
         <div
@@ -209,11 +205,16 @@ function Monsters() {
           aria-hidden="true"
         >
           <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div className="modal-content"
-            style={{ fontFamily: 'Recursive, sans-serif' }}
+            <div
+              className="modal-content"
+              style={{ fontFamily: "Recursive, sans-serif" }}
             >
               <div className="modal-header">
-                <h1 className="modal-title fs-5" style={{fontWeight: 'bold'}} id="explainerModal">
+                <h1
+                  className="modal-title fs-5"
+                  style={{ fontWeight: "bold" }}
+                  id="explainerModal"
+                >
                   Danger Around Every Corner
                 </h1>
                 <button
@@ -224,18 +225,27 @@ function Monsters() {
                 ></button>
               </div>
               <div className="modal-body">
-              <p
-              >This page will generate a random monster appropriate for your level 1 party to face.
-                If the particular foe does not meet your expectations click the Reroll button at the bottom of the page.
-                The bulk of the monster stats and information will appear when you click the Get Monster button.
-                For more in dept info consult the Monster Maunal
-              </p>
-              <a target="_blank" href="https://dnd.wizards.com/products/monster-manual"
->
-              <img className="modalImage" 
-              src="https://cdn.shoplightspeed.com/shops/614933/files/31478762/1600x2048x2/d-d-5e-monster-manual.jpg"/>
-             </a>
-              <p>Remember when you click "Back Home" your monster's info will be cleared</p>
+                <p>
+                  This page will generate a random monster appropriate for your
+                  level 1 party to face. If the particular foe does not meet
+                  your expectations click the Reroll button at the bottom of the
+                  page. The bulk of the monster stats and information will
+                  appear when you click the Get Monster button. For more in dept
+                  info consult the Monster Maunal
+                </p>
+                <a
+                  target="_blank"
+                  href="https://dnd.wizards.com/products/monster-manual"
+                >
+                  <img
+                    className="modalImage"
+                    src="https://cdn.shoplightspeed.com/shops/614933/files/31478762/1600x2048x2/d-d-5e-monster-manual.jpg"
+                  />
+                </a>
+                <p>
+                  Remember when you click "Back Home" your monster's info will
+                  be cleared
+                </p>
               </div>
               <div className="modal-footer">
                 <button
@@ -245,7 +255,6 @@ function Monsters() {
                 >
                   Got It!
                 </button>
-               
               </div>
             </div>
           </div>

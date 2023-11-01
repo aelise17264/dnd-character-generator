@@ -41,7 +41,7 @@ function App() {
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#966919", border: "none", width: "220px" }}
+          style={{ backgroundColor: "#966919", border: "none", width: "235px" }}
           onClick={navToCharacter}
         >
           <a>

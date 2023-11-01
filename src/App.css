@@ -16,6 +16,22 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+h1, h2, h3, h4{
+  font-family: "MedievalSharp", cursive;
+  font-weight: bold;
+
+}
+h5, h6, p, li, ul, a, label, select, option{
+  font-family: "Recursive, sans-serif";
+  font-weight: bold;
+}
+h5, h6{
+  font-style: italic;
+}
+button{
+  font-family: "MedievalSharp", cursive;
+
+}
 #buffer {
   height: 5%;
 }

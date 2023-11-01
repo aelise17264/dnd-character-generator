@@ -5,6 +5,8 @@ import axios from "axios";
 import Stats from "./Stats";
 import { useNavigate } from "react-router-dom";
 import React, { useRef, useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Modal } from "bootstrap";
 import Select from "react-select";
 import Async, { useAsync } from "react-select/async";
 import { ReactDOM } from "react-dom";
@@ -17,6 +19,7 @@ import {
   faRightLong,
   faHouseCrack,
   faEraser,
+  faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Character() {
@@ -149,17 +152,19 @@ function Character() {
   };
 
   const getFeature = () => {
+    console.log("call features");
     axios
       .get(baseURL + `/features`)
       .then((res) => {
+        console.log("get features");
         let featureList = res.data.results;
-
+        let displayFeatures = document.getElementById("features");
         for (var i = 0; i <= featureList.length; i++) {
           let feat = featureList[i].index;
           let featOpt = document.createElement("option");
           featOpt.textContent = feat;
           featOpt.value = feat;
-          featuresData.appendChild(featOpt);
+          displayFeatures.appendChild(featOpt);
         }
       })
       .catch((error) => {
@@ -243,71 +248,208 @@ function Character() {
     return <li className="name">{name}</li>;
   });
 
+  const modalRef = useRef();
+  const showModal = () => {
+    const modalEl = modalRef.current;
+    const bsModal = new Modal(modalEl, {
+      backdrop: "static",
+      keyboard: false,
+    });
+    bsModal.show();
+  };
+
+  const hideModal = () => {
+    const modalEl = modalRef.current;
+    const bsModal = Modal.getInstance(modalEl);
+    bsModal.hide();
+  };
+
   return (
     <div className="character" id="character">
-      <div className="buttons">
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "220px",
-            marginBottom: "2%",
-            marginLeft: "1%",
-          }}
-          onClick={clearSheet}
-        >
-          <a>
-            <FontAwesomeIcon
-              icon={faEraser}
-              style={{ color: "white", marginRight: "5px" }}
-            />
-          </a>
-          Clear Character Sheet
-        </button>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "220px",
-            marginBottom: "2%",
-            marginLeft: "1%",
-          }}
-          onClick={createCharacter}
-          id="reroll"
-        >
-          <a>
-            <FontAwesomeIcon
-              icon={faDiceD20}
-              style={{ color: "white", marginRight: "5px" }}
-            />
-          </a>
-          Roll for Character
-        </button>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg homeButton"
-          id="homeButton"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "175px",
-            marginBottom: "2%",
-            marginRight: "2%",
-          }}
-          onClick={navHome}
-        >
-          Back Home
-          <a>
-            <FontAwesomeIcon
-              icon={faHouseCrack}
-              style={{ color: "white", marginLeft: "7px" }}
-            />
-          </a>
-        </button>
+      <div className="buttons navbar">
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginLeft: "2%",
+            }}
+            onClick={showModal}
+          >
+            <a>
+              <FontAwesomeIcon
+                icon={faQuestion}
+                style={{ color: "white", marginRight: "4px" }}
+              />
+            </a>
+            How to Use
+          </button>
+        </div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "250px",
+              marginBottom: "2%",
+              marginLeft: "1%",
+            }}
+            onClick={createCharacter}
+            id="reroll"
+          >
+            <a>
+              <FontAwesomeIcon
+                icon={faDiceD20}
+                style={{ color: "white", marginRight: "5px" }}
+              />
+            </a>
+            Roll for Character
+          </button>
+        </div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "265px",
+              marginBottom: "2%",
+              marginLeft: "1%",
+            }}
+            onClick={clearSheet}
+          >
+            <a>
+              <FontAwesomeIcon
+                icon={faEraser}
+                style={{ color: "white", marginRight: "5px" }}
+              />
+            </a>
+            Clear Character Sheet
+          </button>
+        </div>
+
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg homeButton"
+            id="homeButton"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginRight: "2%",
+            }}
+            onClick={navHome}
+          >
+            Back Home
+            <a>
+              <FontAwesomeIcon
+                icon={faHouseCrack}
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
+        </div>
+      </div>
+      <div
+        className="modal fade"
+        ref={modalRef}
+        id="explainerModal"
+        tabIndex="-1"
+        aria-labelledby="explainerModal"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div
+            className="modal-content"
+            style={{ fontFamily: "Recursive, sans-serif" }}
+          >
+            <div className="modal-header">
+              <h1
+                className="modal-title fs-5"
+                style={{ fontWeight: "bold" }}
+                id="explainerModal"
+              >
+                Ready for Adventure
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                onClick={hideModal}
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+            <p>Welcome to the Random Character Builder!</p>
+              <h6 style={{
+                  fontFamily: "Recursive, sans-serif",
+                  fontStyle: "italic",
+                }}>
+                Before you start keep in mind moving between pages within the
+                character builder section will not lose any of your character
+                info BUT clicking "Back Home" will clear your sheet and your
+                character will be lost to the sands of time.
+              </h6>
+              <p>
+                This section will generate everything you need for a chaotically created Level 1
+                character (according to 5e rules). Click "Roll for Character" to
+                populate the form below. If you don't care for your character
+                click "Roll Again" at the bottom of the form. Once the basics
+                have been filled in, you can select two (2) Random Traits and
+                one (1) Special Feature. When you're happy with the form on this
+                page click the arrow at the bottom of the page to roll for your
+                stats.
+              </p>
+              <p>
+                On the Stats & Spells page click the "Get Stats" button to randomly genrate your general stats as well as your skill proficiences and spell slots based off your class.
+                If you want to reshuffel your general stats just click the button again (the other info on the page should not change).
+                Happy with  your stats? Click the scroll to move to print or save your character.
+              </p>
+             <p>
+
+             </p>
+              <a
+                target="_blank"
+                href="https://dnd.wizards.com/products/monster-manual"
+              >
+                <img
+                  className="heroModal"
+                  src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp"
+                />
+              </a>
+              <p>
+                If at any time you want to start from scratch, navigate back to
+                this page and click "Clear Character Sheet".
+              </p>
+              <h6
+                style={{
+                  fontFamily: "Recursive, sans-serif",
+                  fontStyle: "italic",
+                }}
+              >
+                Note: Your final character page made in this generator works best as
+                a companion to an official character sheet.
+              </h6>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={hideModal}
+              >
+                Got It!
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="wholeForm">
         <div className="topForm">
@@ -397,10 +539,7 @@ function Character() {
         <a id="charError" />
       </div>
       <div className="refresh">
-        <h3>
-          If everything looks good click the arrow to get your stats. If not
-          roll again
-        </h3>
+        <h3>To Stats & Spells</h3>
 
         <a id="arrow">
           <FontAwesomeIcon
