@@ -3,11 +3,13 @@ import React, { useRef, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Modal } from "bootstrap";
 import {
   faScroll,
   faHouseCrack,
   faSignsPost,
+  faQuestion
 } from "@fortawesome/free-solid-svg-icons";
 
 const Print = () => {
@@ -48,9 +50,48 @@ const Print = () => {
     navigate("/Character", { replace: true });
   };
 
+  const modalRef = useRef();
+  const showModal = () => {
+    const modalEl = modalRef.current;
+    const bsModal = new Modal(modalEl, {
+      backdrop: "static",
+      keyboard: false,
+    });
+    bsModal.show();
+  };
+
+  const hideModal = () => {
+    const modalEl = modalRef.current;
+    const bsModal = Modal.getInstance(modalEl);
+    bsModal.hide();
+  };
+
   return (
     <div className="printPage">
-      <div className="buttons navbar">
+      <div className="buttons navbar" style={{width: "auto"}}>
+      <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginLeft: "2%",
+            }}
+            onClick={showModal}
+          >
+            <a>
+              <FontAwesomeIcon
+                icon={faQuestion}
+                style={{ color: "white", marginRight: "4px" }}
+              />
+            </a>
+            How to Use
+          </button>
+        </div>
+      <div>
         <button
           type="button"
           className="btn btn-primary btn-lg homeButton"
@@ -73,6 +114,8 @@ const Print = () => {
           </a>
           Back to Start
         </button>
+        </div>
+        <div>
         <button
           type="button"
           className="btn btn-primary btn-lg homeButton"
@@ -95,7 +138,8 @@ const Print = () => {
           </a>
           Print Page
         </button>
-
+</div>
+<div>
         <button
           type="button"
           className="btn btn-primary btn-lg homeButton"
@@ -104,8 +148,6 @@ const Print = () => {
             backgroundColor: "#282c34",
             border: "none",
             width: "175px",
-            marginBottom: "2%",
-            marginRight: "2%",
           }}
           onClick={navHome}
         >
@@ -117,6 +159,70 @@ const Print = () => {
             />
           </a>
         </button>
+        </div>
+      </div>
+      <div
+        className="modal fade"
+        ref={modalRef}
+        id="explainerModal"
+        tabIndex="-1"
+        aria-labelledby="explainerModal"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div
+            className="modal-content"
+            style={{ fontFamily: "Recursive, sans-serif" }}
+          >
+            <div className="modal-header">
+              <h1
+                className="modal-title fs-5"
+                style={{ fontWeight: "bold" }}
+                id="explainerModal"
+              >
+                Take Them With You
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                onClick={hideModal}
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">          
+              <p>
+                Give your character a final look over and hit "Print Page" when you're ready to go adventuring.
+                If you want to change anything or create a new character click "Back to Start" to head back to the top of the Character Builder.
+                </p>
+              
+          <a>
+                <img
+                  className="heroModal"
+                  src="https://qph.cf2.quoracdn.net/main-qimg-cd5679e511a8d612641c4ccd49893d4c"
+                />
+              </a>
+              <h6 style={{
+                  fontFamily: "Recursive, sans-serif",
+                  fontStyle: "italic",
+                  marginTop: "5%"
+                }}>
+                Remember when you click "Back Home" your character will be completely wiped so make sure to save or print your character sheet before you leave
+              </h6>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={hideModal}
+              >
+                Got It!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="characterHeader" style={{color: "#282c34"}}>
+        <h1>Print Page</h1>
       </div>
       <div className="wholeForm" id="wholePrintForm" ref={componentRef}>
         <form className="printForm">

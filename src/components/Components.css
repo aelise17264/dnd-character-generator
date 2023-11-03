@@ -4,8 +4,28 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: fit-content;
 }
+.character{
+  height: fit-content
+}
+.statsPage{
+  height: 100vh;
+}
+.characterHeader{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: oldlace;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+hr {
+  width: 75vw;
+  height: 25px;
+}
+
 .printPage {
   background-image: url("https://freerangestock.com/sample/47810/old-tainted-parchment--grunge-background.jpg");
   background-position: center;
@@ -63,6 +83,7 @@ float: right;
 .buttons {
   flex-wrap: wrap;
   margin-bottom: 2%;
+  width: 85vw;
 }
 .treasure h3 {
   margin-left: 2%;
@@ -121,6 +142,7 @@ form {
 }
 .name {
   font-size: large;
+  
 }
 #dice {
   width: 25vw;
@@ -164,7 +186,7 @@ h2 {
   font-weight: bold;
 }
 #statsTitle {
-  color: white;
+  color: oldlace;
 }
 .refresh {
   justify-content: center;
@@ -174,7 +196,7 @@ h2 {
   padding: 0 5%;
   text-align: right;
   margin-top: 2%;
-  color: white;
+  color: oldlace;
 }
 .goBack {
   justify-content: center;
@@ -202,21 +224,21 @@ li {
 .icon {
   margin-left: auto;
 }
-
+.navbar{
+  font-family: "MedievalSharp", cursive;
+  
+}
 .navArrows {
   display: flex;
   flex-direction: row;
-  color: white;
+  color: oldlace;
   width: 100%;
   margin: 2% 0;
 }
 .navArrows p {
   overflow-wrap: normal;
 }
-hr {
-  width: 75vw;
-  height: 10px;
-}
+
 .statsPage,
 .spellPage {
   display: flex;
@@ -301,7 +323,7 @@ footer {
   bottom: 0;
   text-align: center;
   width: 100%;
-  color: white;
+  color: oldlace;
 }
 .explorers {
   align-self: auto;
@@ -406,6 +428,10 @@ footer {
   height: 250px;
   margin-left: 1%;
 }
+.diceModal{
+  height: 250px;
+  margin-left: 10%;
+}
 
 .monsterDetails {
   flex-direction: column;
@@ -446,10 +472,10 @@ footer {
   flex-direction: row;
   justify-content: center;
 }
-.statButton {
+/* .statButton {
   align-self: end;
   margin-right: 2%;
-}
+} */
 
 #statHomeButton {
   margin-top: 2%;

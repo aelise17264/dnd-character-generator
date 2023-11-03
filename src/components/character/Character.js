@@ -7,13 +7,9 @@ import { useNavigate } from "react-router-dom";
 import React, { useRef, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal } from "bootstrap";
-import Select from "react-select";
-import Async, { useAsync } from "react-select/async";
-import { ReactDOM } from "react-dom";
 import useLocalStorage from "use-local-storage";
 import { nameList } from "../../api/NameList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDAndD } from "@fortawesome/free-brands-svg-icons";
 import {
   faDiceD20,
   faRightLong,
@@ -408,27 +404,13 @@ function Character() {
                 page click the arrow at the bottom of the page to roll for your
                 stats.
               </p>
-              <p>
-                On the Stats & Spells page click the "Get Stats" button to randomly genrate your general stats as well as your skill proficiences and spell slots based off your class.
-                If you want to reshuffel your general stats just click the button again (the other info on the page should not change).
-                Happy with  your stats? Click the scroll to move to print or save your character.
-              </p>
-             <p>
-
-             </p>
-              <a
-                target="_blank"
-                href="https://dnd.wizards.com/products/monster-manual"
-              >
+          <a>
                 <img
                   className="heroModal"
                   src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp"
                 />
               </a>
-              <p>
-                If at any time you want to start from scratch, navigate back to
-                this page and click "Clear Character Sheet".
-              </p>
+ 
               <h6
                 style={{
                   fontFamily: "Recursive, sans-serif",
@@ -450,6 +432,9 @@ function Character() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="characterHeader">
+        <h1>Character Builder</h1>
       </div>
       <div className="wholeForm">
         <div className="topForm">

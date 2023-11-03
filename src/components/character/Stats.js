@@ -1,16 +1,18 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {useRef} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { characterSpellSlots } from "../../api/CharacterSpellSlots";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
 import { statBonuses } from "../../api/StatList";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Modal } from "bootstrap";
 import {
-  faRightLong,
+  faWandMagicSparkles,
   faLeftLong,
   faHouseCrack,
   faScroll,
+  faQuestion
 } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
@@ -98,29 +100,52 @@ function Stats() {
       state: finalCharacter,
     });
   const goHome = () => navigate("/", { replace: true });
+  const modalRef = useRef();
+  const showModal = () => {
+    const modalEl = modalRef.current;
+    const bsModal = new Modal(modalEl, {
+      backdrop: "static",
+      keyboard: false,
+    });
+    bsModal.show();
+  };
+
+  const hideModal = () => {
+    const modalEl = modalRef.current;
+    const bsModal = Modal.getInstance(modalEl);
+    bsModal.hide();
+  };
+
 
   return (
     // <div className="character">
     //   {/* <Header /> */}
     <div className="statsPage">
-      <div className="statButton">
+    <div className="buttons navbar">
+    <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginLeft: "2%",
+            }}
+            onClick={showModal}
+          >
+            <a>
+              <FontAwesomeIcon
+                icon={faQuestion}
+                style={{ color: "white", marginRight: "4px" }}
+              />
+            </a>
+            How to Use
+          </button>
+        </div>
+        <div>
         <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          id="statHomeButton"
-          onClick={goHome}
-        >
-          Back Home
-          <a>
-            <FontAwesomeIcon
-              icon={faHouseCrack}
-              style={{ color: "white", marginLeft: "7px" }}
-            />
-          </a>
-        </button>
-      </div>
-      <h1 id="statsTitle">Stats Page</h1>
-      <button
         type="button"
         className="btn btn-primary btn-lg"
         style={{
@@ -140,10 +165,87 @@ function Stats() {
           />
         </a>
       </button>
+        </div>
+      <div className="statButton">
+        <button
+          type="button"
+          className="btn btn-primary btn-lg"
+          id="statHomeButton"
+          onClick={goHome}
+        >
+          Back Home
+          <a>
+            <FontAwesomeIcon
+              icon={faHouseCrack}
+              style={{ color: "white", marginLeft: "7px" }}
+            />
+          </a>
+        </button>
+      </div>
+      </div>
+      <div
+        className="modal fade"
+        ref={modalRef}
+        id="explainerModal"
+        tabIndex="-1"
+        aria-labelledby="explainerModal"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div
+            className="modal-content"
+            style={{ fontFamily: "Recursive, sans-serif" }}
+          >
+            <div className="modal-header">
+              <h1
+                className="modal-title fs-5"
+                style={{ fontWeight: "bold" }}
+                id="explainerModal"
+              >
+                Get those Numbers!
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                onClick={hideModal}
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">          
+              <p>
+                On the Stats & Spells page click the "Get Stats" button to randomly genrate your general stats as well as your skill proficiences and spell slots based off your class.
+                Want to to reshuffel your general stats? Just click the button again (the other info on the page should not change).
+               If you go back and roll for a new character, when you click back to the Stats page you'll need to re-roll all the stats to match your new character.
+                Happy with  your stats? Click the scroll to move to print or save your character.
+                </p>
+              
+          <a>
+                <img
+                  className="diceModal"
+                  src="https://i.pinimg.com/736x/85/d1/d7/85d1d7ca6b2eed36a98fc59761637845.jpg"
+                />
+              </a>
+            
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={hideModal}
+              >
+                Got It!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="characterHeader">
+        <h1 style={{textDecoration: "underline"}}>Character Builder: Stats & Spells</h1>
+      </div>
 
       <div className="statGroup">
         <div className="groupOne">
-          <h1>General Stats</h1>
+          <h2>General Stats</h2>
           <ul>
             <li>Strength: {statData[0]}</li>
             <li>Dexterity: {statData[1]}</li>
@@ -152,13 +254,13 @@ function Stats() {
             <li>Wisdom: {statData[4]}</li>
             <li>Charisma: {statData[5]}</li>
           </ul>
-          <h1>Racial Bonuses</h1>
+          <h2>Racial Bonuses</h2>
           <ul id="playerStats">{getBonuses}</ul>
         </div>
         <div className="groupTwo">
-          <h1>Skill Proficiencies</h1>
+          <h2>Skill Proficiencies</h2>
           <p>{skillData}</p>
-          <h1>Spell Slots</h1>
+          <h2>Spell Slots</h2>
 
           <p>Spells: {spellData.spells}</p>
           <p>Cantrips: {spellData.cantrips}</p>

@@ -21,17 +21,20 @@ h1, h2, h3, h4{
   font-weight: bold;
 
 }
-h5, h6, p, li, ul, a, label, select, option{
+h5, h6, a,ul, li,  p, label, select, option{
   font-family: "Recursive, sans-serif";
   font-weight: bold;
 }
+/* li{
+  font-family: "Recursive, sans-serif";
+
+  font-size: 20px;
+  font-weight: normal;
+} */
 h5, h6{
   font-style: italic;
 }
-button{
-  font-family: "MedievalSharp", cursive;
 
-}
 #buffer {
   height: 5%;
 }
@@ -70,6 +73,8 @@ button{
   margin-top: 2%;
   display: flex;
   justify-content: space-evenly;
+  font-family: "MedievalSharp", cursive;
+
 }
 .App-header {
   background-color: #282c34;
