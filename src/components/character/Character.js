@@ -384,41 +384,43 @@ function Character() {
               ></button>
             </div>
             <div className="modal-body">
-            <p>Welcome to the Random Character Builder!</p>
-              <h6 style={{
-                  fontFamily: "Recursive, sans-serif",
-                  fontStyle: "italic",
-                }}>
-                Before you start keep in mind moving between pages within the
-                character builder section will not lose any of your character
-                info BUT clicking "Back Home" will clear your sheet and your
-                character will be lost to the sands of time.
-              </h6>
-              <p>
-                This section will generate everything you need for a chaotically created Level 1
-                character (according to 5e rules). Click "Roll for Character" to
-                populate the form below. If you don't care for your character
-                click "Roll Again" at the bottom of the form. Once the basics
-                have been filled in, you can select two (2) Random Traits and
-                one (1) Special Feature. When you're happy with the form on this
-                page click the arrow at the bottom of the page to roll for your
-                stats.
-              </p>
-          <a>
-                <img
-                  className="heroModal"
-                  src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp"
-                />
-              </a>
- 
+              <p>Welcome to the Random Character Builder!</p>
               <h6
                 style={{
                   fontFamily: "Recursive, sans-serif",
                   fontStyle: "italic",
                 }}
               >
-                Note: Your final character page made in this generator works best as
-                a companion to an official character sheet.
+                Before you start keep in mind moving between pages within the
+                character builder section will not lose any of your character
+                info BUT clicking "Back Home" will clear your sheet and your
+                character will be lost to the sands of time.
+              </h6>
+              <p>
+                This section will generate everything you need for a chaotically
+                created Level 1 character (according to 5e rules). Click "Roll
+                for Character" to populate the form below. If you don't care for
+                your character click "Roll Again" at the bottom of the form.
+                Once the basics have been filled in, you can select two (2)
+                Random Traits and one (1) Special Feature. When you're happy
+                with the form on this page click the arrow at the bottom of the
+                page to roll for your stats.
+              </p>
+              <a>
+                <img
+                  className="heroModal"
+                  src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp"
+                />
+              </a>
+
+              <h6
+                style={{
+                  fontFamily: "Recursive, sans-serif",
+                  fontStyle: "italic",
+                }}
+              >
+                Note: Your final character page made in this generator works
+                best as a companion to an official character sheet.
               </h6>
             </div>
             <div className="modal-footer">

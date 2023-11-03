@@ -5,13 +5,13 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.character{
-  height: fit-content
+.character {
+  height: fit-content;
 }
-.statsPage{
+.statsPage {
   height: 100vh;
 }
-.characterHeader{
+.characterHeader {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,11 +33,11 @@ hr {
   background-size: cover;
   height: fit-content;
 }
-.secondForm{
+.secondForm {
   width: 50%;
-margin-left: auto;
-margin-right: 0;
-float: right;
+  margin-left: auto;
+  margin-right: 0;
+  float: right;
 }
 /* .printForm {
   display: flex;
@@ -113,12 +113,12 @@ form {
   padding-left: 4%;
   border-radius: 3%;
 }
-#wholePrintForm{
+#wholePrintForm {
   width: 50vw;
   /* display: flex;
   flex-direction: row; */
 }
-.printForm{
+.printForm {
   display: flex;
   justify-content: space-evenly;
 }
@@ -142,7 +142,6 @@ form {
 }
 .name {
   font-size: large;
-  
 }
 #dice {
   width: 25vw;
@@ -224,9 +223,8 @@ li {
 .icon {
   margin-left: auto;
 }
-.navbar{
+.navbar {
   font-family: "MedievalSharp", cursive;
-  
 }
 .navArrows {
   display: flex;
@@ -428,7 +426,7 @@ footer {
   height: 250px;
   margin-left: 1%;
 }
-.diceModal{
+.diceModal {
   height: 250px;
   margin-left: 10%;
 }

@@ -16,12 +16,22 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-h1, h2, h3, h4{
+h1,
+h2,
+h3,
+h4 {
   font-family: "MedievalSharp", cursive;
   font-weight: bold;
-
 }
-h5, h6, a,ul, li,  p, label, select, option{
+h5,
+h6,
+a,
+ul,
+li,
+p,
+label,
+select,
+option {
   font-family: "Recursive, sans-serif";
   font-weight: bold;
 }
@@ -31,7 +41,8 @@ h5, h6, a,ul, li,  p, label, select, option{
   font-size: 20px;
   font-weight: normal;
 } */
-h5, h6{
+h5,
+h6 {
   font-style: italic;
 }
 
@@ -74,7 +85,6 @@ h5, h6{
   display: flex;
   justify-content: space-evenly;
   font-family: "MedievalSharp", cursive;
-
 }
 .App-header {
   background-color: #282c34;

@@ -9,7 +9,7 @@ import {
   faScroll,
   faHouseCrack,
   faSignsPost,
-  faQuestion
+  faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Print = () => {
@@ -68,8 +68,8 @@ const Print = () => {
 
   return (
     <div className="printPage">
-      <div className="buttons navbar" style={{width: "auto"}}>
-      <div>
+      <div className="buttons navbar" style={{ width: "auto" }}>
+        <div>
           <button
             type="button"
             className="btn btn-primary btn-lg"
@@ -91,74 +91,74 @@ const Print = () => {
             How to Use
           </button>
         </div>
-      <div>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg homeButton"
-          id="charButton"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "200px",
-            marginBottom: "2%",
-            marginRight: "2%",
-          }}
-          onClick={navTop}
-        >
-          <a style={{ paddingRight: "2%" }}>
-            <FontAwesomeIcon
-              icon={faSignsPost}
-              size="xl"
-              style={{ color: "white" }}
-            />
-          </a>
-          Back to Start
-        </button>
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg homeButton"
+            id="charButton"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "200px",
+              marginBottom: "2%",
+              marginRight: "2%",
+            }}
+            onClick={navTop}
+          >
+            <a style={{ paddingRight: "2%" }}>
+              <FontAwesomeIcon
+                icon={faSignsPost}
+                size="xl"
+                style={{ color: "white" }}
+              />
+            </a>
+            Back to Start
+          </button>
         </div>
         <div>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg homeButton"
-          id="printButton"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "175px",
-            marginBottom: "2%",
-            marginRight: "2%",
-          }}
-          onClick={handlePrint}
-        >
-          <a id="arrow">
-            <FontAwesomeIcon
-              icon={faScroll}
-              size="xl"
-              style={{ color: "white", marginRight: "4px" }}
-            />
-          </a>
-          Print Page
-        </button>
-</div>
-<div>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg homeButton"
-          id="homeButton"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "175px",
-          }}
-          onClick={navHome}
-        >
-          Back Home
-          <a>
-            <FontAwesomeIcon
-              icon={faHouseCrack}
-              style={{ color: "white", marginLeft: "7px" }}
-            />
-          </a>
-        </button>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg homeButton"
+            id="printButton"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginRight: "2%",
+            }}
+            onClick={handlePrint}
+          >
+            <a id="arrow">
+              <FontAwesomeIcon
+                icon={faScroll}
+                size="xl"
+                style={{ color: "white", marginRight: "4px" }}
+              />
+            </a>
+            Print Page
+          </button>
+        </div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg homeButton"
+            id="homeButton"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+            }}
+            onClick={navHome}
+          >
+            Back Home
+            <a>
+              <FontAwesomeIcon
+                icon={faHouseCrack}
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
         </div>
       </div>
       <div
@@ -189,24 +189,30 @@ const Print = () => {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">          
+            <div className="modal-body">
               <p>
-                Give your character a final look over and hit "Print Page" when you're ready to go adventuring.
-                If you want to change anything or create a new character click "Back to Start" to head back to the top of the Character Builder.
-                </p>
-              
-          <a>
+                Give your character a final look over and hit "Print Page" when
+                you're ready to go adventuring. If you want to change anything
+                or create a new character click "Back to Start" to head back to
+                the top of the Character Builder.
+              </p>
+
+              <a>
                 <img
                   className="heroModal"
                   src="https://qph.cf2.quoracdn.net/main-qimg-cd5679e511a8d612641c4ccd49893d4c"
                 />
               </a>
-              <h6 style={{
+              <h6
+                style={{
                   fontFamily: "Recursive, sans-serif",
                   fontStyle: "italic",
-                  marginTop: "5%"
-                }}>
-                Remember when you click "Back Home" your character will be completely wiped so make sure to save or print your character sheet before you leave
+                  marginTop: "5%",
+                }}
+              >
+                Remember when you click "Back Home" your character will be
+                completely wiped so make sure to save or print your character
+                sheet before you leave
               </h6>
             </div>
             <div className="modal-footer">
@@ -221,7 +227,7 @@ const Print = () => {
           </div>
         </div>
       </div>
-      <div className="characterHeader" style={{color: "#282c34"}}>
+      <div className="characterHeader" style={{ color: "#282c34" }}>
         <h1>Print Page</h1>
       </div>
       <div className="wholeForm" id="wholePrintForm" ref={componentRef}>

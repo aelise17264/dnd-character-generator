@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useLocalStorage from "use-local-storage";
 import { characterSpellSlots } from "../../api/CharacterSpellSlots";
@@ -12,7 +12,7 @@ import {
   faLeftLong,
   faHouseCrack,
   faScroll,
-  faQuestion
+  faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Stats() {
@@ -116,13 +116,12 @@ function Stats() {
     bsModal.hide();
   };
 
-
   return (
     // <div className="character">
     //   {/* <Header /> */}
     <div className="statsPage">
-    <div className="buttons navbar">
-    <div>
+      <div className="buttons navbar">
+        <div>
           <button
             type="button"
             className="btn btn-primary btn-lg"
@@ -145,43 +144,43 @@ function Stats() {
           </button>
         </div>
         <div>
-        <button
-        type="button"
-        className="btn btn-primary btn-lg"
-        style={{
-          backgroundColor: "#282c34",
-          border: "none",
-          width: "150px",
-          marginBottom: "2%",
-        }}
-        onClick={handleButtonClick}
-      >
-        Get Stats
-        <a>
-          <FontAwesomeIcon
-            icon={faWandMagicSparkles}
-            shake
-            style={{ color: "white", marginLeft: "7px" }}
-          />
-        </a>
-      </button>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "150px",
+              marginBottom: "2%",
+            }}
+            onClick={handleButtonClick}
+          >
+            Get Stats
+            <a>
+              <FontAwesomeIcon
+                icon={faWandMagicSparkles}
+                shake
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
         </div>
-      <div className="statButton">
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          id="statHomeButton"
-          onClick={goHome}
-        >
-          Back Home
-          <a>
-            <FontAwesomeIcon
-              icon={faHouseCrack}
-              style={{ color: "white", marginLeft: "7px" }}
-            />
-          </a>
-        </button>
-      </div>
+        <div className="statButton">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            id="statHomeButton"
+            onClick={goHome}
+          >
+            Back Home
+            <a>
+              <FontAwesomeIcon
+                icon={faHouseCrack}
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
+        </div>
       </div>
       <div
         className="modal fade"
@@ -211,21 +210,25 @@ function Stats() {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">          
+            <div className="modal-body">
               <p>
-                On the Stats & Spells page click the "Get Stats" button to randomly genrate your general stats as well as your skill proficiences and spell slots based off your class.
-                Want to to reshuffel your general stats? Just click the button again (the other info on the page should not change).
-               If you go back and roll for a new character, when you click back to the Stats page you'll need to re-roll all the stats to match your new character.
-                Happy with  your stats? Click the scroll to move to print or save your character.
-                </p>
-              
-          <a>
+                On the Stats & Spells page click the "Get Stats" button to
+                randomly genrate your general stats as well as your skill
+                proficiences and spell slots based off your class. Want to to
+                reshuffel your general stats? Just click the button again (the
+                other info on the page should not change). If you go back and
+                roll for a new character, when you click back to the Stats page
+                you'll need to re-roll all the stats to match your new
+                character. Happy with your stats? Click the scroll to move to
+                print or save your character.
+              </p>
+
+              <a>
                 <img
                   className="diceModal"
                   src="https://i.pinimg.com/736x/85/d1/d7/85d1d7ca6b2eed36a98fc59761637845.jpg"
                 />
               </a>
-            
             </div>
             <div className="modal-footer">
               <button
@@ -240,7 +243,9 @@ function Stats() {
         </div>
       </div>
       <div className="characterHeader">
-        <h1 style={{textDecoration: "underline"}}>Character Builder: Stats & Spells</h1>
+        <h1 style={{ textDecoration: "underline" }}>
+          Character Builder: Stats & Spells
+        </h1>
       </div>
 
       <div className="statGroup">
@@ -269,7 +274,7 @@ function Stats() {
       <div className="navArrows">
         <div className="goBack">
           <h3>Back To Start</h3>
-          
+
           <a id="arrow">
             <FontAwesomeIcon
               icon={faLeftLong}
