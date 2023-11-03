@@ -439,7 +439,7 @@ function Character() {
       <div className="characterHeader">
         <h1>Character Builder</h1>
       </div>
-      <div className="wholeForm">
+      <div className="wholeForm" style={{padding: "2%", paddingLeft: "4%"}}>
         <div className="topForm">
           <div className="characterVisual">
             <div id="dice" className={nameData} />

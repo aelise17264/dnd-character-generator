@@ -83,6 +83,7 @@ h6 {
 .button-row {
   margin-top: 2%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   font-family: "MedievalSharp", cursive;
 }

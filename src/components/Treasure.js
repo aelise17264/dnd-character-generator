@@ -1,8 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Modal } from "bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoins, faHouseCrack } from "@fortawesome/free-solid-svg-icons";
+import { faCoins, faHouseCrack, faQuestion } from "@fortawesome/free-solid-svg-icons";
 
 import "./Components.css";
 
@@ -159,10 +161,50 @@ function Treasure() {
     partyFavor = "";
   };
 
+  const modalRef = useRef();
+  const showModal = () => {
+    const modalEl = modalRef.current;
+    const bsModal = new Modal(modalEl, {
+      backdrop: "static",
+      keyboard: false,
+    });
+    bsModal.show();
+  };
+
+  const hideModal = () => {
+    const modalEl = modalRef.current;
+    const bsModal = Modal.getInstance(modalEl);
+    bsModal.hide();
+  };
+
   return (
     <div className="treasurePage" id="treasurePage">
-      <div className="treasure">
-        <h3>Treasure Page</h3>
+      <div className="buttons navbar">
+      <div>
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#282c34",
+                border: "none",
+                width: "250px",
+                marginBottom: "2%",
+              }}
+              onClick={showModal}
+            >
+              <a>
+                <FontAwesomeIcon
+                  icon={faQuestion}
+                  style={{ color: "white" }}
+                />
+              </a>
+              How to Use this Page
+            </button>
+          </div>
+          <div>
+            <h1>Treasure & Equipment</h1>
+          </div>
+      <div>
         <button
           type="button"
           className="btn btn-primary btn-lg homeButton"
@@ -184,6 +226,82 @@ function Treasure() {
             />
           </a>
         </button>
+</div>
+<div
+          className="modal fade"
+          ref={modalRef}
+          id="explainerModal"
+          tabIndex="-1"
+          aria-labelledby="explainerModal"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div
+              className="modal-content"
+              style={{ fontFamily: "Recursive, sans-serif" }}
+            >
+              <div className="modal-header">
+                <h1
+                  className="modal-title fs-5"
+                  style={{ fontWeight: "bold" }}
+                  id="explainerModal"
+                >
+                  Always loot the bodies
+                </h1>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={hideModal}
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>
+                  Your adventurers have stumbled upon some treasure. This random generator will help you determine how many and what type of items they have found.
+                  </p>
+                  <p> First enter the number of players in your party. Each player will receive 100 gold pieces.
+</p>
+                 <p> Next decide how well your players are doing. Each player will receive one (1) piece of standard equipment regardless of skill level.
+                 If "they're learning", each player will receive one (1) additional weapon.
+                 And if they're "true adventurers" they will also receive one (1) piece of adventuring gear each.
+                  You can divide up these pieces of equipment according to each player's class and skill. Or you can randomly assign them if you're feeling extra chaotic.
+                </p>
+                <p>
+                  Lastly decide how much you like your players. If they've annoyed you today and they're being "the worst" the party will receive one (1) additional piece of armor.
+                  If they haven't made you pull out your hair today ("they're ok") the party will receive one (1) magical item.
+                  Did they bring you gifts? Or at least not derail the campaign you planned out? If they're "the best" the party will receive one (1) wonderous item.
+                  You can dole out this extra item or you can let the party decide who would use it best.
+                </p>
+                <a>
+                  <img
+                    className="treasureImage"
+                    src="https://cdna.artstation.com/p/assets/images/images/052/334/312/large/xenia-pike-inventory-without-signature.jpg?1659533649"
+                  />
+                </a>
+                <h6 
+                 style={{
+                  fontFamily: "Recursive, sans-serif",
+                  fontStyle: "italic",
+                  marginTop: "5%",
+                  color: "#282c34"
+                }}
+                >
+                  Remember when you click "Back Home" your treasure list will be cleared
+                  </h6>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={hideModal}
+                >
+                  Plunder!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
       <div id="dropDowns" className="dropDowns">
         <div>
@@ -227,6 +345,7 @@ function Treasure() {
             border: "none",
             width: "175px",
             marginBottom: "2%",
+            opacity: "100%",
           }}
           onClick={getTreasure}
         >
@@ -234,7 +353,7 @@ function Treasure() {
           <a>
             <FontAwesomeIcon
               icon={faCoins}
-              style={{ color: "white", marginLeft: "7px" }}
+              style={{ color: "white", marginLeft: "7px",  }}
             />
           </a>
         </button>
@@ -251,7 +370,7 @@ function Treasure() {
           <div className="goldandMagic">
             <h3 id="goldCount"></h3>
             <h3 id="magicFound"></h3>
-            <img src="https://www.dndbeyond.com/avatars/thumbnails/7/122/1000/1000/636284708338172704.jpeg" />
+            <img src="https://p.kindpng.com/picc/s/209-2094624_treasure-roll20-hd-png-download.png" />
           </div>
         </div>
         <div className="refresh">

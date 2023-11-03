@@ -25,6 +25,7 @@ function Monsters() {
   const baseURL = "https://www.dnd5eapi.co/api/monsters/";
   let navigate = useNavigate();
   const navHome = () => navigate("/", { replace: true });
+
   const modalRef = useRef();
   const showModal = () => {
     const modalEl = modalRef.current;
@@ -127,30 +128,8 @@ function Monsters() {
     <div id="monsterPage">
       <div className="monsters">
         {/* <h3>Monster Page</h3> */}
-        <div className="buttons navbar">
-          <div>
-            <button
-              type="button"
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#282c34",
-                border: "none",
-                width: "175px",
-                marginBottom: "2%",
-                marginLeft: "2%",
-              }}
-              onClick={fullMonsterCall}
-            >
-              Get Monster
-              <a>
-                <FontAwesomeIcon
-                  icon={faSkull}
-                  style={{ color: "white", marginLeft: "7px" }}
-                />
-              </a>
-            </button>
-          </div>
-          <div>
+        <div className="buttons navbar" style={{ width: "90vw", marginLeft: "4%"}}>
+        <div>
             <button
               type="button"
               className="btn btn-primary btn-lg"
@@ -172,6 +151,30 @@ function Monsters() {
               How to Use this Page
             </button>
           </div>
+          <div className="monsterTitle">
+          <h1>Monsters and Foes</h1>
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#282c34",
+                border: "none",
+                width: "175px",
+                marginBottom: "2%",
+                marginLeft: "2%",
+              }}
+              onClick={fullMonsterCall}
+            >
+              Get Monster
+              <a>
+                <FontAwesomeIcon
+                  icon={faSkull}
+                  style={{ color: "white", marginLeft: "7px" }}
+                />
+              </a>
+            </button>
+          </div>
+         
           <div>
             <button
               type="button"
@@ -242,10 +245,17 @@ function Monsters() {
                     src="https://cdn.shoplightspeed.com/shops/614933/files/31478762/1600x2048x2/d-d-5e-monster-manual.jpg"
                   />
                 </a>
-                <p>
+                <h6 
+                 style={{
+                  fontFamily: "Recursive, sans-serif",
+                  fontStyle: "italic",
+                  marginTop: "5%",
+                  color: "#282c34"
+                }}
+                >
                   Remember when you click "Back Home" your monster's info will
                   be cleared
-                </p>
+                </h6>
               </div>
               <div className="modal-footer">
                 <button
@@ -253,7 +263,7 @@ function Monsters() {
                   className="btn btn-secondary"
                   onClick={hideModal}
                 >
-                  Got It!
+                  Prepare for Battle
                 </button>
               </div>
             </div>
@@ -325,7 +335,7 @@ function Monsters() {
             }}
             onClick={fullMonsterCall}
           >
-            Don't Like It
+            Roll Again
             <a>
               <FontAwesomeIcon
                 icon={faSkull}

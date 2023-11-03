@@ -244,7 +244,7 @@ function Stats() {
         </div>
       </div>
       <div className="characterHeader">
-        <h1 style={{ textDecoration: "underline" }}>
+        <h1>
           Character Builder: Stats & Spells
         </h1>
       </div>
