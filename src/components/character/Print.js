@@ -221,7 +221,7 @@ const Print = () => {
                 className="btn btn-secondary"
                 onClick={hideModal}
               >
-                Got It!
+                Onward!
               </button>
             </div>
           </div>
@@ -230,8 +230,8 @@ const Print = () => {
       <div className="characterHeader" style={{ color: "#282c34" }}>
         <h1>Print Page</h1>
       </div>
-      <div className="wholeForm" id="wholePrintForm" ref={componentRef}>
-        <form className="printForm">
+      <div className="wholeForm" id="wholePrintForm" >
+        <form className="printForm" ref={componentRef}>
           <div className="firstForm">
             <h2>Race: {finalCall[0]}</h2>
             <h2>Class: {finalCall[1]}</h2>

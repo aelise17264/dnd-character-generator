@@ -39,17 +39,7 @@ hr {
   margin-right: 0;
   float: right;
 }
-/* .printForm {
-  display: flex;
-  justify-content: center;
-  /* width: 50%; */
 
-/* .secondForm{
-  width: 5%;
-} */
-/* .printStats {
-  padding-left: 10%;
-} */
 .printArmor {
   display: flex;
   flex-direction: column;
@@ -58,9 +48,7 @@ hr {
   margin-top: 1%;
   margin-left: 2%;
 }
-/* #skillP {
-  width: 25%;
-} */
+
 
 .generate {
   text-align: center;
@@ -109,8 +97,7 @@ form {
   opacity: 80%;
   width: fit-content;
   margin: auto;
-  padding: 2%;
-  padding-left: 4%;
+
   border-radius: 3%;
 }
 #wholePrintForm {
@@ -121,6 +108,8 @@ form {
 .printForm {
   display: flex;
   justify-content: space-evenly;
+  padding: 5%;
+  padding-left: 7%;
 }
 
 .topForm {

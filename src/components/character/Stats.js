@@ -213,11 +213,12 @@ function Stats() {
             <div className="modal-body">
               <p>
                 On the Stats & Spells page click the "Get Stats" button to
-                randomly genrate your general stats as well as your skill
-                proficiences and spell slots based off your class. Want to to
-                reshuffel your general stats? Just click the button again (the
-                other info on the page should not change). If you go back and
-                roll for a new character, when you click back to the Stats page
+                randomly genrate your general stats. Want to to reshuffel your
+                general stats? Just click the button again (the other info on
+                the page should not change). Your character's skill proficiences
+                and spell slots based off your class will be displayed
+                when you click the Stats button as well. If you go back and roll
+                for a new character, when you click back to the Stats page
                 you'll need to re-roll all the stats to match your new
                 character. Happy with your stats? Click the scroll to move to
                 print or save your character.
@@ -236,7 +237,7 @@ function Stats() {
                 className="btn btn-secondary"
                 onClick={hideModal}
               >
-                Got It!
+                Rolling Rolling Rolling
               </button>
             </div>
           </div>

@@ -417,6 +417,7 @@ function Character() {
                 style={{
                   fontFamily: "Recursive, sans-serif",
                   fontStyle: "italic",
+                  marginTop: "5%",
                 }}
               >
                 Note: Your final character page made in this generator works
@@ -429,7 +430,7 @@ function Character() {
                 className="btn btn-secondary"
                 onClick={hideModal}
               >
-                Got It!
+                Let's Roll!
               </button>
             </div>
           </div>
