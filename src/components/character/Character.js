@@ -36,7 +36,7 @@ function Character() {
 
   const getCharName = () => {
     axios
-      .get(baseURL + `/races`)
+      .get(baseURL + "/races")
       .then((res) => {
         let newCharList = res.data.results;
         let newCharIndex = Math.floor(Math.random() * 10);
@@ -49,7 +49,7 @@ function Character() {
 
   const getAlignment = () => {
     axios
-      .get(baseURL + `/alignments`)
+      .get(baseURL + "/alignments")
       .then((res) => {
         let alignmentList = res.data.results;
         let alignmentIndex = Math.floor(Math.random() * 10);
@@ -62,7 +62,7 @@ function Character() {
 
   const getClass = () => {
     axios
-      .get(baseURL + `classes`)
+      .get(baseURL + "classes")
       .then((res) => {
         let classList = res.data.results;
         let classIndex = randomNumber(1, 12);
@@ -75,7 +75,7 @@ function Character() {
 
   const getLanguages = () => {
     axios
-      .get(baseURL + `/languages`)
+      .get(baseURL + "/languages")
       .then((res) => {
         let languageList = res.data.results;
         let firstLanguageIndex = 2;
@@ -94,7 +94,7 @@ function Character() {
   };
 
   const getEquipment = () => {
-    axios.get(baseURL + `/equipment`).then((res) => {
+    axios.get(baseURL + "/equipment").then((res) => {
       let equipmentList = res.data.results;
       let firstPieceIndex = randomNumber(1, 237);
       let secondPieceIndex = randomNumber(1, 237);
@@ -108,7 +108,7 @@ function Character() {
   };
 
   const getArmor = () => {
-    axios.get(baseURL + `/equipment-categories/armor`).then((res) => {
+    axios.get(baseURL + "/equipment-categories/armor").then((res) => {
       let armorList = res.data.equipment;
       let armorLevel = randomNumber(1, 3);
       setArmorData(armorList[armorLevel].name);
@@ -117,7 +117,7 @@ function Character() {
 
   const getTraits = () => {
     axios
-      .get(baseURL + `/traits`)
+      .get(baseURL + "/traits")
       .then((res) => {
         let traitList = res.data.results;
         let traitSelect1 = document.getElementById("Rtrait1");
@@ -142,7 +142,7 @@ function Character() {
 
   const getFeature = () => {
     axios
-      .get(baseURL + `/features`)
+      .get(baseURL + "/features")
       .then((res) => {
         let featureList = res.data.results;
         let displayFeatures = document.getElementById("features");
@@ -188,7 +188,8 @@ function Character() {
 
   let navigate = useNavigate();
   const handleArrowClick = () => {
-    if ((traitData == []) | (featuresData == "")) {
+    // eslint-disable-next-line
+    if ((traitData == []) | (featuresData === "")) {
       const charError = document.getElementById("charError");
       charError.innerText =
         "Make sure you've selected all your character traits and features";
@@ -242,7 +243,7 @@ function Character() {
 
   return (
     <div className="character" id="character">
-      <div className="buttons navbar">
+      <div className="buttons navbar" style={{ paddingTop: "2%" }}>
         <div>
           <button
             type="button"
@@ -388,6 +389,7 @@ function Character() {
               </p>
               <a>
                 <img
+                  alt="Heroes"
                   className="heroModal"
                   src="https://assetsio.reedpopcdn.com/explorers-guide-to-wildemount-dungeons-and-dragons-tabletop-roleplaying-game-image-2.jpg?width=660&quality=80&format=jpg&auto=webp"
                 />
@@ -419,7 +421,10 @@ function Character() {
       <div className="characterHeader">
         <h1>Character Builder</h1>
       </div>
-      <div className="wholeForm" style={{ padding: "2%", paddingLeft: "4%" }}>
+      <div
+        className="wholeForm"
+        style={{ padding: "2%", paddingLeft: "4%", marginBottom: 0 }}
+      >
         <div className="topForm">
           <div className="characterVisual">
             <div id="dice" className={nameData} />
@@ -468,7 +473,9 @@ function Character() {
                 onChange={changeTrait1}
                 value={traitData}
               >
-                <option value="">Select Trait</option>
+                <option value="" disabled>
+                  Select Trait
+                </option>
               </select>
               <div className="traitData">
                 <p>{traitData[0]}</p>
@@ -484,7 +491,9 @@ function Character() {
                 onChange={setFeature}
                 value={featuresData}
               >
-                <option value="">Select Special Feature</option>
+                <option value="" disabled>
+                  Select Special Feature
+                </option>
               </select>
               <div className="featuresData">
                 <p>{featuresData}</p>
@@ -508,16 +517,26 @@ function Character() {
       </div>
 
       <div className="refresh">
-        <h3>To Stats & Spells</h3>
-
-        <a id="arrow">
-          <FontAwesomeIcon
-            icon={faRightLong}
-            size="2xl"
-            style={{ color: "white" }}
-            onClick={handleArrowClick}
-          />
-        </a>
+        <button
+          type="button"
+          className="btn btn-primary btn-lg"
+          style={{
+            backgroundColor: "transparent",
+            border: "none",
+            width: "400px",
+            marginBottom: "2%",
+            fontSize: "xx-large",
+          }}
+          onClick={handleArrowClick}
+        >
+          To Stats & Spells
+          <a className="arrow">
+            <FontAwesomeIcon
+              icon={faRightLong}
+              style={{ color: "white", marginLeft: "1%" }}
+            />
+          </a>
+        </button>
       </div>
       <Footer />
     </div>

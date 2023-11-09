@@ -55,7 +55,7 @@ function Monsters() {
         setMonsterData(monsterDetails);
 
         let armorClass = monsterDetails.armor_class;
-        if (armorClass == undefined) {
+        if (armorClass === undefined) {
           return "";
         }
         if (armorClass[0].armor !== undefined) {
@@ -69,7 +69,7 @@ function Monsters() {
         }
 
         let actions = monsterDetails.actions;
-        if (actions == undefined) {
+        if (actions === undefined) {
           return "";
         }
         actions.forEach((action) => {
@@ -80,7 +80,7 @@ function Monsters() {
         });
 
         let speeds = monsterDetails.speed;
-        if (speeds == undefined) {
+        if (speeds === undefined) {
           return "";
         }
         let speedList = document.createElement("p");
@@ -226,9 +226,11 @@ function Monsters() {
                 <a
                   target="_blank"
                   href="https://dnd.wizards.com/products/monster-manual"
+                  rel="noreferrer"
                 >
                   <img
                     className="modalImage"
+                    alt="Monster Manual"
                     src="https://cdn.shoplightspeed.com/shops/614933/files/31478762/1600x2048x2/d-d-5e-monster-manual.jpg"
                   />
                 </a>
@@ -267,7 +269,7 @@ function Monsters() {
           <div className="monsterGroups">
             <div className="monsterGroup1">
               <div className="monsterImage">
-                <img src={monsterImage}></img>
+                <img alt="Monster of choice" src={monsterImage}></img>
               </div>
               <div className="fullStats">
                 <div className="boringStats">

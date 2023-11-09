@@ -10,6 +10,7 @@ import { Modal } from "bootstrap";
 import {
   faWandMagicSparkles,
   faLeftLong,
+  faSignsPost,
   faHouseCrack,
   faScroll,
   faQuestion,
@@ -24,7 +25,7 @@ function Stats() {
 
   const location = useLocation();
   const charData = location.state.nameData;
-  const charClass = location.state.classData;
+  let charClass = location.state.classData;
   const playerBonus = statBonuses[charData];
   const getBonuses = playerBonus?.map((stat) => {
     return <li className="bonus">{stat}</li>;
@@ -46,9 +47,9 @@ function Stats() {
   };
 
   const getSkills = () => {
-    let charClass = location.state.classData.toLowerCase();
+    charClass = location.state.classData.toLowerCase();
     axios
-      .get(`https://www.dnd5eapi.co/api/classes/` + charClass)
+      .get("https://www.dnd5eapi.co/api/classes/" + charClass)
       .then((res) => {
         let charDetails = res.data;
         setSkillData(charDetails.proficiency_choices[0].desc);
@@ -87,7 +88,7 @@ function Stats() {
   ];
 
   let navigate = useNavigate();
-  const handleArrowClick = () => navigate("/Character", { replace: true });
+  const navTop = () => navigate("/Character", { replace: true });
   const handleNavToPrint = () =>
     navigate("/Print", {
       replace: true,
@@ -112,7 +113,31 @@ function Stats() {
 
   return (
     <div className="statsPage">
-      <div className="buttons navbar">
+      <div className="buttons navbar" style={{ paddingTop: "2%" }}>
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg homeButton"
+            id="charButton"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "200px",
+              marginBottom: "2%",
+              marginRight: "2%",
+            }}
+            onClick={navTop}
+          >
+            <a style={{ paddingRight: "2%" }}>
+              <FontAwesomeIcon
+                icon={faSignsPost}
+                size="xl"
+                style={{ color: "white" }}
+              />
+            </a>
+            Back to Start
+          </button>
+        </div>
         <div>
           <button
             type="button"
@@ -218,6 +243,7 @@ function Stats() {
 
               <a>
                 <img
+                  alt="Dice Roll"
                   className="diceModal"
                   src="https://i.pinimg.com/736x/85/d1/d7/85d1d7ca6b2eed36a98fc59761637845.jpg"
                 />
@@ -262,32 +288,26 @@ function Stats() {
           <p>Cantrips: {spellData.cantrips}</p>
         </div>
       </div>
-      <div className="navArrows">
-        <div className="goBack">
-          <h3>Back To Start</h3>
-
-          <a id="arrow">
-            <FontAwesomeIcon
-              icon={faLeftLong}
-              size="2xl"
-              style={{ color: "white" }}
-              onClick={handleArrowClick}
-            />
+      <div className="toPrint">
+        <button
+          className="btn btn-primary btn-lg"
+          style={{
+            backgroundColor: "transparent",
+            border: "none",
+            width: "450px",
+            marginBottom: "2%",
+            marginTop: "2%",
+            fontSize: "xx-large",
+          }}
+          onClick={handleNavToPrint}
+        >
+          <a className="arrow">
+            <FontAwesomeIcon icon={faScroll} style={{ color: "white" }} />
           </a>
-        </div>
-        <div className="toSpells">
-          <h3>Print Character Sheet</h3>
-          {/* <p>This isn't working yet, Sorry</p> */}
-          <a id="arrow">
-            <FontAwesomeIcon
-              icon={faScroll}
-              size="2xl"
-              style={{ color: "white" }}
-              onClick={handleNavToPrint}
-            />
-          </a>
-        </div>
+          Print Character Sheet
+        </button>
       </div>
+      {/* </div> */}
       <Footer />
     </div>
   );

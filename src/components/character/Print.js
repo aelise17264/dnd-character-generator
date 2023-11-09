@@ -26,7 +26,7 @@ const Print = () => {
 
   useEffect(() => {
     getBonusList();
-  }, []);
+  });
 
   const getBonusList = () => {
     let rbList = document.getElementById("bonusList");
@@ -68,29 +68,10 @@ const Print = () => {
 
   return (
     <div className="printPage">
-      <div className="buttons navbar" style={{ width: "auto" }}>
-        <div>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginLeft: "2%",
-            }}
-            onClick={showModal}
-          >
-            <a>
-              <FontAwesomeIcon
-                icon={faQuestion}
-                style={{ color: "white", marginRight: "4px" }}
-              />
-            </a>
-            How to Use
-          </button>
-        </div>
+      <div
+        className="buttons navbar"
+        style={{ width: "auto", paddingTop: "2%" }}
+      >
         <div>
           <button
             type="button"
@@ -113,6 +94,28 @@ const Print = () => {
               />
             </a>
             Back to Start
+          </button>
+        </div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginLeft: "2%",
+            }}
+            onClick={showModal}
+          >
+            <a>
+              <FontAwesomeIcon
+                icon={faQuestion}
+                style={{ color: "white", marginRight: "4px" }}
+              />
+            </a>
+            How to Use
           </button>
         </div>
         <div>
@@ -199,6 +202,7 @@ const Print = () => {
 
               <a>
                 <img
+                  alt="Character Type List"
                   className="heroModal"
                   src="https://qph.cf2.quoracdn.net/main-qimg-cd5679e511a8d612641c4ccd49893d4c"
                 />
@@ -228,7 +232,7 @@ const Print = () => {
         </div>
       </div>
       <div className="characterHeader" style={{ color: "#282c34" }}>
-        <h1>Print Page</h1>
+        <h1>Print Character</h1>
       </div>
       <div className="printBody">
         <div className="wholeForm" id="wholePrintForm">

@@ -5,19 +5,22 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .character {
   height: fit-content;
 }
-.statsPage {
-  height: 100vh;
-}
+
 .characterHeader {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: oldlace;
+  margin-bottom: 2%;
+}
+.characterHeader h1 {
+  color: #282c34;
   font-weight: bold;
+  text-shadow: oldlace 1px 0 10px;
 }
 
 hr {
@@ -114,6 +117,7 @@ form {
 .buttonHolder {
   display: flex;
   align-self: center;
+  font-family: "MedievalSharp", cursive;
 }
 
 .names {
@@ -155,8 +159,10 @@ option {
 a {
   margin: 1%;
 }
-#arrow {
-  margin-top: 0;
+.arrow {
+  /* margin-top: 0; */
+  margin-left: 1%;
+  padding-bottom: 1%;
 }
 
 .form-group {
@@ -173,26 +179,23 @@ h2 {
   justify-content: center;
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 0 5%;
   text-align: right;
-  margin-top: 2%;
+  padding-bottom: 1%;
   color: oldlace;
-}
-.goBack {
-  justify-content: center;
-  align-items: right;
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  width: 100%;
-  margin-right: 10%;
-}
-.toSpells {
-  width: 100%;
-  align-items: left;
+  font-family: "MedievalSharp", cursive;
 }
 
+.toPrint {
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+  text-align: right;
+  padding-bottom: 1%;
+  color: oldlace;
+  font-family: "MedievalSharp", cursive;
+}
 p,
 li {
   font-size: 22px;
@@ -201,32 +204,22 @@ li {
   margin-left: auto;
 }
 .navbar {
+  padding-top: 2%;
   font-family: "MedievalSharp", cursive;
   width: 95vw;
 }
-.navArrows {
-  display: flex;
-  flex-direction: row;
-  color: oldlace;
-  width: 100%;
-  margin: 2% 0;
-}
-.navArrows p {
-  overflow-wrap: normal;
-}
 
-.statsPage,
-.spellPage {
+.statsPage {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   align-content: center;
   width: auto;
+  height: 100vh;
 }
 
 #spellPage {
-  height: 100vh;
+  height: 110vh;
 }
 .statGroup,
 .equipment {
@@ -363,6 +356,7 @@ li {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  padding: 2%;
   color: oldlace;
 }
 

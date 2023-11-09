@@ -32,7 +32,7 @@ function Treasure() {
     partySkill = document.getElementById("skillLevel").value;
     partyFavor = document.getElementById("likeability").value;
     let errorMessage = document.getElementById("errorMessage");
-    if (partySize == "" || partySkill == "" || partyFavor == "") {
+    if (partySize === "" || partySkill === "" || partyFavor === "") {
       errorMessage.innerText = "Oops you forgot something";
     } else if (partySize <= 0) {
       errorMessage.innerText =
@@ -58,7 +58,7 @@ function Treasure() {
     const gearFound = document.getElementById("gearFound");
 
     axios
-      .get(baseURL + `/equipment-categories/standard-gear`)
+      .get(baseURL + "/equipment-categories/standard-gear")
       .then((res) => {
         let equiList = res.data.equipment;
         for (var i = 0; i < count; i++) {
@@ -75,7 +75,7 @@ function Treasure() {
       });
     if (skill > 1) {
       axios
-        .get(baseURL + `/equipment-categories/weapon`)
+        .get(baseURL + "/equipment-categories/weapon")
         .then((res) => {
           let weaponList = res.data.equipment;
 
@@ -92,9 +92,9 @@ function Treasure() {
           console.error(error);
         });
     }
-    if (skill == 3) {
+    if (skill === 3) {
       axios
-        .get(baseURL + `/equipment-categories/adventuring-gear`)
+        .get(baseURL + "/equipment-categories/adventuring-gear")
         .then((res) => {
           let gearList = res.data.equipment;
 
@@ -115,9 +115,9 @@ function Treasure() {
 
   const getMagic = (likeability) => {
     const magicFound = document.getElementById("magicFound");
-    if (likeability == 1) {
+    if (likeability === 1) {
       axios
-        .get(baseURL + `/equipment-categories/medium-armor`)
+        .get(baseURL + "/equipment-categories/medium-armor")
         .then((res) => {
           let armorList = res.data.equipment;
           let armorNum = randomNumber(0, 5);
@@ -126,9 +126,9 @@ function Treasure() {
         .catch((error) => {
           console.error(error);
         });
-    } else if (likeability == 2) {
+    } else if (likeability === 2) {
       axios
-        .get(baseURL + `/magic-items`)
+        .get(baseURL + "/magic-items")
         .then((res) => {
           let magicList = res.data.results;
           let magicNum = randomNumber(5, 354);
@@ -139,12 +139,12 @@ function Treasure() {
         });
     } else {
       axios
-        .get(baseURL + `/equipment-categories/wondrous-items`)
+        .get(baseURL + "/equipment-categories/wondrous-items")
         .then((res) => {
           let wondrousList = res.data.equipment;
           let wonderousNum = randomNumber(0, 177);
           magicFound.innerText =
-            "Wondrous Item: " + wondrousList[wonderousNum].name;
+            "Bonus Item: " + wondrousList[wonderousNum].name;
         });
     }
   };
@@ -203,7 +203,7 @@ function Treasure() {
             How to Use this Page
           </button>
         </div>
-        <div>
+        <div style={{ paddingRight: "5%" }}>
           <h1>Treasure & Equipment</h1>
         </div>
         <div>
@@ -292,6 +292,7 @@ function Treasure() {
                 </p>
                 <a>
                   <img
+                    alt="Treasure list"
                     className="treasureImage"
                     src="https://cdna.artstation.com/p/assets/images/images/052/334/312/large/xenia-pike-inventory-without-signature.jpg?1659533649"
                   />
@@ -375,7 +376,7 @@ function Treasure() {
             />
           </a>
         </button>
-        <h1 id="errorMessage"></h1>
+        <div id="errorMessage"></div>
       </div>
       <div className="lootList" id="lootList" style={{ display: "none" }}>
         <div className="equipment">
@@ -386,12 +387,17 @@ function Treasure() {
             <div id="gearFound"></div>
           </div>
           <div className="goldandMagic">
+            {/* eslint-disable-next-line */}
             <h3 id="goldCount"></h3>
+            {/* eslint-disable-next-line */}
             <h3 id="magicFound"></h3>
-            <img src="https://p.kindpng.com/picc/s/209-2094624_treasure-roll20-hd-png-download.png" />
+            <img
+              alt="Treasure Trove"
+              src="https://p.kindpng.com/picc/s/209-2094624_treasure-roll20-hd-png-download.png"
+            />
           </div>
         </div>
-        <div className="refresh">
+        <div className="refresh" style={{ marginTop: "2%" }}>
           <button
             type="button"
             className="btn btn-primary btn-lg"

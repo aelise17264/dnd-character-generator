@@ -19,7 +19,7 @@ function App() {
       <div id="buffer"></div>
       <div className="scroll">
         <div className="welcome">
-          <h2>Welcome Traveler</h2>
+          <h2 style={{ fontWeight: "bold" }}>Welcome Traveler</h2>
           <p>
             This chaotically ruled tool is your one stop shop for quickly
             maneuvering through the world of Dungeons & Dragons (5e) with a
