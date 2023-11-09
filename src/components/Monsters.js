@@ -1,9 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal } from "bootstrap";
-// import Modal from 'react-bootstrap/Modal'
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSkull,
@@ -11,16 +10,14 @@ import {
   faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
 import { monsterList } from "../api/MonsterList";
+import Footer from "./Footer";
 
 import "./Components.css";
 
 function Monsters() {
   let [monsterData, setMonsterData] = useState([]);
   let [monsterImage, setMonsterImage] = useState("");
-  // const [speedStats, setSpeedInfo] = useState("");
-  // const [actionList, setActionList] = useState([]);
   const [armorStats, setArmorClass] = useState([]);
-  // let armorType;
 
   const baseURL = "https://www.dnd5eapi.co/api/monsters/";
   let navigate = useNavigate();
@@ -48,7 +45,6 @@ function Monsters() {
 
   const getMonster = () => {
     generateMonster();
-    // let actions = ""
     const monsterIndex = randomNumber(0, 40);
     const ourMonster = monsterList[monsterIndex].index;
     setMonsterImage(monsterList[monsterIndex].img);
@@ -57,49 +53,38 @@ function Monsters() {
       .then((res) => {
         let monsterDetails = res.data;
         setMonsterData(monsterDetails);
-        console.log("description", monsterDetails.desc);
 
         let armorClass = monsterDetails.armor_class;
         if (armorClass == undefined) {
           return "";
         }
         if (armorClass[0].armor !== undefined) {
-          console.log("inside if", armorClass[0].armor[0].name);
           let armorType = armorClass[0].armor[0].name;
           let armorValue = armorClass[0].value;
           setArmorClass([armorType, armorValue]);
         } else {
-          console.log("inside else");
-          console.log(armorClass[0].type);
           let naturalArmor = armorClass[0].type;
           let naturalValue = armorClass[0].value;
           setArmorClass([naturalArmor, naturalValue]);
         }
 
         let actions = monsterDetails.actions;
-        console.log("set actions", actions);
-        // setActionList(actions);
-        console.log(actions);
         if (actions == undefined) {
           return "";
         }
         actions.forEach((action) => {
           let li = document.createElement("li");
-          console.log(action);
           let text = document.createTextNode(action.name + ": " + action.desc);
           li.appendChild(text);
           document.getElementById("monsterActions").appendChild(li);
         });
 
         let speeds = monsterDetails.speed;
-        // setSpeedInfo(speeds);
         if (speeds == undefined) {
           return "";
         }
-        console.log("speed", speeds);
         let speedList = document.createElement("p");
         for (var key in speeds) {
-          console.log("inside speed loop", key, speeds[key]);
           let speed = document.createTextNode(
             " " + key + ": " + speeds[key] + " |"
           );
@@ -109,7 +94,7 @@ function Monsters() {
         document.getElementById("monsterPage").style.height = "fit-content";
       })
       .catch((err) => {
-        console.log("something went wrong", err);
+        console.error("something went wrong", err);
       });
   };
 
@@ -127,9 +112,11 @@ function Monsters() {
   return (
     <div id="monsterPage">
       <div className="monsters">
-        {/* <h3>Monster Page</h3> */}
-        <div className="buttons navbar" style={{ width: "90vw", marginLeft: "4%"}}>
-        <div>
+        <div
+          className="buttons navbar"
+          style={{ width: "90vw", marginLeft: "4%" }}
+        >
+          <div>
             <button
               type="button"
               className="btn btn-primary btn-lg"
@@ -152,7 +139,7 @@ function Monsters() {
             </button>
           </div>
           <div className="monsterTitle">
-          <h1>Monsters and Foes</h1>
+            <h1>Monsters and Foes</h1>
             <button
               type="button"
               className="btn btn-primary btn-lg"
@@ -174,7 +161,7 @@ function Monsters() {
               </a>
             </button>
           </div>
-         
+
           <div>
             <button
               type="button"
@@ -245,13 +232,13 @@ function Monsters() {
                     src="https://cdn.shoplightspeed.com/shops/614933/files/31478762/1600x2048x2/d-d-5e-monster-manual.jpg"
                   />
                 </a>
-                <h6 
-                 style={{
-                  fontFamily: "Recursive, sans-serif",
-                  fontStyle: "italic",
-                  marginTop: "5%",
-                  color: "#282c34"
-                }}
+                <h6
+                  style={{
+                    fontFamily: "Recursive, sans-serif",
+                    fontStyle: "italic",
+                    marginTop: "5%",
+                    color: "#282c34",
+                  }}
                 >
                   Remember when you click "Back Home" your monster's info will
                   be cleared
@@ -345,6 +332,7 @@ function Monsters() {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

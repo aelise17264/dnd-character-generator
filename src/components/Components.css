@@ -32,6 +32,11 @@ hr {
   background-size: cover;
   height: fit-content;
 }
+.printBody {
+  display: flex;
+  flex-direction: column;
+}
+
 .secondForm {
   width: 50%;
   margin-left: auto;
@@ -47,7 +52,6 @@ hr {
   margin-top: 1%;
   margin-left: 2%;
 }
-
 
 .generate {
   text-align: center;
@@ -76,11 +80,9 @@ hr {
   justify-content: inherit;
 }
 form {
-  /* margin-right: auto; */
   margin-bottom: 2%;
   padding-left: 0;
   margin-left: 0;
-  /* width: auto; */
 }
 
 .wholeForm {
@@ -91,13 +93,11 @@ form {
   opacity: 80%;
   width: fit-content;
   margin: auto;
-
+  margin-bottom: 3%;
   border-radius: 3%;
 }
 #wholePrintForm {
   width: 50vw;
-  /* display: flex;
-  flex-direction: row; */
 }
 .printForm {
   display: flex;
@@ -114,7 +114,6 @@ form {
 .buttonHolder {
   display: flex;
   align-self: center;
-  /* flex-direction: column; */
 }
 
 .names {
@@ -185,14 +184,11 @@ h2 {
   align-items: right;
   display: flex;
   flex-direction: column;
-  /* padding: 0 5%; */
   text-align: right;
   width: 100%;
   margin-right: 10%;
 }
 .toSpells {
-  /* padding: 0 10%; */
-  /* margin-left: 10%; */
   width: 100%;
   align-items: left;
 }
@@ -206,7 +202,7 @@ li {
 }
 .navbar {
   font-family: "MedievalSharp", cursive;
-  width: 95vw
+  width: 95vw;
 }
 .navArrows {
   display: flex;
@@ -227,11 +223,8 @@ li {
   align-items: center;
   align-content: center;
   width: auto;
-  /* height: 100vh; */
 }
-/* .statsPage {
-  height: fit-content;
-} */
+
 #spellPage {
   height: 100vh;
 }
@@ -253,9 +246,9 @@ li {
   color: #282c34;
   width: 27vw;
 }
-.groupOne, .groupTwo{
+.groupOne,
+.groupTwo {
   opacity: 80%;
-
 }
 .groupOne {
   margin-right: 10%;
@@ -300,28 +293,27 @@ li {
   margin-right: 1%;
   width: 33%;
 }
-footer {
-  /* position: fixed; */
+.d6 {
+  position: fixed;
   left: 0;
   bottom: 0;
+  margin-bottom: 2%;
   text-align: center;
   width: 100%;
   color: oldlace;
+  text-align: left;
 }
 .explorers {
   align-self: auto;
 }
-/* character images */
 .Dragonborn {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
   height: 72vh;
-  /* border: 0; */
 }
 
 .Dwarf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
   height: 63vh;
-  /* border: 0; */
 }
 
 .Elf {
@@ -335,44 +327,36 @@ footer {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
   height: 57vh;
   max-width: 23vw;
-  /* border: 0; */
 }
 
 .Half-Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
   max-width: 23.3vw;
   height: 75vh;
-  /* border: 0; */
 }
 
 .Halfling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
   height: 68vh;
   max-width: 24vw;
-  /* border: 0; */
 }
 
 .Half-Orc {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
   height: 66vh;
   max-width: 23vw;
-  /* border: 0; */
 }
 .Human {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
   max-width: 20vw;
   height: 75vh;
-  /* border: 0; */
 }
 .Tiefling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
   max-width: 23vw;
   height: 75vh;
-  /* border: 0; */
 }
 
-/* "https://us.123rf.com/450wm/lineartestpilot/lineartestpilot2004/lineartestpilot200403428/145472044-tattoo-in-black-line-style-of-a-d20-dice.jpg?ver=6"
-  */
 #treasurePage {
   background-image: url("https://wallpaper-house.com/data/out/9/wallpaper2you_311594.jpg");
   background-position: center;
@@ -388,15 +372,14 @@ footer {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  /* width: 75vw; */
   color: oldlace;
 }
-.monsterTitle{
+.monsterTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-right: 5%
+  padding-right: 5%;
 }
 
 .modal-content .modal-title,
@@ -448,7 +431,11 @@ footer {
   height: fit-content;
   border-radius: 10px;
 }
-
+footer {
+  position: absolute;
+  padding-bottom: 1%;
+  left: 0;
+}
 .monsterImage img {
   height: 40vh;
 }
@@ -462,10 +449,6 @@ footer {
   flex-direction: row;
   justify-content: center;
 }
-/* .statButton {
-  align-self: end;
-  margin-right: 2%;
-} */
 
 #statHomeButton {
   margin-top: 2%;
@@ -473,7 +456,6 @@ footer {
   border: none;
   width: 175px;
   margin-bottom: 2%;
-  /* margin-right: auto; */
 }
 .monsterStats,
 .boringStats {
@@ -487,8 +469,6 @@ footer {
 }
 .boringStats {
   width: 50%;
-  /* padding-left: 6% */
-  /* padding-right: 5%; */
 }
 .boringStats p {
   font-size: large;
@@ -532,7 +512,6 @@ footer {
   border-width: thick;
   font-weight: normal;
   font-size: large;
-  /* border-color: #282c34; */
 }
 
 .dropDowns button {
@@ -547,12 +526,13 @@ footer {
   width: 40vh;
   padding-top: 10%;
 }
-.oneForAll h3, #goldCount, #magicFound{
+.oneForAll h3,
+#goldCount,
+#magicFound {
   font-weight: bold;
 }
 
-
-.treasureImage{
+.treasureImage {
   margin-left: 10%;
   height: 350px;
   border-radius: 10%;

@@ -1,13 +1,10 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { ReactDOM } from "react-dom";
-import { nameList } from "./api/NameList";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDAndD } from "@fortawesome/free-brands-svg-icons";
-import { faDiceD20, faRightLong } from "@fortawesome/free-solid-svg-icons";
+import { faDiceD20 } from "@fortawesome/free-solid-svg-icons";
+import Footer from "./components/Footer";
 
 function App() {
   let navigate = useNavigate();
@@ -19,22 +16,16 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header /> */}
-      {/* <h2>This is now a landing page</h2> */}
       <div id="buffer"></div>
       <div className="scroll">
         <div className="welcome">
           <h2>Welcome Traveler</h2>
           <p>
-            Planning a campaign? Need to quickly throw together some NPCs? Want
-            your team to find some exciting treasure along the way? Or have them
-            turn the corner to find an unexpected monster?
+            This chaotically ruled tool is your one stop shop for quickly
+            maneuvering through the world of Dungeons & Dragons (5e) with a
+            level 1 party.
           </p>
-          <p>Roll the dice bellow for chaotic choices from each category.</p>
-          {/* <p>
-            You can save or print the final product to take with you to your
-            next campaign
-          </p> */}
+          <p>Roll the dice bellow for random choices from each category.</p>
         </div>
       </div>
       <div className="button-row">
@@ -72,28 +63,9 @@ function App() {
           Roll for Monster
         </button>
       </div>
+      <Footer />
     </div>
   );
 }
 
 export default App;
-
-const abilityStats = [15, 14, 13, 12, 10, 8];
-const basicPerception = 10;
-// let showChar = 'hidden'
-// Attack modifiers
-// const attackRange = dex + profModifier
-// const attackBasicRange = dex
-// const attackMele = strength + profModifier
-// const attackBasicMele = strength
-
-// armor class
-
-// let [responseName, setResponseName] = React.useState('')
-
-function generateCharacter() {
-  // let newCharName
-  document.getElementById("hideForm").style.display = "block";
-  // console.log(newCharList[newCharIndex])
-  // return newCharName
-}

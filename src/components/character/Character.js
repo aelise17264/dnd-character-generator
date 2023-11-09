@@ -2,9 +2,8 @@
 import "../Components.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
-import Stats from "./Stats";
 import { useNavigate } from "react-router-dom";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal } from "bootstrap";
 import useLocalStorage from "use-local-storage";
@@ -17,6 +16,7 @@ import {
   faEraser,
   faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
+import Footer from "../Footer";
 
 function Character() {
   const [nameData, setNameData] = useLocalStorage("name", "");
@@ -35,19 +35,16 @@ function Character() {
   }
 
   const getCharName = () => {
-    console.log("get char name");
     axios
       .get(baseURL + `/races`)
       .then((res) => {
         let newCharList = res.data.results;
-        console.log("race", newCharList);
         let newCharIndex = Math.floor(Math.random() * 10);
         setNameData(newCharList[newCharIndex].name);
       })
       .catch((error) => {
         console.error(error);
       });
-    console.log("inside name call", nameData);
   };
 
   const getAlignment = () => {
@@ -130,29 +127,23 @@ function Character() {
           opt.textContent = trait;
           opt.value = trait;
           traitSelect1.appendChild(opt);
-          // traitSelect2.appendChild(opt);
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
   const changeTrait1 = (e) => {
     let newTrait = e.target.value;
-    // traitData.unshift(newTrait)
-    // traitData = traitData.slice(0, 1)
+
     setTraitsData([newTrait, ...traitData.slice(0, 1)]);
-    // e.target.option.style = {"backgroundColor": "blue"}
-    // displaySecondTraitList();
   };
 
   const getFeature = () => {
-    console.log("call features");
     axios
       .get(baseURL + `/features`)
       .then((res) => {
-        console.log("get features");
         let featureList = res.data.results;
         let displayFeatures = document.getElementById("features");
         for (var i = 0; i <= featureList.length; i++) {
@@ -164,7 +155,7 @@ function Character() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -179,15 +170,12 @@ function Character() {
   }, []);
 
   const createCharacter = () => {
-    // generateCharacter();
     getAlignment();
     getCharName();
     getClass();
-    // getTraits();
     getLanguages();
     getEquipment();
     getArmor();
-    // getFeature();
   };
 
   const reRollChar = () => {
@@ -195,15 +183,7 @@ function Character() {
     charError.innerText = "";
     setFeaturesData("");
     setTraitsData(["", ""]);
-    // getFeature()
-    // getTraits()
-    // generateCharacter();
-    getAlignment();
-    getCharName();
-    getClass();
-    getLanguages();
-    getEquipment();
-    getArmor();
+    createCharacter();
   };
 
   let navigate = useNavigate();
@@ -439,7 +419,7 @@ function Character() {
       <div className="characterHeader">
         <h1>Character Builder</h1>
       </div>
-      <div className="wholeForm" style={{padding: "2%", paddingLeft: "4%"}}>
+      <div className="wholeForm" style={{ padding: "2%", paddingLeft: "4%" }}>
         <div className="topForm">
           <div className="characterVisual">
             <div id="dice" className={nameData} />
@@ -526,6 +506,7 @@ function Character() {
         </div>
         <a id="charError" />
       </div>
+
       <div className="refresh">
         <h3>To Stats & Spells</h3>
 
@@ -538,6 +519,7 @@ function Character() {
           />
         </a>
       </div>
+      <Footer />
     </div>
   );
 }

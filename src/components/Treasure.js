@@ -1,10 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal } from "bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoins, faHouseCrack, faQuestion } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCoins,
+  faHouseCrack,
+  faQuestion,
+} from "@fortawesome/free-solid-svg-icons";
+import Footer from "./Footer";
 
 import "./Components.css";
 
@@ -66,7 +71,7 @@ function Treasure() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
     if (skill > 1) {
       axios
@@ -84,7 +89,7 @@ function Treasure() {
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     }
     if (skill == 3) {
@@ -103,7 +108,7 @@ function Treasure() {
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     }
   };
@@ -119,18 +124,18 @@ function Treasure() {
           magicFound.innerText = "Armor: " + armorList[armorNum].name;
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     } else if (likeability == 2) {
       axios
         .get(baseURL + `/magic-items`)
         .then((res) => {
           let magicList = res.data.results;
-          let magicNum = randomNumber(5, 362);
+          let magicNum = randomNumber(5, 354);
           magicFound.innerText = "Magical Item: " + magicList[magicNum].name;
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     } else {
       axios
@@ -180,54 +185,51 @@ function Treasure() {
   return (
     <div className="treasurePage" id="treasurePage">
       <div className="buttons navbar">
-      <div>
-            <button
-              type="button"
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#282c34",
-                border: "none",
-                width: "250px",
-                marginBottom: "2%",
-              }}
-              onClick={showModal}
-            >
-              <a>
-                <FontAwesomeIcon
-                  icon={faQuestion}
-                  style={{ color: "white" }}
-                />
-              </a>
-              How to Use this Page
-            </button>
-          </div>
-          <div>
-            <h1>Treasure & Equipment</h1>
-          </div>
-      <div>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg homeButton"
-          id="homeButton"
-          style={{
-            backgroundColor: "#282c34",
-            border: "none",
-            width: "175px",
-            marginBottom: "2%",
-            marginRight: "2%",
-          }}
-          onClick={navHome}
-        >
-          Back Home
-          <a>
-            <FontAwesomeIcon
-              icon={faHouseCrack}
-              style={{ color: "white", marginLeft: "7px" }}
-            />
-          </a>
-        </button>
-</div>
-<div
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "250px",
+              marginBottom: "2%",
+            }}
+            onClick={showModal}
+          >
+            <a>
+              <FontAwesomeIcon icon={faQuestion} style={{ color: "white" }} />
+            </a>
+            How to Use this Page
+          </button>
+        </div>
+        <div>
+          <h1>Treasure & Equipment</h1>
+        </div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg homeButton"
+            id="homeButton"
+            style={{
+              backgroundColor: "#282c34",
+              border: "none",
+              width: "175px",
+              marginBottom: "2%",
+              marginRight: "2%",
+            }}
+            onClick={navHome}
+          >
+            Back Home
+            <a>
+              <FontAwesomeIcon
+                icon={faHouseCrack}
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
+        </div>
+        <div
           className="modal fade"
           ref={modalRef}
           id="explainerModal"
@@ -257,20 +259,36 @@ function Treasure() {
               </div>
               <div className="modal-body">
                 <p>
-                  Your adventurers have stumbled upon some treasure. This random generator will help you determine how many and what type of items they have found.
-                  </p>
-                  <p> First enter the number of players in your party. Each player will receive 100 gold pieces.
-</p>
-                 <p> Next decide how well your players are doing. Each player will receive one (1) piece of standard equipment regardless of skill level.
-                 If "they're learning", each player will receive one (1) additional weapon.
-                 And if they're "true adventurers" they will also receive one (1) piece of adventuring gear each.
-                  You can divide up these pieces of equipment according to each player's class and skill. Or you can randomly assign them if you're feeling extra chaotic.
+                  Your adventurers have stumbled upon some treasure. This random
+                  generator will help you determine how many and what type of
+                  items they have found.
                 </p>
                 <p>
-                  Lastly decide how much you like your players. If they've annoyed you today and they're being "the worst" the party will receive one (1) additional piece of armor.
-                  If they haven't made you pull out your hair today ("they're ok") the party will receive one (1) magical item.
-                  Did they bring you gifts? Or at least not derail the campaign you planned out? If they're "the best" the party will receive one (1) wonderous item.
-                  You can dole out this extra item or you can let the party decide who would use it best.
+                  {" "}
+                  First enter the number of players in your party. Each player
+                  will receive 100 gold pieces.
+                </p>
+                <p>
+                  {" "}
+                  Next decide how well your players are doing. Each player will
+                  receive one (1) piece of standard equipment regardless of
+                  skill level. If "they're learning", each player will receive
+                  one (1) additional weapon. And if they're "true adventurers"
+                  they will also receive one (1) piece of adventuring gear each.
+                  You can divide up these pieces of equipment according to each
+                  player's class and skill. Or you can randomly assign them if
+                  you're feeling extra chaotic.
+                </p>
+                <p>
+                  Lastly decide how much you like your players. If they've
+                  annoyed you today and they're being "the worst" the party will
+                  receive one (1) additional piece of armor. If they haven't
+                  made you pull out your hair today ("they're ok") the party
+                  will receive one (1) magical item. Did they bring you gifts?
+                  Or at least not derail the campaign you planned out? If
+                  they're "the best" the party will receive one (1) wonderous
+                  item. You can dole out this extra item or you can let the
+                  party decide who would use it best.
                 </p>
                 <a>
                   <img
@@ -278,16 +296,17 @@ function Treasure() {
                     src="https://cdna.artstation.com/p/assets/images/images/052/334/312/large/xenia-pike-inventory-without-signature.jpg?1659533649"
                   />
                 </a>
-                <h6 
-                 style={{
-                  fontFamily: "Recursive, sans-serif",
-                  fontStyle: "italic",
-                  marginTop: "5%",
-                  color: "#282c34"
-                }}
+                <h6
+                  style={{
+                    fontFamily: "Recursive, sans-serif",
+                    fontStyle: "italic",
+                    marginTop: "5%",
+                    color: "#282c34",
+                  }}
                 >
-                  Remember when you click "Back Home" your treasure list will be cleared
-                  </h6>
+                  Remember when you click "Back Home" your treasure list will be
+                  cleared
+                </h6>
               </div>
               <div className="modal-footer">
                 <button
@@ -301,7 +320,6 @@ function Treasure() {
             </div>
           </div>
         </div>
-
       </div>
       <div id="dropDowns" className="dropDowns">
         <div>
@@ -353,7 +371,7 @@ function Treasure() {
           <a>
             <FontAwesomeIcon
               icon={faCoins}
-              style={{ color: "white", marginLeft: "7px",  }}
+              style={{ color: "white", marginLeft: "7px" }}
             />
           </a>
         </button>
@@ -395,6 +413,7 @@ function Treasure() {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

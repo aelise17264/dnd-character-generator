@@ -14,6 +14,7 @@ import {
   faScroll,
   faQuestion,
 } from "@fortawesome/free-solid-svg-icons";
+import Footer from "../Footer";
 
 function Stats() {
   const [statData, setStatData] = useLocalStorage("stats", []);
@@ -24,16 +25,12 @@ function Stats() {
   const location = useLocation();
   const charData = location.state.nameData;
   const charClass = location.state.classData;
-  // console.log("char name", charData);
   const playerBonus = statBonuses[charData];
-  // console.log("player bonus", playerBonus);
   const getBonuses = playerBonus?.map((stat) => {
-    // console.log("get bonuses called");
     return <li className="bonus">{stat}</li>;
   });
 
   function shuffle(arr) {
-    console.log("inside shuffle");
     var j, x, index;
     for (index = arr.length - 1; index > 0; index--) {
       j = Math.floor(Math.random() * (index + 1));
@@ -46,7 +43,6 @@ function Stats() {
   const getStats = () => {
     let newArr = shuffle(statRange);
     setStatData(newArr);
-    // console.log(statData);
   };
 
   const getSkills = () => {
@@ -55,16 +51,16 @@ function Stats() {
       .get(`https://www.dnd5eapi.co/api/classes/` + charClass)
       .then((res) => {
         let charDetails = res.data;
-        console.log(charDetails.proficiency_choices[0].desc);
         setSkillData(charDetails.proficiency_choices[0].desc);
+      })
+      .catch((error) => {
+        console.error(error);
       });
   };
 
   const getSpellSlots = () => {
     characterSpellSlots.forEach((slot) => {
-      // console.log('inside spell call', slot.index)
       if (slot.index === charClass) {
-        console.log("inside if", slot.index);
         setSpellData(slot);
       }
     });
@@ -77,7 +73,6 @@ function Stats() {
 
   const finalCharacter = [
     location.state.nameData,
-
     location.state.classData,
     location.state.alignmentData,
     location.state.traitData,
@@ -93,7 +88,6 @@ function Stats() {
 
   let navigate = useNavigate();
   const handleArrowClick = () => navigate("/Character", { replace: true });
-  // const handleNavToSpells = () => navigate("/Spells", { replace: true });
   const handleNavToPrint = () =>
     navigate("/Print", {
       replace: true,
@@ -117,8 +111,6 @@ function Stats() {
   };
 
   return (
-    // <div className="character">
-    //   {/* <Header /> */}
     <div className="statsPage">
       <div className="buttons navbar">
         <div>
@@ -216,12 +208,12 @@ function Stats() {
                 randomly genrate your general stats. Want to to reshuffel your
                 general stats? Just click the button again (the other info on
                 the page should not change). Your character's skill proficiences
-                and spell slots based off your class will be displayed
-                when you click the Stats button as well. If you go back and roll
-                for a new character, when you click back to the Stats page
-                you'll need to re-roll all the stats to match your new
-                character. Happy with your stats? Click the scroll to move to
-                print or save your character.
+                and spell slots based off your class will be displayed when you
+                click the Stats button as well. If you go back and roll for a
+                new character, when you click back to the Stats page you'll need
+                to re-roll all the stats to match your new character. Happy with
+                your stats? Click the scroll to move to print or save your
+                character.
               </p>
 
               <a>
@@ -244,9 +236,7 @@ function Stats() {
         </div>
       </div>
       <div className="characterHeader">
-        <h1>
-          Character Builder: Stats & Spells
-        </h1>
+        <h1>Character Builder: Stats & Spells</h1>
       </div>
 
       <div className="statGroup">
@@ -298,7 +288,7 @@ function Stats() {
           </a>
         </div>
       </div>
-      {/* </div> */}
+      <Footer />
     </div>
   );
 }
