@@ -1,4 +1,4 @@
-// import "../App.css";
+
 import "../Components.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
@@ -221,6 +221,7 @@ function Character() {
   };
 
   const possibleNames = nameList[nameData];
+  // eslint-disable-next-line
   const getNameList = possibleNames?.map((name) => {
     return <li className="name">{name}</li>;
   });

@@ -9,7 +9,7 @@ function Footer() {
   return (
     <footer>
       <div className="d6">
-        <a title="If you like this site & want to show your appreciation roll the d6">
+        <span title="If you like this site & want to show your appreciation roll the d6">
           <a
             target="_blank"
             href="https://venmo.com/u/Black-Cat-22"
@@ -22,7 +22,7 @@ function Footer() {
               style={{ color: "white" }}
             />
           </a>
-        </a>
+        </span>
       </div>
     </footer>
   );

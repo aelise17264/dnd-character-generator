@@ -9,7 +9,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal } from "bootstrap";
 import {
   faWandMagicSparkles,
-  faLeftLong,
   faSignsPost,
   faHouseCrack,
   faScroll,
@@ -27,6 +26,7 @@ function Stats() {
   const charData = location.state.nameData;
   let charClass = location.state.classData;
   const playerBonus = statBonuses[charData];
+  // eslint-disable-next-line
   const getBonuses = playerBonus?.map((stat) => {
     return <li className="bonus">{stat}</li>;
   });
