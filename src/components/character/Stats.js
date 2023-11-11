@@ -120,11 +120,7 @@ function Stats() {
             className="btn btn-primary btn-lg homeButton"
             id="charButton"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "200px",
-              marginBottom: "2%",
-              marginRight: "2%",
+              width: "175px",
             }}
             onClick={navTop}
           >
@@ -143,11 +139,7 @@ function Stats() {
             type="button"
             className="btn btn-primary btn-lg"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginLeft: "2%",
+              width: "150px",
             }}
             onClick={showModal}
           >
@@ -165,10 +157,7 @@ function Stats() {
             type="button"
             className="btn btn-primary btn-lg"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
               width: "150px",
-              marginBottom: "2%",
             }}
             onClick={handleButtonClick}
           >
@@ -187,6 +176,7 @@ function Stats() {
             type="button"
             className="btn btn-primary btn-lg"
             id="statHomeButton"
+            style={{ width: "150px" }}
             onClick={goHome}
           >
             Back Home
@@ -297,7 +287,7 @@ function Stats() {
             width: "450px",
             marginBottom: "2%",
             marginTop: "2%",
-            fontSize: "xx-large",
+            fontSize: "x-large",
           }}
           onClick={handleNavToPrint}
         >

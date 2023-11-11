@@ -1,4 +1,3 @@
-
 import "../Components.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
@@ -170,12 +169,16 @@ function Character() {
   }, []);
 
   const createCharacter = () => {
-    getAlignment();
     getCharName();
+    getAlignment();
     getClass();
     getLanguages();
     getEquipment();
     getArmor();
+
+    if (nameData === "") {
+      setNameData("Human");
+    }
   };
 
   const reRollChar = () => {
@@ -249,13 +252,7 @@ function Character() {
           <button
             type="button"
             className="btn btn-primary btn-lg"
-            style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginLeft: "2%",
-            }}
+            style={{ width: "140px" }}
             onClick={showModal}
           >
             <a>
@@ -271,13 +268,7 @@ function Character() {
           <button
             type="button"
             className="btn btn-primary btn-lg"
-            style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "250px",
-              marginBottom: "2%",
-              marginLeft: "1%",
-            }}
+            style={{ width: "200px" }}
             onClick={createCharacter}
             id="reroll"
           >
@@ -294,13 +285,7 @@ function Character() {
           <button
             type="button"
             className="btn btn-primary btn-lg"
-            style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "265px",
-              marginBottom: "2%",
-              marginLeft: "1%",
-            }}
+            style={{ width: "235px" }}
             onClick={clearSheet}
           >
             <a>
@@ -319,11 +304,7 @@ function Character() {
             className="btn btn-primary btn-lg homeButton"
             id="homeButton"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginRight: "2%",
+              width: "150px",
             }}
             onClick={navHome}
           >
@@ -422,10 +403,7 @@ function Character() {
       <div className="characterHeader">
         <h1>Character Builder</h1>
       </div>
-      <div
-        className="wholeForm"
-        style={{ padding: "2%", paddingLeft: "4%", marginBottom: 0 }}
-      >
+      <div className="wholeForm" style={{ padding: "2%", marginBottom: 0 }}>
         <div className="topForm">
           <div className="characterVisual">
             <div id="dice" className={nameData} />
@@ -435,7 +413,7 @@ function Character() {
               {getNameList}
             </div>
           </div>
-          <form>
+          <form style={{ width: "45vw", marginLeft: "5%" }}>
             <div className="form-group">
               <h2>Alignment: {alignmentData}</h2>
             </div>
@@ -526,7 +504,7 @@ function Character() {
             border: "none",
             width: "400px",
             marginBottom: "2%",
-            fontSize: "xx-large",
+            fontSize: "x-large",
           }}
           onClick={handleArrowClick}
         >

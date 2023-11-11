@@ -4,9 +4,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.character {
   height: fit-content;
 }
 
@@ -38,6 +35,15 @@ hr {
 .printBody {
   display: flex;
   flex-direction: column;
+}
+.printBody h2 {
+  font-size: x-large;
+  margin-bottom: 0;
+}
+.printBody p,
+.printBody li {
+  font-size: large;
+  margin-top: 0;
 }
 
 .secondForm {
@@ -76,16 +82,34 @@ hr {
   margin-bottom: 2%;
   width: 85vw;
 }
+.buttons button {
+  font-size: medium;
+  background-color: #282c34;
+  border: none;
+  margin-bottom: 2%;
+  margin-left: 1%;
+}
+.buttons button:hover {
+  background-color: #282c34;
+}
+.buttons button:active {
+  background-color: red;
+}
 
 .characterVisual {
   display: flex;
   flex-direction: column;
   justify-content: inherit;
+  padding-right: 2%;
+  margin-left: 0;
 }
 form {
   margin-bottom: 2%;
   padding-left: 0;
   margin-left: 0;
+}
+form li {
+  font-size: larger;
 }
 
 .wholeForm {
@@ -94,7 +118,7 @@ form {
   justify-content: center;
   background-color: oldlace;
   opacity: 80%;
-  width: fit-content;
+  width: 70vw;
   margin: auto;
   margin-bottom: 3%;
   border-radius: 3%;
@@ -112,6 +136,8 @@ form {
 .topForm {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonHolder {
@@ -130,7 +156,7 @@ form {
   font-size: large;
 }
 #dice {
-  width: 25vw;
+  width: 37vw;
   margin-right: 2%;
   align-items: center;
   justify-content: center;
@@ -141,8 +167,12 @@ form {
   display: flex;
   flex-direction: column;
 }
+.features {
+  width: 27vw;
+}
 .traits {
   padding-bottom: 0%;
+  width: 25vw;
 }
 .traitData,
 .featuresData {
@@ -150,6 +180,10 @@ form {
   flex-direction: row;
   justify-content: space-evenly;
   margin-top: 1%;
+}
+.traitData p,
+.featuresData p {
+  font-size: medium;
 }
 
 option {
@@ -175,6 +209,12 @@ h2 {
 #statsTitle {
   color: oldlace;
 }
+
+.statGroup li,
+.statGroup p {
+  font-weight: normal;
+}
+
 .refresh {
   justify-content: center;
   align-items: center;
@@ -215,7 +255,6 @@ li {
   align-items: center;
   align-content: center;
   width: auto;
-  height: 100vh;
 }
 
 #spellPage {
@@ -237,11 +276,15 @@ li {
   border-radius: 5%;
   padding: 4%;
   color: #282c34;
+}
+.oneForAll,
+.goldandMagic {
   width: 27vw;
 }
 .groupOne,
 .groupTwo {
   opacity: 80%;
+  width: 30vw;
 }
 .groupOne {
   margin-right: 10%;
@@ -301,53 +344,55 @@ li {
 }
 .Dragonborn {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
-  height: 72vh;
+  height: 95vh;
+  max-width: 30vw;
 }
 
 .Dwarf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
-  height: 63vh;
+  height: 83vh;
+  max-width: 30vw;
 }
 
 .Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png");
-  max-width: 23vw;
-  height: 73vh;
+  max-width: 30vw;
+  height: 100vh;
   opacity: 100%;
 }
 
 .Gnome {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
-  height: 57vh;
-  max-width: 23vw;
+  height: 75vh;
+  max-width: 31vw;
 }
 
 .Half-Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
-  max-width: 23.3vw;
-  height: 75vh;
+  max-width: 30.5vw;
+  height: 100vh;
 }
 
 .Halfling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
-  height: 68vh;
-  max-width: 24vw;
+  height: 90vh;
+  max-width: 30vw;
 }
 
 .Half-Orc {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
-  height: 66vh;
-  max-width: 23vw;
+  height: 90vh;
+  max-width: 30vw;
 }
 .Human {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
-  max-width: 20vw;
-  height: 75vh;
+  max-width: 27vw;
+  height: 100vh;
 }
 .Tiefling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
-  max-width: 23vw;
-  height: 75vh;
+  max-width: 30vw;
+  height: 100vh;
 }
 
 #treasurePage {
@@ -374,6 +419,12 @@ li {
   justify-content: center;
   align-items: center;
   padding-right: 5%;
+}
+#monsterActions li {
+  font-weight: normal;
+}
+.reroll {
+  margin-bottom: 2%;
 }
 
 .modal-content .modal-title,
@@ -405,7 +456,7 @@ li {
   align-items: center;
 }
 .monsterDetails h1 {
-  font-size: 85px;
+  font-size: 55px;
 }
 
 .monsterGroups {
@@ -455,8 +506,14 @@ footer {
 .boringStats {
   padding-top: 1%;
 }
-.monsterStats li {
+.monsterStats li,
+.monsterDesc p {
   font-size: 1.2rem;
+  font-weight: normal;
+}
+#speedList p,
+#armorType p {
+  font-weight: normal;
 }
 #monsterActions li {
   font-size: 1.2rem;
@@ -486,7 +543,6 @@ footer {
   justify-content: space-evenly;
   align-content: center;
   height: 50vh;
-  width: 35vw;
   text-align: center;
   background-color: oldlace;
   opacity: 85%;
@@ -498,6 +554,7 @@ footer {
 .dropDowns label {
   font-weight: 500;
 }
+
 .dropDowns input,
 .dropDowns select,
 .dropDowns option {
@@ -511,6 +568,12 @@ footer {
 .dropDowns button {
   margin-top: 1%;
 }
+
+#dropDowns {
+  width: 45vw;
+  height: 65vh;
+}
+
 .equipment {
   display: flex;
   flex-direction: row;

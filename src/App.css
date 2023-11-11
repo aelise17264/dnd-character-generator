@@ -50,7 +50,7 @@ h6 {
   align-content: center;
   margin: auto;
   margin-top: 5%;
-  padding: 2% 5%;
+  padding: 2% 3%;
   /* margin-top: 25%; */
 }
 .welcome {
@@ -66,10 +66,17 @@ h6 {
 
   /* margin: auto; */
 }
+.welcome p {
+  font-size: large;
+}
 .button-row {
   margin-top: 2%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   font-family: "MedievalSharp", cursive;
+}
+.button-row button {
+  font-size: medium;
+  width: 200px;
 }

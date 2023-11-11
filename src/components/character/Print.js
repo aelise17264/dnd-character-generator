@@ -78,11 +78,7 @@ const Print = () => {
             className="btn btn-primary btn-lg homeButton"
             id="charButton"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "200px",
-              marginBottom: "2%",
-              marginRight: "2%",
+              width: "175px",
             }}
             onClick={navTop}
           >
@@ -101,11 +97,7 @@ const Print = () => {
             type="button"
             className="btn btn-primary btn-lg"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginLeft: "2%",
+              width: "150px",
             }}
             onClick={showModal}
           >
@@ -124,11 +116,7 @@ const Print = () => {
             className="btn btn-primary btn-lg homeButton"
             id="printButton"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginRight: "2%",
+              width: "150px",
             }}
             onClick={handlePrint}
           >
@@ -148,9 +136,7 @@ const Print = () => {
             className="btn btn-primary btn-lg homeButton"
             id="homeButton"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
+              width: "150px",
             }}
             onClick={navHome}
           >
@@ -261,10 +247,8 @@ const Print = () => {
                 <li>{finalCall[6][1]}</li>
                 <li>{finalCall[6][2]}</li>
               </ul>
-              <div className="printArmor">
-                <h2>Armor: </h2>
-                <p>{finalCall[7]}</p>
-              </div>
+              <h2>Armor: </h2>
+              <p>{finalCall[7]}</p>
               <p>Armor Class {armorMod} + your Dex mod</p>
             </div>
             <div className="secondForm">

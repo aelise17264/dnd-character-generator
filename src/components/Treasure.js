@@ -190,10 +190,7 @@ function Treasure() {
             type="button"
             className="btn btn-primary btn-lg"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "250px",
-              marginBottom: "2%",
+              width: "200px",
             }}
             onClick={showModal}
           >
@@ -212,11 +209,7 @@ function Treasure() {
             className="btn btn-primary btn-lg homeButton"
             id="homeButton"
             style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-              marginRight: "2%",
+              width: "150px",
             }}
             onClick={navHome}
           >
@@ -362,9 +355,11 @@ function Treasure() {
           style={{
             backgroundColor: "#282c34",
             border: "none",
-            width: "175px",
-            marginBottom: "2%",
+            width: "150px",
             opacity: "100%",
+            marginTop: "2%",
+            fontFamily: "MedievalSharp, cursive",
+            fontSize: "medium",
           }}
           onClick={getTreasure}
         >
@@ -406,6 +401,7 @@ function Treasure() {
               border: "none",
               width: "175px",
               marginBottom: "2%",
+              fontFamily: "MedievalSharp, cursive",
             }}
             onClick={refreshTreasure}
           >

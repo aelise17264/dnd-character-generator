@@ -121,11 +121,7 @@ function Monsters() {
               type="button"
               className="btn btn-primary btn-lg"
               style={{
-                backgroundColor: "#282c34",
-                border: "none",
-                width: "275px",
-                marginBottom: "2%",
-                marginLeft: "2%",
+                width: "225px",
               }}
               onClick={showModal}
             >
@@ -144,11 +140,7 @@ function Monsters() {
               type="button"
               className="btn btn-primary btn-lg"
               style={{
-                backgroundColor: "#282c34",
-                border: "none",
-                width: "175px",
-                marginBottom: "2%",
-                marginLeft: "2%",
+                width: "150px",
               }}
               onClick={fullMonsterCall}
             >
@@ -168,11 +160,7 @@ function Monsters() {
               className="btn btn-primary btn-lg homeButton"
               id="homeButton"
               style={{
-                backgroundColor: "#282c34",
-                border: "none",
-                width: "175px",
-                marginBottom: "2%",
-                marginRight: "2%",
+                width: "150px",
               }}
               onClick={navHome}
             >
@@ -278,7 +266,7 @@ function Monsters() {
                   <p>Language: {monsterData.languages}</p>
                   <p>Alignment: {monsterData.alignment}</p>
                   <p style={{ fontWeight: "bold" }}>
-                    Hit Points: {monsterData.hit_points}
+                    *Hit Points: {monsterData.hit_points}
                   </p>
                 </div>
                 <div className="monsterStats">
@@ -296,8 +284,9 @@ function Monsters() {
             </div>
 
             <div className="monsterGroup2">
-              <p>{monsterData.desc}</p>
-
+              <div className="monsterDesc">
+                <p>{monsterData.desc}</p>
+              </div>
               <div className="speedList">
                 <h4>Speed: &nbsp;</h4>
                 <div id="speedList"></div>
@@ -313,25 +302,29 @@ function Monsters() {
               <div id="monsterActions"></div>
             </div>
           </div>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            style={{
-              backgroundColor: "#282c34",
-              border: "none",
-              width: "175px",
-              marginBottom: "2%",
-            }}
-            onClick={fullMonsterCall}
-          >
-            Roll Again
-            <a>
-              <FontAwesomeIcon
-                icon={faSkull}
-                style={{ color: "white", marginLeft: "7px" }}
-              />
-            </a>
-          </button>
+          <div className="reroll">
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              onClick={fullMonsterCall}
+              style={{
+                backgroundColor: "#282c34",
+                border: "none",
+                fontFamily: "MedievalSharp, cursive",
+                fontSize: "medium",
+                marginBottom: "2%",
+                width: "175px",
+              }}
+            >
+              Roll Again
+              <a>
+                <FontAwesomeIcon
+                  icon={faSkull}
+                  style={{ color: "white", marginLeft: "7px" }}
+                />
+              </a>
+            </button>
+          </div>
         </div>
       </div>
       <Footer />

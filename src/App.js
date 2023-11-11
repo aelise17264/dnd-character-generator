@@ -32,7 +32,7 @@ function App() {
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#966919", border: "none", width: "235px" }}
+          style={{ backgroundColor: "#966919", border: "none" }}
           onClick={navToCharacter}
         >
           <a>
@@ -43,7 +43,7 @@ function App() {
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#6E260E", border: "none", width: "220px" }}
+          style={{ backgroundColor: "#6E260E", border: "none" }}
           onClick={navToTreasure}
         >
           <a>
