@@ -183,11 +183,20 @@ function Treasure() {
   };
 
   const popoverRef = useRef();
+  const popoverRef2 = useRef()
   useEffect(() => {
     var popover = new Popover(popoverRef.current, {
       content:
         "Decide how well your players are doing. Each player will receive one (1) piece of standard equipment regardless of skill level. If 'they're learning', each player will receive one (1) additional weapon. And if they are 'true adventurers' they will also receive one (1) piece of adventuring gear each. You can divide up these pieces of equipment according to each player's class and skill. Or you can randomly assign them if you're feeling extra chaotic.",
     });
+
+    var popover2 = new Popover(popoverRef2.current, {
+      content:
+        "How much you like your players. If they're being 'the worst' the party will receive one (1) additional piece of armor. If they haven't made you pull out your hair today ('they're ok') the party will receive one (1) magical item. Did they bring you gifts? Or at least not derail the campaign you planned out? If they're 'the best' the party will receive one (1) wonderous item. You can dole out this extra item or you can let the party decide who would use it best."
+    });
+
+
+
   });
 
   return (
@@ -270,26 +279,7 @@ function Treasure() {
                   will receive 100 gold pieces.
                 </p>
                 <p>
-                  {" "}
-                  Next decide how well your players are doing. Each player will
-                  receive one (1) piece of standard equipment regardless of
-                  skill level. If "they're learning", each player will receive
-                  one (1) additional weapon. And if they're "true adventurers"
-                  they will also receive one (1) piece of adventuring gear each.
-                  You can divide up these pieces of equipment according to each
-                  player's class and skill. Or you can randomly assign them if
-                  you're feeling extra chaotic.
-                </p>
-                <p>
-                  Lastly decide how much you like your players. If they've
-                  annoyed you today and they're being "the worst" the party will
-                  receive one (1) additional piece of armor. If they haven't
-                  made you pull out your hair today ("they're ok") the party
-                  will receive one (1) magical item. Did they bring you gifts?
-                  Or at least not derail the campaign you planned out? If
-                  they're "the best" the party will receive one (1) wonderous
-                  item. You can dole out this extra item or you can let the
-                  party decide who would use it best.
+                  
                 </p>
                 <a>
                   <img
@@ -355,7 +345,12 @@ function Treasure() {
           </select>
         </div>
         <div>
-          <label for="likability">How much do you like them?</label>
+        <div className="explainer">
+          <label for="likability">Party Likability</label>
+          <a ref={popoverRef2}>
+              <FontAwesomeIcon icon={faQuestion} />
+            </a>
+          </div>
           <select id="likeability" className="form-select" name="likability">
             <option value="">Be honest</option>
             <option value="1">Ugh they're the worst</option>
