@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal } from "bootstrap";
+import { Modal, Popover } from "bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCoins,
@@ -182,6 +182,14 @@ function Treasure() {
     bsModal.hide();
   };
 
+  const popoverRef = useRef();
+  useEffect(() => {
+    var popover = new Popover(popoverRef.current, {
+      content:
+        "Decide how well your players are doing. Each player will receive one (1) piece of standard equipment regardless of skill level. If 'they're learning', each player will receive one (1) additional weapon. And if they are 'true adventurers' they will also receive one (1) piece of adventuring gear each. You can divide up these pieces of equipment according to each player's class and skill. Or you can randomly assign them if you're feeling extra chaotic.",
+    });
+  });
+
   return (
     <div className="treasurePage" id="treasurePage">
       <div className="buttons navbar">
@@ -318,6 +326,7 @@ function Treasure() {
       <div id="dropDowns" className="dropDowns">
         <div>
           <label for="partySize">Party Size</label>
+
           <input
             id="partySize"
             className="form-control"
@@ -327,7 +336,13 @@ function Treasure() {
           ></input>
         </div>
         <div>
-          <label for="skillLevel">Party Skill Level</label>
+          <div className="explainer">
+            <label for="skillLevel">Party Skill Level</label>
+            <a ref={popoverRef}>
+              <FontAwesomeIcon icon={faQuestion} />
+            </a>
+          </div>
+
           <select
             id="skillLevel"
             className="form-select bg-transparent"

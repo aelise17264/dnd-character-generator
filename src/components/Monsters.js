@@ -302,7 +302,7 @@ function Monsters() {
               <div id="monsterActions"></div>
             </div>
           </div>
-          <div className="reroll">
+          {/* <div className="reroll">
             <button
               type="button"
               className="btn btn-primary btn-lg"
@@ -324,7 +324,7 @@ function Monsters() {
                 />
               </a>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />

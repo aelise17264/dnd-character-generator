@@ -346,12 +346,18 @@ li {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
   height: 95vh;
   max-width: 30vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .Dwarf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
   height: 83vh;
   max-width: 30vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .Elf {
@@ -359,40 +365,61 @@ li {
   max-width: 30vw;
   height: 100vh;
   opacity: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .Gnome {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
   height: 75vh;
   max-width: 31vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .Half-Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
   max-width: 30.5vw;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .Halfling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
   height: 90vh;
   max-width: 30vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .Half-Orc {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
   height: 90vh;
   max-width: 30vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 .Human {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
   max-width: 27vw;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 .Tiefling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
   max-width: 30vw;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #treasurePage {
