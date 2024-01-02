@@ -136,7 +136,6 @@ function Monsters() {
           </div>
           <div className="monsterTitle">
             <h1>Monsters and Foes</h1>
-            
           </div>
 
           <div>
@@ -312,22 +311,22 @@ function Monsters() {
           </div> */}
         </div>
         <div className="buttons monsterButton">
-        <button
-              type="button"
-              className="btn btn-primary btn-lg"
-              style={{
-                width: "150px",
-              }}
-              onClick={fullMonsterCall}
-            >
-              Get Monster
-              <a>
-                <FontAwesomeIcon
-                  icon={faSkull}
-                  style={{ color: "white", marginLeft: "7px" }}
-                />
-              </a>
-            </button>
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            style={{
+              width: "150px",
+            }}
+            onClick={fullMonsterCall}
+          >
+            Get Monster
+            <a>
+              <FontAwesomeIcon
+                icon={faSkull}
+                style={{ color: "white", marginLeft: "7px" }}
+              />
+            </a>
+          </button>
         </div>
       </div>
       <Footer />

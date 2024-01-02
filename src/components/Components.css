@@ -95,7 +95,7 @@ hr {
 .buttons button:active {
   background-color: red;
 }
-.monsterButton{
+.monsterButton {
   justify-content: center;
   width: 100%;
 }
@@ -168,7 +168,7 @@ form li {
   height: 70vh;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center
+  background-position: center;
 }
 .traits,
 .features {
@@ -353,44 +353,37 @@ li {
 .Dragonborn {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
   max-width: 30vw;
- 
 }
 
 .Dwarf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
   max-width: 30vw;
- 
 }
 
 .Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png");
   max-width: 30vw;
   opacity: 100%;
- 
 }
 
 .Gnome {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
   max-width: 31vw;
- 
 }
 
 .Half-Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
   max-width: 30.5vw;
- 
 }
 
 .Halfling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
   max-width: 30vw;
-
 }
 
 .Half-Orc {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
   max-width: 30vw;
-
 }
 .Human {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
@@ -399,7 +392,6 @@ li {
 .Tiefling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
   max-width: 30vw;
-  
 }
 
 #treasurePage {
@@ -593,7 +585,6 @@ footer {
   max-width: -webkit-fill-available;
   padding-top: 10%;
   object-fit: contain;
-
 }
 .oneForAll h3,
 #goldCount,

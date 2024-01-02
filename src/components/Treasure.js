@@ -183,7 +183,7 @@ function Treasure() {
   };
 
   const popoverRef = useRef();
-  const popoverRef2 = useRef()
+  const popoverRef2 = useRef();
   useEffect(() => {
     var popover = new Popover(popoverRef.current, {
       content:
@@ -192,11 +192,8 @@ function Treasure() {
 
     var popover2 = new Popover(popoverRef2.current, {
       content:
-        "How much you like your players. If they're being 'the worst' the party will receive one (1) additional piece of armor. If they haven't made you pull out your hair today ('they're ok') the party will receive one (1) magical item. Did they bring you gifts? Or at least not derail the campaign you planned out? If they're 'the best' the party will receive one (1) wonderous item. You can dole out this extra item or you can let the party decide who would use it best."
+        "How much you like your players. If they're being 'the worst' the party will receive one (1) additional piece of armor. If they haven't made you pull out your hair today ('they're ok') the party will receive one (1) magical item. Did they bring you gifts? Or at least not derail the campaign you planned out? If they're 'the best' the party will receive one (1) wonderous item. You can dole out this extra item or you can let the party decide who would use it best.",
     });
-
-
-
   });
 
   return (
@@ -276,16 +273,16 @@ function Treasure() {
                 <p>
                   {" "}
                   First enter the number of players in your party. Each player
-                  will receive 100 gold pieces. Then the next two sections will 
-                  determine the type, quantity and magical properties of the other
-                  pieces of loot.
+                  will receive 100 gold pieces. Then the next two sections will
+                  determine the type, quantity and magical properties of the
+                  other pieces of loot.
                 </p>
                 <p>
                   {" "}
-                  Be sure to record the treasure list before clicking the "Roll Again"
-                  button.
+                  Be sure to record the treasure list before clicking the "Roll
+                  Again" button.
                 </p>
-                
+
                 <a>
                   <img
                     alt="Treasure list"
@@ -350,9 +347,9 @@ function Treasure() {
           </select>
         </div>
         <div>
-        <div className="explainer">
-          <label for="likability">Party Likability</label>
-          <a ref={popoverRef2}>
+          <div className="explainer">
+            <label for="likability">Party Likability</label>
+            <a ref={popoverRef2}>
               <FontAwesomeIcon icon={faQuestion} />
             </a>
           </div>
