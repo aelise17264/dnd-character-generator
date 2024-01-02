@@ -213,11 +213,6 @@ function Character() {
     }
   };
 
-  const clearSheet = () => {
-    localStorage.clear();
-    window.location.reload();
-  };
-
   const navHome = () => {
     localStorage.clear();
     navigate("/", { replace: true });
@@ -281,23 +276,6 @@ function Character() {
             Roll for Character
           </button>
         </div>
-        <div>
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            style={{ width: "235px" }}
-            onClick={clearSheet}
-          >
-            <a>
-              <FontAwesomeIcon
-                icon={faEraser}
-                style={{ color: "white", marginRight: "5px" }}
-              />
-            </a>
-            Clear Character Sheet
-          </button>
-        </div>
-
         <div>
           <button
             type="button"
