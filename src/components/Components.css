@@ -95,6 +95,10 @@ hr {
 .buttons button:active {
   background-color: red;
 }
+.monsterButton{
+  justify-content: center;
+  width: 100%;
+}
 
 .characterVisual {
   display: flex;
@@ -161,6 +165,10 @@ form li {
   align-items: center;
   justify-content: center;
   align-self: center;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center
 }
 .traits,
 .features {
@@ -344,82 +352,54 @@ li {
 }
 .Dragonborn {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
-  height: 95vh;
   max-width: 30vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+ 
 }
 
 .Dwarf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
-  height: 83vh;
   max-width: 30vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+ 
 }
 
 .Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png");
   max-width: 30vw;
-  height: 100vh;
   opacity: 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+ 
 }
 
 .Gnome {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
-  height: 75vh;
   max-width: 31vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+ 
 }
 
 .Half-Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
   max-width: 30.5vw;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+ 
 }
 
 .Halfling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
-  height: 90vh;
   max-width: 30vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+
 }
 
 .Half-Orc {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
-  height: 90vh;
   max-width: 30vw;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+
 }
 .Human {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
   max-width: 27vw;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
 }
 .Tiefling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
   max-width: 30vw;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  
 }
 
 #treasurePage {
@@ -439,6 +419,8 @@ li {
   background-size: cover;
   height: 100vh;
   color: oldlace;
+  background-attachment: fixed;
+  padding-bottom: 2%;
 }
 .monsterTitle {
   display: flex;
@@ -510,6 +492,7 @@ footer {
 }
 .monsterImage img {
   height: 40vh;
+  object-fit: contain;
 }
 .monsterImage {
   display: flex;
@@ -607,8 +590,10 @@ footer {
   opacity: 90%;
 }
 .goldandMagic img {
-  width: 40vh;
+  max-width: -webkit-fill-available;
   padding-top: 10%;
+  object-fit: contain;
+
 }
 .oneForAll h3,
 #goldCount,

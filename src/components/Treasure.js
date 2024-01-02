@@ -270,17 +270,22 @@ function Treasure() {
               <div className="modal-body">
                 <p>
                   Your adventurers have stumbled upon some treasure. This random
-                  generator will help you determine how many and what type of
+                  generator will help you determine how many and what types of
                   items they have found.
                 </p>
                 <p>
                   {" "}
                   First enter the number of players in your party. Each player
-                  will receive 100 gold pieces.
+                  will receive 100 gold pieces. Then the next two sections will 
+                  determine the type, quantity and magical properties of the other
+                  pieces of loot.
                 </p>
                 <p>
-                  
+                  {" "}
+                  Be sure to record the treasure list before clicking the "Roll Again"
+                  button.
                 </p>
+                
                 <a>
                   <img
                     alt="Treasure list"

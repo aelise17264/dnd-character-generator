@@ -91,7 +91,7 @@ function Monsters() {
           speedList.appendChild(speed);
           document.getElementById("speedList").appendChild(speedList);
         }
-        document.getElementById("monsterPage").style.height = "fit-content";
+        document.getElementById("monsterPage").style.height = "100%";
       })
       .catch((err) => {
         console.error("something went wrong", err);
@@ -136,22 +136,7 @@ function Monsters() {
           </div>
           <div className="monsterTitle">
             <h1>Monsters and Foes</h1>
-            <button
-              type="button"
-              className="btn btn-primary btn-lg"
-              style={{
-                width: "150px",
-              }}
-              onClick={fullMonsterCall}
-            >
-              Get Monster
-              <a>
-                <FontAwesomeIcon
-                  icon={faSkull}
-                  style={{ color: "white", marginLeft: "7px" }}
-                />
-              </a>
-            </button>
+            
           </div>
 
           <div>
@@ -325,6 +310,24 @@ function Monsters() {
               </a>
             </button>
           </div> */}
+        </div>
+        <div className="buttons monsterButton">
+        <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              style={{
+                width: "150px",
+              }}
+              onClick={fullMonsterCall}
+            >
+              Get Monster
+              <a>
+                <FontAwesomeIcon
+                  icon={faSkull}
+                  style={{ color: "white", marginLeft: "7px" }}
+                />
+              </a>
+            </button>
         </div>
       </div>
       <Footer />

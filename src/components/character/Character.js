@@ -413,7 +413,7 @@ function Character() {
               {getNameList}
             </div>
           </div>
-          <form style={{ width: "45vw", marginLeft: "5%" }}>
+          <form style={{ marginLeft: "5%" }}>
             <div className="form-group">
               <h2>Alignment: {alignmentData}</h2>
             </div>
