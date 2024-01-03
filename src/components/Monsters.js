@@ -190,9 +190,13 @@ function Monsters() {
                 <p>
                   This page will generate a random monster appropriate for your
                   level 1 party to face. If the particular foe does not meet
-                  your expectations click the Reroll button at the bottom of the
-                  page. The bulk of the monster stats and information will
-                  appear when you click the Get Monster button. For more in dept
+                  your expectations click the Get Monster button again at the bottom of the
+                  page. 
+                  </p>
+                  <p>
+                  {" "}
+                  The bulk of the monster stats and information will
+                  appear when you click the Get Monster button. For more in depth
                   info consult the Monster Maunal
                 </p>
                 <a
