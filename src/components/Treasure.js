@@ -30,6 +30,7 @@ function Treasure() {
   const getTreasure = () => {
     partySize = document.getElementById("partySize").value;
     partySkill = document.getElementById("skillLevel").value;
+    console.log(partySkill)
     partyFavor = document.getElementById("likeability").value;
     let errorMessage = document.getElementById("errorMessage");
     if (partySize === "" || partySkill === "" || partyFavor === "") {
@@ -44,7 +45,7 @@ function Treasure() {
       setGoldCount(partySize);
       itemsFound(partySize, partySkill);
       getMagic(partyFavor);
-      document.getElementById("treasurePage").style.height = "fit-content";
+      document.getElementById("treasurePage").style.height = "125vh";
     }
   };
 
@@ -92,7 +93,8 @@ function Treasure() {
           console.error(error);
         });
     }
-    if (skill === 3) {
+    if (skill == 3) {
+      console.log("adventurers")
       axios
         .get(baseURL + "/equipment-categories/adventuring-gear")
         .then((res) => {
@@ -287,7 +289,7 @@ function Treasure() {
                   <img
                     alt="Treasure list"
                     className="treasureImage"
-                    src="https://cdna.artstation.com/p/assets/images/images/052/334/312/large/xenia-pike-inventory-without-signature.jpg?1659533649"
+                    src="https://img.freepik.com/premium-photo/fantasy-watercolor-treasure-chest-illustration_962764-4418.jpg"
                   />
                 </a>
                 <h6
@@ -400,7 +402,7 @@ function Treasure() {
             <h3 id="magicFound"></h3>
             <img
               alt="Treasure Trove"
-              src="https://p.kindpng.com/picc/s/209-2094624_treasure-roll20-hd-png-download.png"
+              src="https://cdna.artstation.com/p/assets/images/images/052/334/312/large/xenia-pike-inventory-without-signature.jpg?1659533649"
             />
           </div>
         </div>
