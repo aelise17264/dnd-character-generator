@@ -4,12 +4,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-.character{
   height: fit-content;
-}
-.statsPage{
-  height: 100vh;
+
 }
 
 .characterHeader {
