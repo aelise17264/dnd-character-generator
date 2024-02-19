@@ -45,7 +45,12 @@ function Treasure() {
       setGoldCount(partySize);
       itemsFound(partySize, partySkill);
       getMagic(partyFavor);
+      if(partySize > 3 && partySkill > 2){
+      document.getElementById("treasurePage").style.height = "fit-content";
+
+      }else{
       document.getElementById("treasurePage").style.height = "125vh";
+    }
     }
   };
 

@@ -283,18 +283,18 @@ li {
 .goldandMagic {
   background-color: oldlace;
   border-radius: 5%;
-  padding: 4%;
+padding: 4%;
   color: #282c34;
 }
 .oneForAll,
 .goldandMagic {
   width: 27vw;
-}
+  }
 .groupOne,
 .groupTwo {
   opacity: 80%;
   width: 30vw;
-}
+  }
 .groupOne {
   margin-right: 10%;
   padding-left: 7%;
@@ -587,10 +587,10 @@ footer {
   padding-top: 10%;
   object-fit: contain;
 }
-.oneForAll h3,
-#goldCount,
-#magicFound {
-  font-weight: bold;
+#equipmentFound li, #weaponsFound li, #gearFound li{
+  font-weight: normal;
+  font-family: "MedievalSharp", cursive;
+
 }
 
 .treasureImage {
