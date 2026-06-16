@@ -32,33 +32,63 @@ function App() {
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#966919", border: "none" }}
+          style={{
+            backgroundColor: "#966919",
+            border: "none",
+            width: "fit-content",
+            fontSize: "1.25rem",
+            textWrap: "none",
+          }}
           onClick={navToCharacter}
         >
           <a>
-            <FontAwesomeIcon icon={faDiceD20} spin style={{ color: "white" }} />{" "}
+            <FontAwesomeIcon
+              icon={faDiceD20}
+              spin
+              style={{ color: "white", paddingLeft: "2%" }}
+            />{" "}
           </a>
           Roll for Character
         </button>
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#6E260E", border: "none" }}
+          style={{
+            backgroundColor: "#6E260E",
+            border: "none",
+            width: "fit-content",
+            fontSize: "1.25rem",
+            textWrap: "none",
+          }}
           onClick={navToTreasure}
         >
           <a>
-            <FontAwesomeIcon icon={faDiceD20} spin style={{ color: "white" }} />{" "}
+            <FontAwesomeIcon
+              icon={faDiceD20}
+              spin
+              style={{ paddingLeft: "2%", color: "white" }}
+            />{" "}
           </a>
           Roll for Treasure
         </button>
         <button
           type="button"
           className="btn btn-primary btn-lg"
-          style={{ backgroundColor: "#6F4E37", border: "none", width: "220px" }}
+          style={{
+            backgroundColor: "#6F4E37",
+            border: "none",
+            width: "fit-content",
+            fontSize: "1.25rem",
+            textWrap: "none",
+          }}
           onClick={navToMonster}
         >
           <a>
-            <FontAwesomeIcon icon={faDiceD20} spin style={{ color: "white" }} />{" "}
+            <FontAwesomeIcon
+              icon={faDiceD20}
+              spin
+              style={{ color: "white", paddingLeft: "2%" }}
+            />{" "}
           </a>
           Roll for Monster
         </button>

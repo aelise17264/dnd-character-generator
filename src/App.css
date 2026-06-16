@@ -1,12 +1,14 @@
 .App {
   color: white;
   /* margin-bottom: 2%; */
-  background-image: url("https://wallpaperaccess.com/full/6079733.png");
+  background-image: url(https://wallpapers.com/images/hd/dnd-campfire-in-the-forest-8fxrd7afks7oag5l.jpg);
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* "https://wallpaperaccess.com/full/6079733.png" */
+
 h1,
 h2,
 h3,
@@ -67,16 +69,17 @@ h6 {
   /* margin: auto; */
 }
 .welcome p {
-  font-size: large;
+  font-size: 25px;
 }
 .button-row {
-  margin-top: 2%;
+  margin-top: 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  font-family: "MedievalSharp", cursive;
+  font-family: "Recursive, sans-serif";
+  font-weight: bold;
 }
-.button-row button {
+/* .button-row button {
   font-size: medium;
   width: 200px;
-}
+} */

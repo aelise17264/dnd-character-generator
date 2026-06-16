@@ -27,7 +27,7 @@ function Character() {
   const [equipmentData, setEquipmentData] = useLocalStorage("equipment", "");
   const [armorData, setArmorData] = useLocalStorage("armor", "");
 
-  const baseURL = "https://www.dnd5eapi.co/api/";
+  const baseURL = "https://www.dnd5eapi.co/api/2014";
 
   function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -61,7 +61,7 @@ function Character() {
 
   const getClass = () => {
     axios
-      .get(baseURL + "classes")
+      .get(baseURL + "/classes")
       .then((res) => {
         let classList = res.data.results;
         let classIndex = randomNumber(1, 12);
@@ -247,7 +247,11 @@ function Character() {
           <button
             type="button"
             className="btn btn-primary btn-lg"
-            style={{ width: "140px" }}
+            style={{
+              width: "fit-content",
+              fontSize: "1.25rem",
+              textWrap: "nowrap",
+            }}
             onClick={showModal}
           >
             <a>
@@ -263,14 +267,18 @@ function Character() {
           <button
             type="button"
             className="btn btn-primary btn-lg"
-            style={{ width: "200px" }}
+            style={{
+              width: "fit-content",
+              fontSize: "1.25rem",
+              textWrap: "nowrap",
+            }}
             onClick={createCharacter}
             id="reroll"
           >
             <a>
               <FontAwesomeIcon
                 icon={faDiceD20}
-                style={{ color: "white", marginRight: "5px" }}
+                style={{ color: "white", paddingRight: "3%" }}
               />
             </a>
             Roll for Character
@@ -282,9 +290,12 @@ function Character() {
             className="btn btn-primary btn-lg homeButton"
             id="homeButton"
             style={{
-              width: "150px",
+              width: "fit-content",
+              fontSize: "1.25rem",
+              textWrap: "nowrap",
             }}
             onClick={navHome}
+            e
           >
             Back Home
             <a>
@@ -381,7 +392,7 @@ function Character() {
       <div className="characterHeader">
         <h1>Character Builder</h1>
       </div>
-      <div className="wholeForm" style={{ padding: "2%", marginBottom: 0 }}>
+      <div className="wholeForm" style={{ padding: "2%" }}>
         <div className="topForm">
           <div className="characterVisual">
             <div id="dice" className={nameData} />
@@ -460,41 +471,58 @@ function Character() {
         </div>
 
         <div className="buttonHolder">
-          <button
-            type="button"
-            className="btn btn-primary btn-lg"
-            style={{ backgroundColor: "#282c34", border: "none" }}
-            onClick={reRollChar}
-            id="reroll"
-          >
-            Roll Again
-          </button>
+          <div>
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#282c34",
+                border: "none",
+                width: "fit-content",
+                fontSize: "1.25rem",
+                textWrap: "nowrap",
+              }}
+              onClick={reRollChar}
+              id="reroll"
+            >
+              <a>
+                <FontAwesomeIcon
+                  icon={faDiceD20}
+                  style={{ color: "white", paddingRight: "3%" }}
+                />
+              </a>
+              Roll Again
+            </button>
+          </div>
+
+          <div className="refresh">
+            <button
+              type="button"
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#282c34",
+                border: "none",
+                width: "fit-content",
+                fontSize: "1.25rem",
+                textWrap: "nowrap",
+              }}
+              onClick={handleArrowClick}
+            >
+              To Stats & Spells
+              <a className="arrow">
+                <FontAwesomeIcon
+                  icon={faRightLong}
+                  style={{ color: "white", marginLeft: "1%" }}
+                />
+              </a>
+            </button>
+          </div>
         </div>
-        <a id="charError" />
+        <div>
+          <a id="charError" />
+        </div>
       </div>
 
-      <div className="refresh">
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          style={{
-            backgroundColor: "transparent",
-            border: "none",
-            width: "400px",
-            marginBottom: "2%",
-            fontSize: "x-large",
-          }}
-          onClick={handleArrowClick}
-        >
-          To Stats & Spells
-          <a className="arrow">
-            <FontAwesomeIcon
-              icon={faRightLong}
-              style={{ color: "white", marginLeft: "1%" }}
-            />
-          </a>
-        </button>
-      </div>
       <Footer />
     </div>
   );

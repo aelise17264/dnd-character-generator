@@ -4,8 +4,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: fit-content;
-
+  height: 100%;
 }
 
 .characterHeader {
@@ -31,7 +30,7 @@ hr {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: fit-content;
+  height: 100vh;
 }
 .printBody {
   display: flex;
@@ -147,8 +146,10 @@ form li {
 
 .buttonHolder {
   display: flex;
-  align-self: center;
-  font-family: "MedievalSharp", cursive;
+  flex-direction: row;
+  font-family: "Recursive", sans-serif;
+  justify-content: space-evenly;
+  padding-top: 2%;
 }
 
 .names {
@@ -211,10 +212,15 @@ a {
 .form-group {
   display: flex;
   flex-direction: column;
+  font-family: "Recursive", sans-serif;
 }
 h2 {
   font-weight: bold;
 }
+.form-group h2 {
+  font-family: "Recursive", sans-serif;
+}
+
 #statsTitle {
   color: oldlace;
 }
@@ -233,7 +239,7 @@ h2 {
   text-align: right;
   padding-bottom: 1%;
   color: oldlace;
-  font-family: "MedievalSharp", cursive;
+  /* font-family: "MedievalSharp", cursive; */
 }
 
 .toPrint {
@@ -254,7 +260,7 @@ li {
 }
 .navbar {
   padding-top: 2%;
-  font-family: "MedievalSharp", cursive;
+  font-family: "Recursive", sans-serif;
   width: 95vw;
 }
 
@@ -283,18 +289,18 @@ li {
 .goldandMagic {
   background-color: oldlace;
   border-radius: 5%;
-padding: 4%;
+  padding: 4%;
   color: #282c34;
 }
 .oneForAll,
 .goldandMagic {
   width: 27vw;
-  }
+}
 .groupOne,
 .groupTwo {
   opacity: 80%;
   width: 30vw;
-  }
+}
 .groupOne {
   margin-right: 10%;
   padding-left: 7%;
@@ -353,46 +359,47 @@ padding: 4%;
 }
 .Dragonborn {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png");
-  max-width: 30vw;
+  max-width: 25vw;
 }
 
 .Dwarf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png");
-  max-width: 30vw;
+  max-width: 25vw;
 }
 
 .Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png");
-  max-width: 30vw;
+  max-width: 25vw;
   opacity: 100%;
 }
 
 .Gnome {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png");
-  max-width: 31vw;
+  max-width: 25vw;
 }
 
 .Half-Elf {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png");
-  max-width: 30.5vw;
+  max-width: 25vw;
+  opacity: 100%;
 }
 
 .Halfling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png");
-  max-width: 30vw;
+  max-width: 25vw;
 }
 
 .Half-Orc {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png");
-  max-width: 30vw;
+  max-width: 25vw;
 }
 .Human {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png");
-  max-width: 27vw;
+  max-width: 20vw;
 }
 .Tiefling {
   background-image: url("https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png");
-  max-width: 30vw;
+  max-width: 25vw;
 }
 
 #treasurePage {
@@ -406,7 +413,7 @@ padding: 4%;
 }
 
 #monsterPage {
-  background-image: url("https://cdn.openart.ai/stable_diffusion/3bb19a16e101a2ac2e7be1e19f41cbd8a8140ff2_2000x2000.webp");
+  background-image: url("https://wallpapers.com/images/hd/dnd-forest-queen-and-forest-giant-apyjbqbu2g3tn821.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -421,7 +428,13 @@ padding: 4%;
   justify-content: center;
   align-items: center;
   padding-right: 5%;
+  padding-top: 5%;
 }
+
+.monsterTitle h1 {
+  font-size: 50px;
+}
+
 #monsterActions li {
   font-weight: normal;
 }
@@ -507,7 +520,8 @@ footer {
 }
 .monsterStats,
 .boringStats {
-  padding-top: 1%;
+  padding-top: 3%;
+  width: 25%;
 }
 .monsterStats li,
 .monsterDesc p {
@@ -587,10 +601,11 @@ footer {
   padding-top: 10%;
   object-fit: contain;
 }
-#equipmentFound li, #weaponsFound li, #gearFound li{
+#equipmentFound li,
+#weaponsFound li,
+#gearFound li {
   font-weight: normal;
-  font-family: "MedievalSharp", cursive;
-
+  font-family: "Recursive", sans-serif;
 }
 
 .treasureImage {

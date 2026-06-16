@@ -86,7 +86,7 @@ function Monsters() {
         let speedList = document.createElement("p");
         for (var key in speeds) {
           let speed = document.createTextNode(
-            " " + key + ": " + speeds[key] + " |"
+            " " + key + ": " + speeds[key] + " |",
           );
           speedList.appendChild(speed);
           document.getElementById("speedList").appendChild(speedList);
@@ -119,23 +119,41 @@ function Monsters() {
           <div>
             <button
               type="button"
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-"
               style={{
-                width: "225px",
+                width: "fit-content",
+                fontSize: "1.5rem",
               }}
               onClick={showModal}
             >
-              <a>
-                <FontAwesomeIcon
-                  icon={faQuestion}
-                  style={{ color: "white", marginLeft: "7px" }}
-                />
+              <a style={{ paddingRight: "3%" }}>
+                <FontAwesomeIcon icon={faQuestion} style={{ color: "white" }} />
               </a>
               How to Use this Page
             </button>
           </div>
           <div className="monsterTitle">
             <h1>Monsters and Foes</h1>
+            <div className="buttons monsterButton">
+              <button
+                type="button"
+                className="btn btn-primary btn-lg"
+                style={{
+                  width: "200px",
+                  fontSize: "1.5rem",
+                  padding: "2%",
+                }}
+                onClick={fullMonsterCall}
+              >
+                Get Monster
+                <a>
+                  <FontAwesomeIcon
+                    icon={faSkull}
+                    style={{ color: "white", marginLeft: "7px" }}
+                  />
+                </a>
+              </button>
+            </div>
           </div>
 
           <div>
@@ -144,7 +162,8 @@ function Monsters() {
               className="btn btn-primary btn-lg homeButton"
               id="homeButton"
               style={{
-                width: "150px",
+                width: "210px",
+                fontSize: "1.5rem",
               }}
               onClick={navHome}
             >
@@ -190,14 +209,14 @@ function Monsters() {
                 <p>
                   This page will generate a random monster appropriate for your
                   level 1 party to face. If the particular foe does not meet
-                  your expectations click the Get Monster button again at the bottom of the
-                  page. 
-                  </p>
-                  <p>
+                  your expectations click the Get Monster button again at the
+                  bottom of the page.
+                </p>
+                <p>
                   {" "}
-                  The bulk of the monster stats and information will
-                  appear when you click the Get Monster button. For more in depth
-                  info consult the Monster Maunal
+                  The bulk of the monster stats and information will appear when
+                  you click the Get Monster button. For more in depth info
+                  consult the Monster Maunal
                 </p>
                 <a
                   target="_blank"
@@ -314,7 +333,7 @@ function Monsters() {
             </button>
           </div> */}
         </div>
-        <div className="buttons monsterButton">
+        {/* <div className="buttons monsterButton">
           <button
             type="button"
             className="btn btn-primary btn-lg"
@@ -331,7 +350,7 @@ function Monsters() {
               />
             </a>
           </button>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </div>

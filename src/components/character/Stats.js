@@ -112,7 +112,7 @@ function Stats() {
   };
 
   return (
-    <div className="statsPage">
+    <div className="statsPage" style={{ height: "100vh" }}>
       <div className="buttons navbar" style={{ paddingTop: "2%" }}>
         <div>
           <button
