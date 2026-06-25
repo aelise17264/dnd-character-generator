@@ -34,10 +34,6 @@ function App() {
           className="btn btn-primary btn-lg"
           style={{
             backgroundColor: "#966919",
-            border: "none",
-            width: "fit-content",
-            fontSize: "1.25rem",
-            textWrap: "none",
           }}
           onClick={navToCharacter}
         >
@@ -55,10 +51,6 @@ function App() {
           className="btn btn-primary btn-lg"
           style={{
             backgroundColor: "#6E260E",
-            border: "none",
-            width: "fit-content",
-            fontSize: "1.25rem",
-            textWrap: "none",
           }}
           onClick={navToTreasure}
         >
@@ -76,10 +68,6 @@ function App() {
           className="btn btn-primary btn-lg"
           style={{
             backgroundColor: "#6F4E37",
-            border: "none",
-            width: "fit-content",
-            fontSize: "1.25rem",
-            textWrap: "none",
           }}
           onClick={navToMonster}
         >

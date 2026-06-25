@@ -412,17 +412,17 @@ function Character() {
             <div className="form-group">
               <h2>Race: {nameData}</h2>
             </div>
-            <div>
+            <div className="form-group">
               <h2>Armor: {armorData}</h2>
             </div>
-            <div>
+            <div className="form-group">
               <h2>Languages</h2>
               <ul>
                 <li>{languageData[0]}</li>
                 <li>{languageData[1]}</li>
               </ul>
             </div>
-            <div>
+            <div className="form-group">
               <h2>Equipment</h2>
               <ul>
                 <li>{equipmentData[0]}</li>

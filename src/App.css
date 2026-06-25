@@ -74,12 +74,16 @@ h6 {
 .button-row {
   margin-top: 15%;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-evenly;
   font-family: "Recursive, sans-serif";
   font-weight: bold;
 }
-/* .button-row button {
-  font-size: medium;
-  width: 200px;
-} */
+.button-row button {
+  border: none;
+  width: 12%;
+  font-size: 1.25rem;
+  text-wrap: none;
+  white-space: collapse;
+  /* border: solid blue 10px; */
+}
