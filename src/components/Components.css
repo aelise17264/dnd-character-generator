@@ -37,6 +37,7 @@ hr {
 .printBody {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10%;
 }
 .printBody h2 {
   font-size: x-large;
