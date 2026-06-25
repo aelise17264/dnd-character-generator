@@ -30,7 +30,7 @@ function Treasure() {
   const getTreasure = () => {
     partySize = document.getElementById("partySize").value;
     partySkill = document.getElementById("skillLevel").value;
-    console.log(partySkill)
+    console.log(partySkill);
     partyFavor = document.getElementById("likeability").value;
     let errorMessage = document.getElementById("errorMessage");
     if (partySize === "" || partySkill === "" || partyFavor === "") {
@@ -45,12 +45,11 @@ function Treasure() {
       setGoldCount(partySize);
       itemsFound(partySize, partySkill);
       getMagic(partyFavor);
-      if(partySize > 3 && partySkill > 2){
-      document.getElementById("treasurePage").style.height = "fit-content";
-
-      }else{
-      document.getElementById("treasurePage").style.height = "125vh";
-    }
+      if (partySize > 3 && partySkill > 2) {
+        document.getElementById("treasurePage").style.height = "fit-content";
+      } else {
+        document.getElementById("treasurePage").style.height = "125vh";
+      }
     }
   };
 
@@ -99,7 +98,7 @@ function Treasure() {
         });
     }
     if (skill == 3) {
-      console.log("adventurers")
+      console.log("adventurers");
       axios
         .get(baseURL + "/equipment-categories/adventuring-gear")
         .then((res) => {
@@ -221,7 +220,14 @@ function Treasure() {
             How to Use this Page
           </button>
         </div>
-        <div style={{ paddingRight: "5%" }}>
+        <div
+          style={{
+            paddingRight: "5%",
+            color: "#282c34",
+            fontWeight: "bolder",
+            textShadow: "white 5px 0 10px",
+          }}
+        >
           <h1>Treasure & Equipment</h1>
         </div>
         <div>

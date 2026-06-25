@@ -113,7 +113,7 @@ function Monsters() {
     <div id="monsterPage">
       <div className="monsters">
         <div
-          className="buttons navbar"
+          className="buttons navbar monsterNav"
           style={{ width: "90vw", marginLeft: "4%" }}
         >
           <div>
@@ -122,7 +122,8 @@ function Monsters() {
               className="btn btn-primary btn-"
               style={{
                 width: "fit-content",
-                fontSize: "1.5rem",
+                whiteSpace: "nowrap",
+                // fontSize: "1.5rem",
               }}
               onClick={showModal}
             >
@@ -163,7 +164,7 @@ function Monsters() {
               id="homeButton"
               style={{
                 width: "210px",
-                fontSize: "1.5rem",
+                // fontSize: "1.5rem",
               }}
               onClick={navHome}
             >
@@ -209,8 +210,7 @@ function Monsters() {
                 <p>
                   This page will generate a random monster appropriate for your
                   level 1 party to face. If the particular foe does not meet
-                  your expectations click the Get Monster button again at the
-                  bottom of the page.
+                  your expectations click the Get Monster button again.
                 </p>
                 <p>
                   {" "}
